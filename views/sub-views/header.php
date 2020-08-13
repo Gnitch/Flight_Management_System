@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -21,21 +24,40 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="register.php" >Register</a>
-            </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control text-light bg-dark form-control-sm mr-sm-2"  
-                    type="text" placeholder="username/ email" name="user_id"
-                    aria-label="username/email" required>
+            <?php 
+            if(isset($_SESSION['userId'])) {
 
-                <input required  class="bg-dark text-light form-control form-control-sm"
-                    type="password" placeholder="password" id="exampleInputPassword1"
-                    name="user_pass" >
-                
-                <button class="btn btn-secondary ml-2 pt-1 pb-1 pl-2 pr-2" type="submit">
-                    Login</button>
-            </form>
+            } else {
+                echo '
+                <li class="nav-item">
+                <a class="nav-link" href="register.php" >Register</a>
+                </li>';
+            }
+            ?>                   
+            </ul>
+            <?php 
+            if(isset($_SESSION['userId'])) {
+                echo '
+                <form action="../includes/logout.inc.php" method="POST">
+                <button class="btn btn-outline-light m-2" type="submit">
+                    Logout</button>  
+                </form> ';
+            } else {
+                echo '
+                <form class="form-inline" method="POST" action="../includes/login.inc.php">
+                    <input class="form-control text-light bg-dark form-control-sm mr-sm-2"  
+                        type="text" placeholder="username/ email" name="user_id"
+                        aria-label="username/email" required>
+
+                    <input required  class="bg-dark text-light form-control form-control-sm"
+                        type="password" placeholder="password" id="exampleInputPassword1"
+                        name="user_pass" >
+                    
+                    <button class="btn btn-secondary m-2" name="login_but" type="submit">
+                        Login</button>
+                                  
+                </form> ';
+            }
+            ?>   
         </div>
         </nav>
