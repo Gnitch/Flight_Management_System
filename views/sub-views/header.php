@@ -27,16 +27,9 @@ session_start();
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-            <?php 
-            if(isset($_SESSION['userId'])) {
 
-            } else {
-                echo '
-                <li class="nav-item">
-                <a class="nav-link" href="login.php" >Login</a>
-                </li>';
-            }
-            ?>                   
+            
+                             
             </ul>
             <?php 
             if(isset($_SESSION['userId'])) {
@@ -45,7 +38,13 @@ session_start();
                 <button class="btn btn-outline-light m-2" type="submit">
                     Logout</button>  
                 </form> ';
-            } 
+            } else {
+                echo '
+                <a href="login.php">
+                <button class="btn btn-outline-light m-2" type="submit">
+                    Login</button>  
+                </a> ';                
+            }
             ?>   
         </div>
         </nav>

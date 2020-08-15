@@ -24,7 +24,7 @@
                         placeholder="password" required>
                 </div>
             </div>
-            <a id="reset-pass" href="">reset password</a>
+            <a id="reset-pass" href="reset-pwd.php">reset password</a>
             <div class="submit">
             <button name="login_but" type="submit" class="button">Submit</button>                    
             </div>
