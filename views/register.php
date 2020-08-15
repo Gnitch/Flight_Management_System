@@ -2,29 +2,19 @@
 
 <?php subview('header.php'); ?>
 
-    <main>
-        <div class="container text-center">
-        <form action="../includes/register.inc.php" method="POST">
-            <input class="form-control mt-3 ml-3 mr-3 mb-3" type="text" required
-                placeholder="Enter username" name="username">
+<link rel="stylesheet" href="../assets/css/login.css">
+<div class="flex-container">
+    <div class="login-form">
+        <h1 class="mb-3">Sign up</h1>
 
-            <input class="form-control ml-3 mr-3 mb-3" type="text" required
-                placeholder="Enter Email" name="email_id">
-
-            <input class="form-control ml-3 mr-3 mb-3" type="password" required
-                placeholder="Enter password" name="password">
-
-            <input class="form-control ml-3 mr-3 mb-3" type="password" required
-                placeholder="Connfirm password" name="password_repeat">
-
-            <button class="btn btn-primary" name="signup_submit" type="submit">
-                Register</button>
-        </form>
-        <span class="text-center text-danger">
         <?php
         if(isset($_GET['error'])) {
+            echo '
+            <div class="alert text-center alert-danger mb-0" 
+            style="margin-left: 60px; margin-right:60px;" role="alert">           
+            ';
             if($_GET['error'] == 'invalidemail') {
-                echo 'Invalid Email';
+                echo 'Invalid email';
             } else if($_GET['error'] == 'pwdnotmatch') {
                 echo 'Passwords do not match';
             } else if($_GET['error'] == 'sqlerror') {
@@ -33,11 +23,52 @@
                 echo 'Username already exists';
             } else if($_GET['error'] == 'emailexists') {
                 echo 'Email already exists';
-            }            
+            }              
+            echo '</div> ';          
         }
-        ?>
-        </span>
-        </div>
-    </main>
+        ?>         
+        <form method="POST" action="../includes/register.inc.php">
+            <div class="flex-container">
+                <div>
+                    <i class="fa fa-user"></i>
+                </div>
+                <div>
+                    <input type="text" name="username" placeholder="Enter username" 
+                        class="form-input" required>
+                </div>
+            </div>
+            <div class="flex-container">
+                <div>
+                    <i class="fa fa-envelope"></i>
+                </div>
+                <div>
+                    <input type="text" name="email_id" placeholder="Enter email-id" 
+                        class="form-input" required>
+                </div>
+            </div>            
+            <div class="flex-container">
+                <div>
+                    <i class="fa fa-lock"></i>
+                </div>
+                <div>
+                    <input type="password" name="password" class="form-input" 
+                        placeholder="Enter password" required>
+                </div>
+            </div>
+            <div class="flex-container">
+                <div>
+                    <i class="fa fa-lock"></i>
+                </div>
+                <div>
+                    <input type="password" name="password_repeat" class="form-input" 
+                        placeholder="Confirm password" required>
+                </div>
+            </div>            
+            <div class="submit">
+            <button name="signup_submit" type="submit" class="button">Submit</button>                    
+            </div>
+        </form>                            
+    </div>
+</div>
         
 <?php subview('footer.php'); ?> 

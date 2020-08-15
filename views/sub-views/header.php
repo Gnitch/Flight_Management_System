@@ -7,6 +7,9 @@ session_start();
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+        <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">    
     </head>
@@ -30,7 +33,7 @@ session_start();
             } else {
                 echo '
                 <li class="nav-item">
-                <a class="nav-link" href="register.php" >Register</a>
+                <a class="nav-link" href="login.php" >Login</a>
                 </li>';
             }
             ?>                   
@@ -42,22 +45,7 @@ session_start();
                 <button class="btn btn-outline-light m-2" type="submit">
                     Logout</button>  
                 </form> ';
-            } else {
-                echo '
-                <form class="form-inline" method="POST" action="../includes/login.inc.php">
-                    <input class="form-control text-light bg-dark form-control-sm mr-sm-2"  
-                        type="text" placeholder="username/ email" name="user_id"
-                        aria-label="username/email" required>
-
-                    <input required  class="bg-dark text-light form-control form-control-sm"
-                        type="password" placeholder="password" id="exampleInputPassword1"
-                        name="user_pass" >
-                    
-                    <button class="btn btn-secondary m-2" name="login_but" type="submit">
-                        Login</button>
-                                  
-                </form> ';
-            }
+            } 
             ?>   
         </div>
         </nav>
