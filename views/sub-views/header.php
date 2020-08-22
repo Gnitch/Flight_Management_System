@@ -27,16 +27,9 @@ session_start();
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-            <?php 
-            if(isset($_SESSION['userId'])) {
 
-            } else {
-                echo '
-                <li class="nav-item">
-                <a class="nav-link" href="login.php" >Login</a>
-                </li>';
-            }
-            ?>                   
+            
+                             
             </ul>
             <?php 
             if(isset($_SESSION['userId'])) {
@@ -45,7 +38,18 @@ session_start();
                 <button class="btn btn-outline-light m-2" type="submit">
                     Logout</button>  
                 </form> ';
-            } 
+            } else {
+                echo '
+                <div class="dropdown">
+                <button class="btn btn-outline-light m-2 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Login
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="login.php">User</a>
+                    <a class="dropdown-item" href="#">Staff</a>                    
+                </div>
+                </div>';                
+            }
             ?>   
         </div>
         </nav>

@@ -2,6 +2,13 @@
 
 <?php subview('header.php'); ?>
 <link rel="stylesheet" href="../assets/css/login.css">
+<?php
+if(isset($_GET['pwd'])) {
+    if($_GET['pwd']=='updated') {
+        echo "<script>alert('Your password has been reset!!');</script>";
+    }
+}    
+?>
 <div class="flex-container">
     <div class="login-form" style="height: 400px;">
         <h1>Sign in</h1>
@@ -24,7 +31,7 @@
                         placeholder="password" required>
                 </div>
             </div>
-            <a id="reset-pass" href="">reset password</a>
+            <a id="reset-pass" href="reset-pwd.php">reset password</a>
             <div class="submit">
             <button name="login_but" type="submit" class="button">Submit</button>                    
             </div>

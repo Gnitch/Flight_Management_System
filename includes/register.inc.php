@@ -79,10 +79,7 @@ if(isset($_POST['signup_submit'])) {
                                         exit();                    
                                     }
                                 }
-                            }
-                            
-                            
-
+                            }                                                    
                         }
                     }
                 }               

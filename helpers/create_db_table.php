@@ -15,7 +15,13 @@ CREATE TABLE Users(
     username VARCHAR(20) NOT NULL,
     email VARCHAR(50) NOT NULL,
     password VARCHAR(30) NOT NULL
-)
+); CREATE TABLE PwdReset ( 
+  pwd_reset_id INT(11) PRIMARY KEY AUTO_INCREMENT NOT NULL, 
+  pwd_reset_email VARCHAR(50) NOT NULL, 
+  pwd_reset_selector VARCHAR(80) NOT NULL, 
+  pwd_reset_token VARCHAR(120) NOT NULL, 
+  pwd_reset_expires VARCHAR(20) NOT NULL
+);
 ';
 
 if ($conn->connect_error) {
