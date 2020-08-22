@@ -40,10 +40,15 @@ session_start();
                 </form> ';
             } else {
                 echo '
-                <a href="login.php">
-                <button class="btn btn-outline-light m-2" type="submit">
-                    Login</button>  
-                </a> ';                
+                <div class="dropdown">
+                <button class="btn btn-outline-light m-2 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Login
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="login.php">User</a>
+                    <a class="dropdown-item" href="#">Staff</a>                    
+                </div>
+                </div>';                
             }
             ?>   
         </div>

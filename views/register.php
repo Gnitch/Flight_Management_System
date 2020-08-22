@@ -13,15 +13,15 @@
             <div class="alert text-center alert-danger mb-0" 
             style="margin-left: 60px; margin-right:60px;" role="alert">           
             ';
-            if($_GET['error'] == 'invalidemail') {
+            if($_GET['error'] === 'invalidemail') {
                 echo 'Invalid email';
-            } else if($_GET['error'] == 'pwdnotmatch') {
+            } else if($_GET['error'] === 'pwdnotmatch') {
                 echo 'Passwords do not match';
-            } else if($_GET['error'] == 'sqlerror') {
+            } else if($_GET['error'] === 'sqlerror') {
                 echo 'Invalid credentials';
-            } else if($_GET['error'] == 'usernameexists') {
+            } else if($_GET['error'] === 'usernameexists') {
                 echo 'Username already exists';
-            } else if($_GET['error'] == 'emailexists') {
+            } else if($_GET['error'] ==='emailexists') {
                 echo 'Email already exists';
             }              
             echo '</div> ';          
