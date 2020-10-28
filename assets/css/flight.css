@@ -5,12 +5,20 @@
     padding-left: 10px;
     padding-right: 10px;
 }
+.seats {
+  width: 250px !important;
+}
+
+.custom-select {
+  margin-top: 10px;
+  width: 250px !important;
+}
 
 .login-form {
     margin-top: 20px;
     margin-left: 40px;
     width: 400px;
-    height: 510px;
+    height: 150vh;
     background-color: white;
     border-radius: 40px;
     margin-bottom: 5px;
@@ -18,49 +26,23 @@
 
 .form-input {
     border: 0px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid black ;
+    border-radius: 0px;
     margin-left: 8px;
     margin-top: 20px;
 }
 
-i {
-    margin-top: 29px;
-}
-
-h1 {
+h3 {
     text-align: center;
     font-family: 'Italianno', cursive;
     font-weight: normal;
-    font-size: 110px;
+    font-size: 90px;
     margin: 0px;
-}
-
-a:hover {
-    text-decoration: none;
-}
-
-a {
-    text-decoration: none;
-    color: #4169E1;
 }
 
 input {
     margin: 0px;
     padding: 0px;
-}
-
-.text {
-    margin-top: 20px;
-    font-size: 18px;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-#reset-pass {
-    margin-top: 5px;
-    float: right;
-    width: 40%;
-    margin-right: 40px;
 }
 
 body {
