@@ -6,7 +6,7 @@ session_start();
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -15,9 +15,8 @@ session_start();
     </head>
 
     <body>
-
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.php">Home</a>
+          <a class="navbar-brand text-light" href="index.php"><h4>ADMIN PANEL</h4></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -26,28 +25,30 @@ session_start();
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
 
-            </ul>
-            <?php
-            if(isset($_SESSION['userId'])) {
-                echo '
-                <form action="../includes/logout.inc.php" method="POST">
+          <?php
+              if(isset($_SESSION['adminId'])) { ?>
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="flight.php">
+                      <h5 class="ml-2"> Add Flight</h5>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="all_flights.php">
+                      <h5>All-flight's</h5>
+                    </a>
+                  </li>
+                </ul>
+                <form action="register.php" method="POST">
+                <button class="btn btn-outline-light m-2" type="submit">
+                    Register admin</button>
+                </form> ;
+                <form action="../../includes/logout.inc.php" method="POST">
                 <button class="btn btn-outline-light m-2" type="submit">
                     Logout</button>
-                </form> ';
-            } else {
-                echo '
-                <div class="dropdown">
-                <button class="btn btn-outline-light m-2 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Login
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="login.php">User</a>
-                    <a class="dropdown-item" href="admin/login.php">Staff</a>
-                </div>
-                </div>';
-            }
-            ?>
-        </div>
+                </form> ;
+            </div>
+            <<?php } ?>
+
         </nav>
