@@ -9,8 +9,7 @@ if(isset($_POST['login_but'])) {
     mysqli_stmt_bind_param($stmt,'ss',$email_id,$email_id);            
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);    
-    if($row = mysqli_fetch_assoc($result)) {
-        // $pwd_check = password_verify($password,"$2y$10$5Cu/kAh5asdSvpXlpGOOY.MBjp5qELS/W49BGFU0.s6JLLJue4tOi");
+    if($row = mysqli_fetch_assoc($result)) {        
         $pwd_check = password_verify($password,$row['admin_pwd']);
         if($pwd_check == false) {
             header('Location: ../../views/admin/login.php?error=wrongpwd');

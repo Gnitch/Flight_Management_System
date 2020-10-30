@@ -12,27 +12,29 @@ require '../../helpers/init_conn_db.php';?>
                   <h2 class="card-title">Flight's today</h2></div>
                 <div class="card-body bg-dark">
                   <?php
-                    $curr_date = (string)date('d-m');
-                    $sql = "SELECT * FROM Flight WHERE (TO_CHAR(DEPARTURE,'DD-MM')
-                      =:date_bv)";
-                    $stmt = oci_parse($conn,$sql);
-                    oci_bind_by_name($stmt,":date_bv",$curr_date);
-                    oci_execute($stmt);
-                    while (($row = oci_fetch_assoc($stmt)) != false) {
-                      if(!isset($row['STATUS'])) {
+                    $curr_date = (string)date('y-m-d');
+                    $curr_date = '20'.$curr_date;
+                    $sql = "SELECT * FROM Flight WHERE DATE(departure)=?";
+                    $stmt = mysqli_stmt_init($conn);
+                    mysqli_stmt_prepare($stmt,$sql);
+                    mysqli_stmt_bind_param($stmt,'s',$curr_date);
+                    mysqli_stmt_execute($stmt);
+                    $result = mysqli_stmt_get_result($stmt);
+                    while ($row = mysqli_fetch_assoc($result)) {
+                      if($row['status']== '') {
                         echo '
                         <h5 class="card-text">
-                          Flight-id: '.$row['FLIGHT_ID'].', Airline: '.$row['AIRLINE'].'
+                          Flight-id: '.$row['flight_id'].', Airline: '.$row['airline'].'
                           <br>
-                          Arrival: '.$row['ARRIVALE'].', Departure: '.$row['DEPARTURE'].'
+                          Arrival: '.$row['arrivale'].', Departure: '.$row['departure'].'
                           <br>
-                          Source: '.$row['SOURCE'].', Destination: '.$row['DESTINATION'].'
+                          Source: '.$row['source'].', Destination: '.$row['Destination'].'
                           <br>
-                          Seats: '.$row['SEATS'].', Duration: '.$row['DURATION'].', Fare:
-                           ₹'.$row['PRICE'].'
+                          Seats: '.$row['Seats'].', Duration: '.$row['duration'].', Fare:
+                           ₹'.$row['Price'].'
                         </h5>
                         <form action="../../includes/admin/admin.inc.php" method="post">
-                          <input type="hidden" type="number" name="flight_id" value='.$row['FLIGHT_ID'].'>
+                          <input type="hidden" type="number" name="flight_id" value='.$row['flight_id'].'>
                           <button type="submit" name="dep_but" class="btn btn-success btn-sm">Departed</button>
                           <span>
                             <button class="btn btn-danger btn-sm" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -59,22 +61,24 @@ require '../../helpers/init_conn_db.php';?>
                   <h2 class="card-title">Issues</h2></div>
                 <div class="card-body bg-dark">
                   <?php
-                    $curr_date = (string)date('d-m');
-                    $sql = "SELECT * FROM Flight WHERE (TO_CHAR(DEPARTURE,'DD-MM')
-                      =:date_bv)";
-                    $stmt = oci_parse($conn,$sql);
-                    oci_bind_by_name($stmt,":date_bv",$curr_date);
-                    oci_execute($stmt);
-                    while (($row = oci_fetch_assoc($stmt)) != false) {
-                      if($row['STATUS']=='issue') {
+                    $curr_date = (string)date('y-m-d');
+                    $curr_date = '20'.$curr_date;
+                    $sql = "SELECT * FROM Flight WHERE DATE(departure)=?";
+                    $stmt = mysqli_stmt_init($conn);
+                    mysqli_stmt_prepare($stmt,$sql);
+                    mysqli_stmt_bind_param($stmt,'s',$curr_date);
+                    mysqli_stmt_execute($stmt);
+                    $result = mysqli_stmt_get_result($stmt);
+                    while ($row = mysqli_fetch_assoc($result)) {
+                      if($row['status']=='issue') {
                         echo '
                         <h5 class="card-text">
-                          Flight-id: '.$row['FLIGHT_ID'].', Airline: '.$row['AIRLINE'].'
+                          Flight-id: '.$row['flight_id'].', Airline: '.$row['airline'].'
                           <br>
-                          <p class="text-danger">Issue: '.$row['ISSUE'].'</p>
+                          <p class="text-danger">Issue: '.$row['issue'].'</p>
                         </h5>
                         <form action="../../includes/admin/admin.inc.php" method="post">
-                          <input type="hidden" type="number" name="flight_id" value='.$row['FLIGHT_ID'].'>
+                          <input type="hidden" type="number" name="flight_id" value='.$row['flight_id'].'>
                           <button type="submit" name="issue_soved_but" class="btn btn-success btn-sm">Issue solved</button>
                         </form>
                         <hr class="bg-secondary">
@@ -92,27 +96,29 @@ require '../../helpers/init_conn_db.php';?>
                   <h2 class="card-title">Departed</h2></div>
                 <div class="card-body bg-dark">
                   <?php
-                    $curr_date = (string)date('d-m');
-                    $sql = "SELECT * FROM Flight WHERE (TO_CHAR(DEPARTURE,'DD-MM')
-                      =:date_bv)";
-                    $stmt = oci_parse($conn,$sql);
-                    oci_bind_by_name($stmt,":date_bv",$curr_date);
-                    oci_execute($stmt);
-                    while (($row = oci_fetch_assoc($stmt)) != false) {
-                      if($row['STATUS']=='dep') {
+                    $curr_date = (string)date('y-m-d');
+                    $curr_date = '20'.$curr_date;
+                    $sql = "SELECT * FROM Flight WHERE DATE(departure)=?";
+                    $stmt = mysqli_stmt_init($conn);
+                    mysqli_stmt_prepare($stmt,$sql);
+                    mysqli_stmt_bind_param($stmt,'s',$curr_date);
+                    mysqli_stmt_execute($stmt);
+                    $result = mysqli_stmt_get_result($stmt);
+                    while ($row = mysqli_fetch_assoc($result)) {
+                      if($row['status']=='dep') {
                         echo '
                         <h5 class="card-text">
-                          Flight-id: '.$row['FLIGHT_ID'].', Airline: '.$row['AIRLINE'].'
+                          Flight-id: '.$row['flight_id'].', Airline: '.$row['airline'].'
                           <br>
-                          Arrival: '.$row['ARRIVALE'].', Departure: '.$row['DEPARTURE'].'
+                          Arrival: '.$row['arrivale'].', Departure: '.$row['departure'].'
                           <br>
-                          Source: '.$row['SOURCE'].', Destination: '.$row['DESTINATION'].'
+                          Source: '.$row['source'].', Destination: '.$row['Destination'].'
                           <br>
-                          Seats: '.$row['SEATS'].', Duration: '.$row['DURATION'].', Fare:
-                           ₹'.$row['PRICE'].'
+                          Seats: '.$row['Seats'].', Duration: '.$row['duration'].', Fare:
+                           ₹'.$row['Price'].'
                         </h5>
                         <form action="../../includes/admin/admin.inc.php" method="post">
-                          <input type="hidden" type="number" name="flight_id" value='.$row['FLIGHT_ID'].'>
+                          <input type="hidden" type="number" name="flight_id" value='.$row['flight_id'].'>
                           <button type="submit" name="arr_but" class="btn btn-success btn-sm">Arrived</button>
                         </form>
                         <hr class="bg-secondary">
@@ -128,24 +134,26 @@ require '../../helpers/init_conn_db.php';?>
                   <h2 class="card-title">Arrived</h2></div>
                 <div class="card-body bg-dark">
                   <?php
-                    $curr_date = (string)date('d-m');
-                    $sql = "SELECT * FROM Flight WHERE (TO_CHAR(DEPARTURE,'DD-MM')
-                      =:date_bv)";
-                    $stmt = oci_parse($conn,$sql);
-                    oci_bind_by_name($stmt,":date_bv",$curr_date);
-                    oci_execute($stmt);
-                    while (($row = oci_fetch_assoc($stmt)) != false) {
-                      if($row['STATUS']=='arr') {
+                    $curr_date = (string)date('y-m-d');
+                    $curr_date = '20'.$curr_date;
+                    $sql = "SELECT * FROM Flight WHERE DATE(departure)=?";
+                    $stmt = mysqli_stmt_init($conn);
+                    mysqli_stmt_prepare($stmt,$sql);
+                    mysqli_stmt_bind_param($stmt,'s',$curr_date);
+                    mysqli_stmt_execute($stmt);
+                     $result = mysqli_stmt_get_result($stmt);
+                     while ($row = mysqli_fetch_assoc($result)) {
+                      if($row['status']=='arr') {
                         echo '
                         <h5 class="card-text">
-                          Flight-id: '.$row['FLIGHT_ID'].', Airline: '.$row['AIRLINE'].'
+                          Flight-id: '.$row['flight_id'].', Airline: '.$row['airline'].'
                           <br>
-                          Arrival: '.$row['ARRIVALE'].', Departure: '.$row['DEPARTURE'].'
+                          Arrival: '.$row['arrivale'].', Departure: '.$row['departure'].'
                           <br>
-                          Source: '.$row['SOURCE'].', Destination: '.$row['DESTINATION'].'
+                          Source: '.$row['source'].', Destination: '.$row['Destination'].'
                           <br>
-                          Seats: '.$row['SEATS'].', Duration: '.$row['DURATION'].', Fare:
-                           ₹'.$row['PRICE'].'
+                          Seats: '.$row['Seats'].', Duration: '.$row['duration'].', Fare:
+                           ₹'.$row['Price'].'
                         </h5>
                         <hr class="bg-secondary">
                         ';

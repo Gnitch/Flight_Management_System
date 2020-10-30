@@ -9,7 +9,7 @@ if(isset($_GET['pwd'])) {
 }
 ?>
 <div class="flex-container">
-    <div class="login-form" style="height: 450px;">
+    <div class="login-form" style="height: 400px;">
         <h1>Sign in</h1>
         <?php
         if(isset($_GET['error'])) {

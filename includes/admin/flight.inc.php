@@ -73,22 +73,23 @@ if(isset($_POST['flight_but']) and isset($_SESSION['adminId'])) {
         $seats = $row['seats'];
         $airline_name = $row['name'];
         $sql = "INSERT INTO Flight(admin_id,arrivale,departure,Destination,source,
-          airline,Seats,duration,Price) VALUES (?,?,?,
-          ?,?,?,?,?,?)";  
+          airline,Seats,duration,Price,status,issue) VALUES (?,?,?,
+          ?,?,?,?,?,?,'','')";
+          
         $stmt = mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt,$sql)) {
           header('Location: ../../views/admin/flight.php?error=sqlerr1');
-          exit();            
-        } else {        
-          // ERROR IN BELOW STMT
-          mysqli_stmt_bind_param($stmt,'isssssisi',$admin_id,$arrival,$departure,$dep_city
-            ,$arr_city,$airline_name,$seats,$dura,$price);            
+          exit();          
+        } else {      
+          $admin_id = $_SESSION['adminId'];  
+          mysqli_stmt_bind_param($stmt,'isssssisi',$admin_id,$arrival,$departure,$arr_city
+            ,$dep_city,$airline_name,$seats,$dura,$price);            
           mysqli_stmt_execute($stmt); 
         }
-        // mysqli_stmt_close($stmt);
-        // mysqli_close($conn);
-        // header('Location: ../../views/admin/flight.php?flight=success');
-        // exit();
+        mysqli_stmt_close($stmt);
+        mysqli_close($conn);
+        header('Location: ../../views/admin/flight.php?flight=success');
+        exit();
       } else {
         header('Location: ../../views/admin/flight.php?error=sqlerr');
         exit();

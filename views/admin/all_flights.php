@@ -47,13 +47,13 @@ if(isset($_POST['del_flight']) and isset($_SESSION['adminId'])) {
                 while ($row = mysqli_fetch_assoc($result)) {
                   echo "
                   <tr>
-                    <th scope='row'>".$row['FLIGHT_ID']."</th>
+                    <th scope='row'>".$row['flight_id']."</th>
                     <td>".$row['arrivale']."</td>
                     <td>".$row['departure']."</td>
-                    <td>".$row['destination']."</td>
+                    <td>".$row['Destination']."</td>
                     <td>".$row['source']."</td>
                     <td>".$row['airline']."</td>
-                    <td>".$row['seats']."</td>
+                    <td>".$row['Seats']."</td>
                     <td>₹ ".$row['price']."</td>
                     <td>
                     <form action='all_flights.php' method='post'>
