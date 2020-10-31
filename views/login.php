@@ -1,7 +1,7 @@
 <?php include_once '../helpers/helper.php'; ?>
 
 <?php subview('header.php'); ?>
-<link rel="stylesheet" href="../assets/css/login.css">
+<link rel="stylesheet" href="../assets/css/user_login.css">
 <?php
 if(isset($_GET['pwd'])) {
     if($_GET['pwd']=='updated') {

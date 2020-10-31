@@ -65,8 +65,8 @@ input {
 
 body {
     /* margin-top: 70px; */
-    /* background: linear-gradient(to left, #000000, #434343); */
-    background-color: red;
+    background: linear-gradient(to left, #000000, #434343);
+    /* background-color: red; */
 }
 
 @media screen and (max-width: 900px){
