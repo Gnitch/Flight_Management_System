@@ -43,8 +43,7 @@ require '../../helpers/init_conn_db.php';?>
                           </span>
                           <div class="collapse form-inline" id="collapseExample">
                             <div class="card card-body">
-                                <input type="text" name="issue" placeholder="Enter the issue" class="mb-2" required value="">
-                                <input name="delay_min" type="number" class="mb-2" placeholder="Enter minutes to be delayed" required >
+                                <input type="number" name="issue" placeholder="Enter time for delay in minutes" class="mb-2" required value="">                                
                                 <button type="submit" name="issue_but" class="btn btn-primary btn-sm">submit</button>
                             </div>
                           </div>

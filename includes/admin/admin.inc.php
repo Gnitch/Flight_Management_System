@@ -16,7 +16,6 @@ if(isset($_SESSION['adminId'])) {
     }else if(isset($_POST['issue_but'])) {
         $flight_id = $_POST['flight_id'];
         $issue = $_POST['issue'];
-        $delay_min = $_POST['delay_min'];
         $sql = "UPDATE Flight SET status='issue',issue=? WHERE flight_id=?";
         $stmt = mysqli_stmt_init($conn);
         mysqli_stmt_prepare($stmt,$sql);
