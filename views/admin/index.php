@@ -33,7 +33,7 @@ require '../../helpers/init_conn_db.php';?>
                           Seats: '.$row['Seats'].', Duration: '.$row['duration'].', Fare:
                            ₹'.$row['Price'].'
                         </h5>
-                        <form action="../../includes/admin/admin.inc.php" method="post">
+                        <form  action="../../includes/admin/admin.inc.php" method="post">
                           <input type="hidden" type="number" name="flight_id" value='.$row['flight_id'].'>
                           <button type="submit" name="dep_but" class="btn btn-success btn-sm">Departed</button>
                           <span>
@@ -41,9 +41,10 @@ require '../../helpers/init_conn_db.php';?>
                               Report Issue
                             </button>
                           </span>
-                          <div class="collapse" id="collapseExample">
+                          <div class="collapse form-inline" id="collapseExample">
                             <div class="card card-body">
-                                <input type="text" name="issue" placeholder="Enter the issue" class="mb-2" value="">
+                                <input type="text" name="issue" placeholder="Enter the issue" class="mb-2" required value="">
+                                <input name="delay_min" type="number" class="mb-2" placeholder="Enter minutes to be delayed" required >
                                 <button type="submit" name="issue_but" class="btn btn-primary btn-sm">submit</button>
                             </div>
                           </div>
