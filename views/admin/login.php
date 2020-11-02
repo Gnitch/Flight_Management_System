@@ -1,6 +1,8 @@
 <?php include_once 'header.php'; ?>
 <?php include_once 'footer.php'; ?>
 <link rel="stylesheet" href="../../assets/css/login.css">
+<link rel="stylesheet" href="../../assets/css/user_login.css">
+
 <?php
 if(isset($_GET['pwd'])) {
     if($_GET['pwd']=='updated') {

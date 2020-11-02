@@ -54,7 +54,7 @@ if(isset($_POST['del_flight']) and isset($_SESSION['adminId'])) {
                     <td>".$row['source']."</td>
                     <td>".$row['airline']."</td>
                     <td>".$row['Seats']."</td>
-                    <td>₹ ".$row['price']."</td>
+                    <td>₹ ".$row['Price']."</td>
                     <td>
                     <form action='all_flights.php' method='post'>
                       <input name='flight_id' type='hidden' value=".$row['flight_id'].">

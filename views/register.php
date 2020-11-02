@@ -3,6 +3,7 @@
 <?php subview('header.php'); ?>
 
 <link rel="stylesheet" href="../assets/css/login.css">
+<link rel="stylesheet" href="../assets/css/user_login.css">
 <div class="flex-container">
     <div class="login-form">
         <h1 class="mb-3">Sign up</h1>
@@ -68,7 +69,7 @@
                 </div>
             </div>
             <div class="text-center w-100 mb-0">
-                <small id="passwordHelpBlock" class="form-text text-muted">
+                <small id="passwordHelpBlock" >
                     Your password must be 8-20 characters long,should contain letters and numbers, and must not contain spaces, special characters, or emoji.
                 </small>                 
             </div>                         
