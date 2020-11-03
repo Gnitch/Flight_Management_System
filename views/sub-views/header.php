@@ -27,27 +27,24 @@ session_start();
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="feedback.php">
+                        <h5> Feedback</h5>
+                    </a>
+                </li>                  
             <?php if(isset($_SESSION['userId'])) { ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="flight.php">
-                        <h5> Book Flight</h5>
+                    <a class="nav-link" href="">
+                        <h5> My flights</h5>
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="flight.php">
-                        <h5>Tickets</h5>
-                    </a>
-                </li>         
-                    <span class="sr-only">(current)</span>
-                </li>                        
+                </li>                                       
             <?php } ?>
             </ul>           
-            <!-- <ul ></ul> -->
             <?php
             if(isset($_SESSION['userId'])) {
                 echo '
-                <ul style="width: 90px;" class="mr-2 nav navbar-nav navbar-right">
-                    <li class="nav-item active border p-2 border-light ">
+                <ul style="width: 90px;" class="nav navbar-nav navbar-right">
+                    <li class="nav-item active border p-1 border-light ">
 
                             <i class="ml-1 fa fa-user text-light"></i>
                             <span class="nav_link text-light">
@@ -57,13 +54,13 @@ session_start();
                     </li>            
                 </ul>   
                 <form action="../includes/logout.inc.php" method="POST">
-                <button class="btn btn-outline-light m-2" type="submit">
+                <button class="btn btn-outline-light" type="submit">
                     Logout</button>
                 </form>  ';
             } else {
                 echo '
                 <div class="dropdown">
-                <button class="btn btn-outline-light m-2 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Login
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

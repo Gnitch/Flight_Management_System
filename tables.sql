@@ -20,8 +20,8 @@ CREATE TABLE Passenger_profile (
 CREATE TABLE PAYMENT (
   card_no INT PRIMARY KEY  NOT NULL AUTO_INCREMENT,
   user_id INT NOT NULL,
-  card_type VARCHAR(15) NOT NULL,
-  expire_date DATETIME NOT NULL,
+  card_type VARCHAR(15) ,
+  expire_date DATETIME ,
   amount INT NOT NULL,
   FOREIGN KEY(user_id) REFERENCES Users(user_id)
 );
