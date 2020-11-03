@@ -19,22 +19,38 @@ if(isset($_POST['del_flight']) and isset($_SESSION['adminId'])) {
   }
 }
 ?>
-<link rel="stylesheet" href="../../assets/css/admin_index.css">
+<!-- <link rel="stylesheet" href="../../assets/css/admin.css"> -->
+
+<style>
+th {
+  font-size: 30px;
+  font-weight: lighter;
+  font-family: 'Courier New', Courier, monospace;
+}
+td {
+  margin-top: 10px !important;
+  font-size: 18px;
+  font-weight: lighter;
+  font-family: 'Courier New', Courier, monospace;  
+}
+body {
+  
+}
+</style>
     <main>
         <?php if(isset($_SESSION['adminId'])) { ?>
-          <div class="container-md">
-            <h1 class="display-4 text-center">All flights</h1>
+          <div class="container-fluid mt-2">
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th scope="col">ID</th>
-                  <th scope="col">Arrival</th>
-                  <th scope="col">Departure</th>
-                  <th scope="col">Destination</th>
-                  <th scope="col">Source</th>
-                  <th scope="col">Airline</th>
-                  <th scope="col">Seats</th>
-                  <th scope="col">Price</th>
+                  <th class="text-info" scope="col">ID</th>
+                  <th class="text-info" scope="col">Arrival</th>
+                  <th class="text-info" scope="col">Departure</th>
+                  <th class="text-info" scope="col">Destination</th>
+                  <th class="text-info" scope="col">Source</th>
+                  <th class="text-info" scope="col">Airline</th>
+                  <th class="text-info" scope="col">Seats</th>
+                  <th class="text-info" scope="col">Price</th>
                 </tr>
               </thead>
               <tbody>
@@ -47,7 +63,7 @@ if(isset($_POST['del_flight']) and isset($_SESSION['adminId'])) {
                 while ($row = mysqli_fetch_assoc($result)) {
                   echo "
                   <tr>
-                    <th scope='row'>".$row['flight_id']."</th>
+                    <td scope='row'>".$row['flight_id']."</td>
                     <td>".$row['arrivale']."</td>
                     <td>".$row['departure']."</td>
                     <td>".$row['Destination']."</td>

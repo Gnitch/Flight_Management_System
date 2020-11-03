@@ -1,6 +1,6 @@
 <?php include_once '../helpers/helper.php'; 
 require '../helpers/init_conn_db.php';      ?>
-<link rel="stylesheet" href="../assets/css/passenger.css">
+<!-- <link rel="stylesheet" href="../assets/css/pass.css"> -->
 <?php subview('header.php'); ?>
 <?php
 session_start();
