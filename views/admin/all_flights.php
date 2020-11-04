@@ -25,7 +25,13 @@ if(isset($_POST['del_flight']) and isset($_SESSION['adminId'])) {
 table {
   background-color: white;
 }
-
+h1 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: 'Italianno', cursive;
+  font-size: 70px !important; 
+  font-weight: lighter;
+}
 body {
   background-color: #C6DBF0;
 }
@@ -44,7 +50,8 @@ td {
     <main>
         <?php if(isset($_SESSION['adminId'])) { ?>
           <div class="container-md mt-2">
-            <h1 class="display-4 text-center text-primary">List of all flight's</h1>
+            <h1 class="display-4 text-center text-primary"
+              >List of all Flight's</h1>
             <table class="table table-striped">
               <thead>
                 <tr>
@@ -60,7 +67,7 @@ td {
               </thead>
               <tbody>
                 <?php
-                $sql = 'SELECT * FROM Flight ORDER BY arrivale DESC';
+                $sql = 'SELECT * FROM Flight ORDER BY flight_id DESC';
                 $stmt = mysqli_stmt_init($conn);
                 mysqli_stmt_prepare($stmt,$sql);                
                 mysqli_stmt_execute($stmt);

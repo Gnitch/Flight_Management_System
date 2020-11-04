@@ -49,22 +49,19 @@ session_start();
                     <a class="nav-link" href="all_flights.php">
                       <h4>flights</h4>
                     </a>
-                  </li>
-                  <!-- <li class="nav-item">
-                    <a class="nav-link" href="register.php">
-                      <h4>Register admin</h4>
-                    </a>
-                  </li>                   -->
+                  </li>               
                   <li class="nav-item">
                     <a class="nav-link" href="">
                       <h4>Reviews</h4>
                     </a>
                   </li>                     
                 </ul>
-                <ul style="width: 90px;" class="nav navbar-nav navbar-right">
-                    <li class="nav-item active border p-1 border-light ">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item  p-1 border-light ">
+                        <a class="nav-link" href="register.php">
                             <i class="ml-1 fa fa-user text-light"></i>
-                            <span class="nav_link text-light">
+                            <span class="nav_link text-light"
+                              style="font-size: 20px;">
                             <?php echo  $_SESSION['adminUname']; ?>
                             </span>
                         </a>

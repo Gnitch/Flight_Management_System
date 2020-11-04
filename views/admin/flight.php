@@ -8,7 +8,21 @@
 <?php if(isset($_SESSION['adminId'])) { ?>
 
 <style>
-
+  input {
+    border :0px !important;
+    border-bottom: 2px solid #31B0D5 !important;
+    color :cornflowerblue !important;
+    border-radius: 0px !important;
+    font-weight: bold !important;
+    background-color: whitesmoke !important;    
+  }
+  *:focus {
+    outline: none !important;
+  }
+  label {
+    color : #79BAEC !important;
+    font-size: 19px;
+  }
   h5.form-name {
     color: cornflowerblue;
     font-family: 'Courier New', Courier, monospace;
@@ -32,15 +46,14 @@
   div.form-out {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
     background-color: whitesmoke !important;
-    padding: 30px;
-    margin-top: 50px;
+    padding: 40px;
+    margin-top: 30px;
   }
-
   select {
     float: right;
+    font-weight: bold !important;
+    color :cornflowerblue !important;
   }
-
-
   @media screen and (max-width: 900px){
     body {
       background-color: lightblue;
@@ -58,36 +71,15 @@
   <div class="row">
     <?php
     if(isset($_GET['error'])) {
-        echo '
-        <div class="alert text-center alert-danger mb-0"
-        style="margin-left: 60px; margin-right:60px;" role="alert">
-        ';
         if($_GET['error'] === 'destless') {
-            echo 'Dest. date/time is less than src.';
+            echo "<script>alert('Dest. date/time is less than src.');</script>";
         } else if($_GET['error'] === 'sqlerr') {
-            echo 'Database error';
+          echo "<script>alert('Database error');</script>";
         }
-        echo '</div> ';
     }
     ?>
       <div class="bg-light form-out col-md-8">
       <h1 class="text-primary text-center">Add Flight</h1>
-
-      <form id="test-form" action="#">
-
-  
-  <div class="input-group">
-    <label for="name">Name</label>
-    <input type="text" name="name" id="name" required />
- </div>
-  
-  <div class="input-group">
-    <label for="email">Email</label>
-    <input type="email" name="email" id="email" required />
-  </div>
-  
-  <input type="submit" value="Submit" />
-</form> 
 
       <form method="POST" class=" text-center" 
         action="../../includes/admin/flight.inc.php">
@@ -143,10 +135,12 @@
                 <input type="text" name="dura" id="dura" required />
               </div>              
             </div>            
-          </div>
           <div class="col">
-          <input type="number" name="price" placeholder="Enter price"
-                  class="form-control form-input" required >
+            <div class="input-group">
+                <label for="price">Price</label>
+                <input type="number" style="border: 0px; border-bottom: 2px solid #31B0D5;" 
+                  name="price" id="price" required />
+              </div>            
           </div>
           <?php
           $sql = 'SELECT * FROM Airline ';
@@ -154,7 +148,8 @@
           mysqli_stmt_prepare($stmt,$sql);         
           mysqli_stmt_execute($stmt);          
           $result = mysqli_stmt_get_result($stmt);    
-          echo '<select class="custom-select col-md-3 name="airline">
+          echo '<select class="airline col-md-3" name="airline_name" style="border: 0px; border-bottom: 
+            2px solid #31B0D5; background-color: whitesmoke !important;">
             <option selected>Select Airline</option>';
           while ($row = mysqli_fetch_assoc($result)) {
             echo '<option value='. $row['airline_id']  .'>'. 
@@ -165,7 +160,11 @@
         </div>              
 
         <button name="flight_but" type="submit" 
-          class="btn btn-primary w-25 mt-4">Submit</button>
+          class="btn btn-primary mt-5">
+          <div style="font-size: 1.5rem;">
+          <i class="fa fa-lg fa-arrow-right"></i>  
+          </div>
+        </button>
       </form>
     </div>
     </div>
