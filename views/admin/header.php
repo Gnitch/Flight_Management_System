@@ -39,6 +39,7 @@ session_start();
           <?php
               if(isset($_SESSION['adminId'])) { ?>
                 <ul class="navbar-nav mr-auto">
+
                   <li class="nav-item">
                     <a class="nav-link" href="flight.php">
                       <h4 class="ml-2"> Add Flight</h4>
@@ -49,11 +50,11 @@ session_start();
                       <h4>flights</h4>
                     </a>
                   </li>
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                     <a class="nav-link" href="register.php">
                       <h4>Register admin</h4>
                     </a>
-                  </li>                  
+                  </li>                   -->
                   <li class="nav-item">
                     <a class="nav-link" href="">
                       <h4>Reviews</h4>

@@ -22,24 +22,27 @@ if(isset($_POST['del_flight']) and isset($_SESSION['adminId'])) {
 <!-- <link rel="stylesheet" href="../../assets/css/admin.css"> -->
 
 <style>
+table {
+  background-color: white;
+}
+body {
+  background-color: #C6DBF0;
+}
 th {
-  font-size: 30px;
+  font-size: 25px;
   font-weight: lighter;
   font-family: 'Courier New', Courier, monospace;
 }
 td {
   margin-top: 10px !important;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: lighter;
   font-family: 'Courier New', Courier, monospace;  
-}
-body {
-  
 }
 </style>
     <main>
         <?php if(isset($_SESSION['adminId'])) { ?>
-          <div class="container-fluid mt-2">
+          <div class="container-md mt-2">
             <table class="table table-striped">
               <thead>
                 <tr>

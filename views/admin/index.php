@@ -1,6 +1,16 @@
 <?php include_once 'header.php'; 
 require '../../helpers/init_conn_db.php';?>
 <link rel="stylesheet" href="../../assets/css/admin.css">
+<style>
+  body {
+    background-color: #C6DBF0;
+  }
+  p {
+  font-size: 45px;
+  font-weight: lighter;
+  font-family: 'Courier New', Courier, monospace;
+  }  
+</style>
     <main>
         <?php if(isset($_SESSION['adminId'])) { ?>
           <div class="container">

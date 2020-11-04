@@ -6,9 +6,6 @@
   display: none;
 }
 
-body {
-  background-color:		#F0F0F0;
-}
 
 .card{
   margin-top: 55px !important;
@@ -18,11 +15,6 @@ body {
 
 .card-body {
   overflow-y: scroll;
-}
-p {
-  font-size: 45px;
-  font-weight: lighter;
-  font-family: 'Courier New', Courier, monospace;
 }
 th {
   color:peru;
