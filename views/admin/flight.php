@@ -3,12 +3,14 @@
 <?php require '../../helpers/init_conn_db.php'; ?>
 
 <link rel="stylesheet" href="../../assets/css/flight_form.css">
+<link rel="stylesheet" href="../../assets/css/form.css">
+
 <?php if(isset($_SESSION['adminId'])) { ?>
 
 <style>
 
   h5.form-name {
-    color: grey;
+    color: cornflowerblue;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 50;
     margin-bottom: 0px !important;
@@ -28,7 +30,7 @@
     background-size: 100% 100%;    
   }
   div.form-out {
-    border-radius: 12px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
     background-color: whitesmoke !important;
     padding: 30px;
     margin-top: 50px;
@@ -70,6 +72,23 @@
     ?>
       <div class="bg-light form-out col-md-8">
       <h1 class="text-primary text-center">Add Flight</h1>
+
+      <form id="test-form" action="#">
+
+  
+  <div class="input-group">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" required />
+ </div>
+  
+  <div class="input-group">
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" required />
+  </div>
+  
+  <input type="submit" value="Submit" />
+</form> 
+
       <form method="POST" class=" text-center" 
         action="../../includes/admin/flight.inc.php">
 
@@ -81,11 +100,12 @@
             <input type="date" name = "source_date" class="form-control"
             required >
           </div>
-          <div class="col">
+          <div class="col">         
             <input type="time" name = "source_time" class="form-control"
               required >
           </div>
         </div>
+
 
         <div class="form-row mb-4">
         <div class="col-md-3 ">
@@ -103,19 +123,26 @@
 
         <div class="form-row mb-4">
           <div class="col">
-          <input type="text" name="dep_city" placeholder="Enter departure city"
-                  class="form-control form-input" required >
+            <div class="input-group">
+              <label for="dep_city">Departure city</label>
+              <input class="form-contol" type="text" name="dep_city" id="dep_city" required />
+            </div>                   
           </div>
           <div class="col">
-          <input type="text" name="arr_city" placeholder="Enter arrivale city"
-                  class="form-control form-input" required >
+            <div class="input-group">
+              <label for="arr_city">Arrival city</label>
+              <input type="text" name="arr_city" id="arr_city" required />
+            </div>              
           </div>
         </div>
 
         <div class="form-row">
           <div class="col">
-          <input type="text" name="dura" placeholder="Enter duration"
-                  class="form-control form-input" required >
+            <div class="input-group">
+                <label for="dura">Duration</label>
+                <input type="text" name="dura" id="dura" required />
+              </div>              
+            </div>            
           </div>
           <div class="col">
           <input type="number" name="price" placeholder="Enter price"
@@ -145,6 +172,21 @@
 </div>
 </main>
 <script>
- 
+$(document).ready(function(){
+  $('.input-group input').focus(function(){
+    me = $(this) ;
+    $("label[for='"+me.attr('id')+"']").addClass("animate-label");
+  }) ;
+  $('.input-group input').blur(function(){
+    me = $(this) ;
+    if ( me.val() == ""){
+      $("label[for='"+me.attr('id')+"']").removeClass("animate-label");
+    }
+  }) ;
+  // $('#test-form').submit(function(e){
+  //   e.preventDefault() ;
+  //   alert("Thank you") ;
+  // })
+});
 </script>
 <?php } ?>

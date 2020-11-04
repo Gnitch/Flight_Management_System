@@ -25,6 +25,7 @@ if(isset($_POST['del_flight']) and isset($_SESSION['adminId'])) {
 table {
   background-color: white;
 }
+
 body {
   background-color: #C6DBF0;
 }
@@ -43,6 +44,7 @@ td {
     <main>
         <?php if(isset($_SESSION['adminId'])) { ?>
           <div class="container-md mt-2">
+            <h1 class="display-4 text-center text-primary">List of all flight's</h1>
             <table class="table table-striped">
               <thead>
                 <tr>
