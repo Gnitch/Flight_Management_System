@@ -8,9 +8,10 @@ body {
 }
 h3 {
     text-align: center;
-    font-family: 'Italianno', cursive;
+    /* font-family: 'Italianno', cursive; */
+    font-family: 'Bangers', cursive;      
     font-weight: normal;
-    font-size: 80px;
+    font-size: 60px;
     margin-top: 20px !important;   
 }
 
@@ -154,17 +155,25 @@ if(isset($_GET['error'])) {
     <div class="col-md-9 register-right">
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                <h3 class="register-heading text-primary">Register new admin</h3>
+                <h3 class="register-heading text-primary">Register New Admin</h3>
                 <div class="register-form">
                 <form method="POST" action="../../includes/admin/register.inc.php">
                     <div class="conrainer-fluid">
                     <div class="row">
+                        <div class="col-1 p-0">
+                            <i class="fa fa-user text-primary" 
+                                style="float: right;margin-top:35px;"></i>
+                        </div>
                         <div class="col">
                             <div class="input-group">
                                 <label for="username">Username</label>
-                                <input type="text" name="username" id="username" required />
+                                <input type="text" name="username" id="username" required />                                
                             </div>  
                         </div>
+                        <div class="col-1 p-0">
+                            <i class="fa fa-lock text-primary" 
+                                style="float: right;margin-top:35px;"></i>
+                        </div>                        
                         <div class="col">
                             <div class="input-group">
                                 <label for="password">Password</label>
@@ -177,6 +186,10 @@ if(isset($_GET['error'])) {
                         </div>
                     </div>
                     <div class="form-row">
+                        <div class="col-1 p-0 mr-2">
+                            <i class="fa fa-envelope text-primary" 
+                                style="float: right;margin-top:35px;"></i>
+                        </div>                    
                         <div class="col">
                             <div class="input-group">
                                 <label for="email_id">Email</label>
@@ -184,6 +197,10 @@ if(isset($_GET['error'])) {
                                         required>                                         
                             </div>                                     
                         </div>
+                        <div class="col-1 p-0 mr-2">
+                            <i class="fa fa-lock text-primary" 
+                                style="float: right;margin-top:35px;"></i>
+                        </div>                        
                         <div class="col">
                             <div class="input-group">
                                 <label for="password_repeat">Confirm password</label>

@@ -32,8 +32,7 @@
   }
   h1 {
     font-size: 65px !important;
-    font-family: 'Cantarell', sans-serif;
-    font-family: 'Permanent Marker', cursive;   
+    font-family: 'Bangers', cursive;  
     margin-bottom: 20px;  
   }
   body {

@@ -1,14 +1,21 @@
 <?php include_once 'header.php'; 
 require '../../helpers/init_conn_db.php';?>
 <link rel="stylesheet" href="../../assets/css/admin.css">
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300&family=Poiret+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
 <style>
   body {
     background-color: #C6DBF0;
   }
+  td {
+    font-family: 'Assistant', sans-serif !important;
+    font-size: 18px !important;
+  }
   p {
   font-size: 45px;
   font-weight: lighter;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Cinzel', serif;
+  /* font-family: 'Courier New', Courier, monospace; */
   }  
 </style>
     <main>
@@ -21,13 +28,13 @@ require '../../helpers/init_conn_db.php';?>
               <i class="fa fa-filter"></i>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#flight">Today's flight</a>
+              <a class="dropdown-item" href="#flight">Today's Flights</a>
               <a class="dropdown-item" href="#issue">Today's flight issues</a>
               <a class="dropdown-item" href="#dep">Flights departed today</a>
               <a class="dropdown-item" href="#arr">Flights arrived today</a>
             </div>
           </div>        
-        <p class="text-info">Today's flights</p>
+        <p class="text-info">Flights today</p>
         <table class="table-sm table">
           <thead>
             <tr>
@@ -106,7 +113,7 @@ require '../../helpers/init_conn_db.php';?>
               <a class="dropdown-item" href="#arr">Flights arrived today</a>
             </div>
           </div>        
-        <p class=" text-danger">Today's flight issues</p>
+        <p class=" text-danger">Flight issues today</p>
         <table class="table-sm table">
           <thead>
             <tr>

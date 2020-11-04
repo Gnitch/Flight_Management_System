@@ -28,8 +28,8 @@ table {
 h1 {
   margin-top: 20px;
   margin-bottom: 20px;
-  font-family: 'Italianno', cursive;
-  font-size: 70px !important; 
+  font-family: 'Bangers', cursive;  
+  font-size: 60px !important; 
   font-weight: lighter;
 }
 body {
