@@ -10,8 +10,6 @@ body{
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
-
 }
 
 .rev-section{
@@ -23,7 +21,7 @@ body{
   margin: auto;
 }
 
-}
+
 
 .title{
   font-size: 3.5rem;
@@ -36,8 +34,6 @@ body{
   color: rgb(150, 150, 150);
   font-style: italic;
   color: #000080;
-  font
-
 }
 
 .reviews{

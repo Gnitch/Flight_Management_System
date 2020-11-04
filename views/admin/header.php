@@ -51,7 +51,7 @@ session_start();
                     </a>
                   </li>               
                   <li class="nav-item">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="review.php">
                       <h4>Reviews</h4>
                     </a>
                   </li>                     
