@@ -15,16 +15,21 @@ session_start();
         <script src="https://kit.fontawesome.com/44f557ccce.js"></script>
     </head>
 <style>
+@font-face {
+  font-family: 'product sans';
+  src: url('../../assets/css/Product Sans Bold.ttf');
+}
   .navbar-custom {
     background-color: #6495ED;
     /* font-family: 'Bangers', cursive; */
-    font-family: 'Audiowide', cursive;    
+    font-family: 'product sans', cursive;    
   }
   h4 {
     font-size: 25px !important;
   }
 </style>
     <body>
+
         <nav class="navbar navbar-custom navbar-expand-lg navbar-dark">
           <a class="navbar-brand text-light" href="index.php"><h4>ADMIN PANEL</h4></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -47,7 +52,7 @@ session_start();
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="all_flights.php">
-                      <h4>flights</h4>
+                      <h4>Flights</h4>
                     </a>
                   </li>               
                   <li class="nav-item">

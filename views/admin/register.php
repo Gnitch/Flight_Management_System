@@ -9,7 +9,7 @@ body {
 h3 {
     text-align: center;
     /* font-family: 'Italianno', cursive; */
-    font-family: 'Bangers', cursive;      
+    font-family: 'product sans', cursive;      
     font-weight: normal;
     font-size: 60px;
     margin-top: 20px !important;   

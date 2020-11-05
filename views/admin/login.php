@@ -39,8 +39,9 @@ if(isset($_GET['pwd'])) {
   }
   h1 {
     font-size: 65px !important;
-    font-family: 'Bangers', cursive;  
     margin-bottom: 20px;  
+    font-family :'product sans';
+    font-weight: bolder;
   }
   div.form-out {
     /* border-radius: 40px; */
@@ -84,8 +85,8 @@ if(isset($_GET['pwd'])) {
     }
     ?>
       <div class="bg-light form-out col-md-4">
-      <h1 class="text-primary text-center">Sign in</h1>
-
+      <h1 class="text-primary text-center">SIGN IN</h1>
+      
       <form method="POST" class=" text-center" 
         action="../../includes/admin/login.inc.php">
 

@@ -13,9 +13,9 @@ require '../../helpers/init_conn_db.php';?>
   }
   p {
   font-size: 45px;
-  font-weight: lighter;
+  font-weight: bolder;
   font-family: 'Cinzel', serif;
-  /* font-family: 'Courier New', Courier, monospace; */
+
   }  
 </style>
     <main>

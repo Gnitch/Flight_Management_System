@@ -32,7 +32,7 @@
   }
   h1 {
     font-size: 65px !important;
-    font-family: 'Bangers', cursive;  
+    font-family: 'product sans';  
     margin-bottom: 20px;  
   }
   body {
@@ -78,7 +78,7 @@
     }
     ?>
       <div class="bg-light form-out col-md-8">
-      <h1 class="text-primary text-center">Add Flight</h1>
+      <h1 class="text-primary text-center">ADD FLIGHT</h1>
 
       <form method="POST" class=" text-center" 
         action="../../includes/admin/flight.inc.php">

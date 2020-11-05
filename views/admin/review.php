@@ -27,7 +27,7 @@ body{
 
 .title{
   font-size: 4rem;
-  font-family: 'Bangers', cursive;  
+  font-family: 'product sans';  
   margin-bottom: 0.5rem;
 }
 .note{
@@ -79,7 +79,7 @@ body{
 
 <div class="rev-section">
 
-  <h2 class="title text-primary">customer reviews</h2>
+  <h2 class="title text-primary">CUSTOMER REVIEWS</h2>
   <p class="note">"Building a good customer experience does not happen by accident.It happens by design."</p><br><br>
 
     <div class="reviews">

@@ -28,7 +28,7 @@ table {
 h1 {
   margin-top: 20px;
   margin-bottom: 20px;
-  font-family: 'Bangers', cursive;  
+  font-family: 'product sans';  
   font-size: 60px !important; 
   font-weight: lighter;
 }
