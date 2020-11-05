@@ -6,7 +6,7 @@ if(isset($_POST['login_but'])) {
     $sql = 'SELECT * FROM Users WHERE username=? OR email=?;';
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt,$sql)) {
-        header('Location: ../views/index.php?error=sqlerror');
+        header('Location: ../views/login.php?error=sqlerror');
         exit();            
     } else {
         mysqli_stmt_bind_param($stmt,'ss',$email_id,$email_id);            
@@ -15,7 +15,7 @@ if(isset($_POST['login_but'])) {
         if($row = mysqli_fetch_assoc($result)) {
             $pwd_check = password_verify($password,$row['password']);
             if($pwd_check == false) {
-                header('Location: ../views/index.php?error=wrongpwd');
+                header('Location: ../views/login.php?error=wrongpwd');
                 exit();    
             }
             else if($pwd_check == true) {
@@ -25,10 +25,12 @@ if(isset($_POST['login_but'])) {
                 header('Location: ../views/index.php?login=success');
                 exit();                  
             } else {
-                header('Location: ../views/index.php?error=invalidcred');
+                header('Location: ../views/login.php?error=invalidcred');
                 exit();                    
             }
         }
+        header('Location: ../views/login.php?error=invalidcred');
+        exit();         
     }
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
