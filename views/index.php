@@ -3,7 +3,7 @@
 <?php subview('header.php'); ?>
 
     <main>        
-        
+      
     </main>
         
 <?php subview('footer.php'); ?> 

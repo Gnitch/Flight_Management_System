@@ -19,6 +19,7 @@ if(isset($_POST['login_but'])) {
             session_start();
             $_SESSION['adminId'] = $row['admin_id'];
             $_SESSION['adminUname'] = $row['admin_uname'];
+            $_SESSION['adminEmail'] = $row['admin_email'];
             header('Location: ../../views/admin/index.php?login=success');
             exit();
         } else {
