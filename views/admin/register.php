@@ -124,22 +124,17 @@ input {
 </style>
 <?php
 if(isset($_GET['error'])) {
-    echo '
-    <div class="alert text-center alert-danger mb-0"
-    style="margin-left: 60px; margin-right:60px;" role="alert">
-    ';
     if($_GET['error'] === 'invalidemail') {
-        echo 'Invalid email';
+        echo '<script>alert("Invalid email")</script>';
     } else if($_GET['error'] === 'pwdnotmatch') {
-        echo 'Passwords do not match';
+        echo '<script>alert("Passwords do not match")</script>';
     } else if($_GET['error'] === 'sqlerror') {
-        echo 'Invalid credentials';
+        echo"<script>alert('Database error')</script>";
     } else if($_GET['error'] === 'usernameexists') {
-        echo 'Username already exists';
-    } else if($_GET['error'] ==='emailexists') {
-        echo 'Email already exists';
+        echo"<script>alert('Username already exists')</script>";
+    } else if($_GET['error'] === 'emailexists') {
+        echo"<script>alert('Email already exists')</script>";
     }
-    echo '</div> ';
 }
 ?>
 <link rel="stylesheet" href="../../assets/css/form.css"> 
@@ -210,7 +205,8 @@ if(isset($_GET['error'])) {
                         </div>                                                                                                  
                     </div>
                     <div class="text-right">
-                        <button class="btn btn-primary w-25 mt-5 "
+                        <button class="btn btn-primary w-25 mt-5 "name="signup_submit" 
+                            type="submit"
                             style="border-radius:30px;">
                             Register</button>
                     </div>
