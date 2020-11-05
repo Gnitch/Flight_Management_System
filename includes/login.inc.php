@@ -15,24 +15,26 @@ if(isset($_POST['login_but'])) {
         if($row = mysqli_fetch_assoc($result)) {
             $pwd_check = password_verify($password,$row['password']);
             if($pwd_check == false) {
-                header('Location: ../views/index.php?error=wrongpwd');
+                header('Location: ../views/login.php?error=wrongpwd');
                 exit();    
             }
             else if($pwd_check == true) {
                 session_start();
                 $_SESSION['userId'] = $row['user_id'];
                 $_SESSION['userUid'] = $row['username'];
-                header('Location: ../views/index.php?login=success');
+                header('Location: ../views/login.php?login=success');
                 exit();                  
             } else {
-                header('Location: ../views/index.php?error=invalidcred');
+                header('Location: ../views/login.php?error=invalidcred');
                 exit();                    
             }
         }
     }
+    header('Location: ../views/login.php?error=invalidcred');
+    exit();      
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
 } else {
-    header('Location: ../views/index.php');
+    header('Location: ../views/login.php');
     exit();  
 }    
