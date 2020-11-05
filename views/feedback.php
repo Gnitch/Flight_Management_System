@@ -1,7 +1,6 @@
 <?php include_once '../helpers/helper.php'; ?>
 <?php subview('header.php'); 
 if(isset($_SESSION['userId'])) {   ?>    
- HEELOLL
 <link rel="stylesheet" href="../assets/css/feed.css">
 
     <div class="container">

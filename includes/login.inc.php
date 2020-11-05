@@ -22,7 +22,7 @@ if(isset($_POST['login_but'])) {
                 session_start();
                 $_SESSION['userId'] = $row['user_id'];
                 $_SESSION['userUid'] = $row['username'];
-                header('Location: ../views/login.php?login=success');
+                header('Location: ../views/index.php?login=success');
                 exit();                  
             } else {
                 header('Location: ../views/login.php?error=invalidcred');

@@ -19,6 +19,9 @@ session_start();
   font-family: 'product sans';
   src: url('../../assets/css/Product Sans Bold.ttf');
 }
+button.btn-outline-light:hover {
+  color: cornflowerblue !important;
+}
   .navbar-custom {
     background-color: #6495ED;
     /* font-family: 'Bangers', cursive; */

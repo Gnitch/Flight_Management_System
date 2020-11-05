@@ -34,7 +34,9 @@ if(isset($_GET['error'])) {
     color :cornflowerblue !important;
     border-radius: 0px !important;
     font-weight: bold !important;
-    background-color: whitesmoke !important;    
+    background-color: whitesmoke !important;  
+    border: none;
+    border-bottom: 2px solid #31B0D5;      
   }
   *:focus {
     outline: none !important;

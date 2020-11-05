@@ -9,7 +9,6 @@ CREATE TABLE Passenger_profile (
   passenger_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   user_id INT NOT NULL,
   mobile INT NOT NULL,
-  address VARCHAR(100) NOT NULL,
   dob DATETIME NOT NULL,
   f_name VARCHAR(20),
   m_name VARCHAR(20),
