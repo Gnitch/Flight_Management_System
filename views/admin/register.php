@@ -1,6 +1,8 @@
 <?php include_once 'header.php'; ?>
 <?php include_once 'footer.php'; ?>
 <link rel="stylesheet" href="../../assets/css/login.css">
+<link rel="stylesheet" href="../../assets/css/user_login.css">
+
 <div class="flex-container">
     <div class="login-form">
         <h1 class="mb-3">Sign up</h1>
