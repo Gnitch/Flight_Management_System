@@ -1,8 +1,10 @@
 <?php
-if(isset($_POST['pass_but'])) {
-    session_start();
+session_start();
+if(isset($_POST['pass_but']) && isset($_SESSION['userId'])) {
     require '../helpers/init_conn_db.php';  
     $mobile_flag = false;
+    $flight_id = $_POST['flight_id'];
+    $passengers = $_POST['passengers'];
     $mob_len = count($_POST['mobile']);
     for($i=0;$i<$mob_len;$i++) {
         if(strlen($_POST['mobile'][$i]) !== 10) {
@@ -32,20 +34,31 @@ if(isset($_POST['pass_but'])) {
         }      
     }    
     $stmt = mysqli_stmt_init($conn);
+    $flag = false;
     for($i=0;$i<$date_len;$i++) {
-        $sql = 'INSERT INTO Passenger_profile (user_id,mobile,dob,f_name,m_name,l_name
-            ) VALUES (?,?,?,?,?,?)';            
+        $sql = 'INSERT INTO Passenger_profile (user_id,mobile,dob,f_name,m_name,l_name,
+            flight_id) VALUES (?,?,?,?,?,?,?)';            
         if(!mysqli_stmt_prepare($stmt,$sql)) {
             header('Location: ../views/pass_form.php?error=sqlerror');
             exit();            
         } else {
-            mysqli_stmt_bind_param($stmt,'iissss',$_SESSION['userId'],
+            mysqli_stmt_bind_param($stmt,'iissssi',$_SESSION['userId'],
                 $_POST['mobile'][$i],$_POST['date'][$i],$_POST['firstname'][$i],
-                    $_POST['midname'][$i],$_POST['lastname'][$i]);            
+                    $_POST['midname'][$i],$_POST['lastname'][$i],$flight_id);            
             mysqli_stmt_execute($stmt);  
-            // redirect to payment form page
+            $flag = true;        
         }
     }
+    if($flag) {
+        $_SESSION['flight_id'] = $flight_id;
+        $_SESSION['class'] = $_POST['class'];
+        $_SESSION['passengers'] = $passengers;
+        $_SESSION['price'] = $_POST['price'];
+        header('Location: ../views/payment.php');
+        exit();          
+    }
+    mysqli_stmt_close($stmt);
+    mysqli_close($conn);    
 
 } else {
     header('Location: ../views/pass_form.php');

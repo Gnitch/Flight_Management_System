@@ -51,11 +51,10 @@ body {
 }
 </style>
 <?php if(isset($_SESSION['userId'])) {   
-    $flight_id = 15;
-    $passengers = 1;
-    if($passengers > 6) {
-        // return to page with a warning
-    } 
+    $flight_id = 13;
+    $passengers = 1; 
+    $price = 10000;
+    $class = 'B';
 ?>    
 <main>
     <div class="container mb-5">
@@ -63,9 +62,14 @@ body {
         <h1 class="text-center text-primary">Passenger Details</h1>  
         <form action="../includes/pass_detail.inc.php" class="needs-validation mt-4" 
             method="POST">
+
+            <input type="hidden" name="class" value=<?php echo $class; ?>>   
+            <input type="hidden" name="passengers" value=<?php echo $passengers; ?>>   
+            <input type="hidden" name="price" value=<?php echo $price; ?>>   
+            <input type="hidden" name="flight_id" value=<?php echo $flight_id; ?>>   
         <?php for($i=1;$i<=$passengers;$i++) {
             echo'   
-            <div class="pass-form">     
+            <div class="pass-form">  
             <div class="form-row">
                 <div class="col-md">
                     <div class="input-group">
@@ -94,7 +98,7 @@ body {
                 <div class="col-md">
                     <div class="input-group">
                         <label for="mobile'.$i.'">Contact No</label>
-                        <input type="number" name="mobile[]" id="mobile'.$i.'" 
+                        <input type="number" name="mobile[]" min="0" id="mobile'.$i.'" 
                             required>
                     </div>
                 </div>

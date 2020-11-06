@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['adminId'])) {    
+if(isset($_SESSION['adminId']) && isset($_POST['signup_submit'])) {    
     require '../../helpers/init_conn_db.php';
     $username = $_POST['username'];
     $email_id = $_POST['email_id'];
