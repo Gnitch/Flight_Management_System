@@ -5,18 +5,20 @@ if(isset($_POST['pay_but']) && isset($_SESSION['userId'])) {
     $flight_id = $_SESSION['flight_id'];
     $price = $_SESSION['price'];
     $passengers = $_SESSION['passengers'];
+    $pass_id = $_SESSION['pass_id'];
     $class = $_SESSION['class'];
     $card_no = $_POST['cc-number'];
     $expiry = $_POST['cc-exp'];
     unset($_SESSION['flight_id']);
     unset($_SESSION['passengers']);
+    unset($_SESSION['pass_id']);
     unset($_SESSION['price']);
     unset($_SESSION['class']);      
     $sql = 'INSERT INTO PAYMENT (user_id,expire_date,amount,flight_id,card_no) 
         VALUES (?,?,?,?,?)';            
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt,$sql)) {
-        header('Location: ../views/payment.php?error=sqlerror-1');
+        header('Location: ../views/payment.php?error=sqlerror');
         exit();            
     } else {
         mysqli_stmt_bind_param($stmt,'isiis',$_SESSION['userId'],
@@ -25,11 +27,11 @@ if(isset($_POST['pay_but']) && isset($_SESSION['userId'])) {
 
         $stmt = mysqli_stmt_init($conn);
         $flag = false;
-        for($i=1;$i<=$passengers;$i++) {
+        for($i=$pass_id;$i<=$passengers+$pass_id;$i++) {
             $sql = 'SELECT * FROM Flight WHERE flight_id=?';
             $stmt = mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt,$sql)) {
-                header('Location: ../views/payment.php?error=sqlerror1');
+                header('Location: ../views/payment.php?error=sqlerror');
                 exit();            
             } else {
                 mysqli_stmt_bind_param($stmt,'i',$flight_id);            
@@ -81,11 +83,11 @@ if(isset($_POST['pay_but']) && isset($_SESSION['userId'])) {
                             WHERE flight_id=?";
                         $temp='/';
                         if(!mysqli_stmt_prepare($stmt,$sql)) {
-                            header('Location: ../views/payment.php?error=sqlerror2');
+                            header('Location: ../views/payment.php?error=sqlerror');
                             exit();            
                         } else {
                             mysqli_stmt_bind_param($stmt,'sii',$new_seat,$seats,$flight_id);         
-                            mysqli_stmt_execute($stmt);        
+                            // mysqli_stmt_execute($stmt);        
                         }                            
                     } else if($class === 'E') {
                         $seats = $row['Seats'];
@@ -94,7 +96,7 @@ if(isset($_POST['pay_but']) && isset($_SESSION['userId'])) {
                         $sql = 'UPDATE Flight SET last_seat=?, Seats=?
                             WHERE flight_id=?';
                         if(!mysqli_stmt_prepare($stmt,$sql)) {
-                            header('Location: ../views/payment.php?error=sqlerror3');
+                            header('Location: ../views/payment.php?error=sqlerror');
                             exit();            
                         } else {
                             mysqli_stmt_bind_param($stmt,'sii',$new_seat,$seats,$flight_id);         
@@ -102,43 +104,32 @@ if(isset($_POST['pay_but']) && isset($_SESSION['userId'])) {
                         }                            
                     }    
                     $stmt = mysqli_stmt_init($conn);
-                    $sql = 'SELECT * FROM Passenger_profile WHERE flight_id=? AND
-                        user_id=?';
-                    $stmt = mysqli_stmt_init($conn);
+                    $sql = 'INSERT INTO Ticket (passenger_id,flight_id
+                        ,seat_no,cost,class,user_id
+                        ) VALUES (?,?,?,?,?,?)';            
                     if(!mysqli_stmt_prepare($stmt,$sql)) {
-                        header('Location: ../views/payment.php?error=sqlerror4');
+                        header('Location: ../views/payment.php?error=sqlerror');
                         exit();            
                     } else {
-                        mysqli_stmt_bind_param($stmt,'ii',$flight_id,$_SESSION['userId']);            
-                        mysqli_stmt_execute($stmt);
-                        $result = mysqli_stmt_get_result($stmt);
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            $sql = 'INSERT INTO Ticket (passenger_id,flight_id
-                                ,seat_no,cost,class,user_id
-                                ) VALUES (?,?,?,?,?,?)';            
-                            if(!mysqli_stmt_prepare($stmt,$sql)) {
-                                header('Location: ../views/payment.php?error=sqlerror5');
-                                exit();            
-                            } else {
-                                mysqli_stmt_bind_param($stmt,'iisisi',$row['passenger_id'],
-                                    $flight_id,$new_seat,$price,$class,$_SESSION['userId']);            
-                                mysqli_stmt_execute($stmt);  
-                                // Redirect to payment done page
-                                exit();
-                            }                              
-                        } 
-                        header('Location: ../views/payment.php?error=sqlerror6');
-                        exit();                                             
-                    }
+                        mysqli_stmt_bind_param($stmt,'iisisi',$i,
+                            $flight_id,$new_seat,$price,$class,$_SESSION['userId']);            
+                        mysqli_stmt_execute($stmt);  
+                        $flag = true;
+                    }                                                                       
                   
                 }
                 else  {
-                    header('Location: ../views/payment.php?error=sqlerror0');
+                    header('Location: ../views/payment.php?error=sqlerror');
                     exit();                     
                 }
             }
+            header('Location: ../views/payment.php?error=sqlerror');
+            exit();                
         } 
-
+        if($flag) {
+            // Redirect to payment done page
+            // exit();
+        } 
     }            
   
     mysqli_stmt_close($stmt);

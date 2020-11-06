@@ -50,9 +50,20 @@ body {
     }    
 }
 </style>
+<?php
+    if(isset($_GET['error'])) {
+        if($_GET['error'] === 'invdate') {
+          echo '<script>alert("Invalid date of birth")</script>';
+      } else if($_GET['error'] === 'moblen') {
+          echo '<script>alert("Invalid contact info")</script>';
+      } else if($_GET['error'] === 'sqlerror') {
+          echo"<script>alert('Database error')</script>";
+      }
+    }
+    ?>
 <?php if(isset($_SESSION['userId'])) {   
-    $flight_id = 13;
-    $passengers = 1; 
+    $flight_id = 12;
+    $passengers = 2; 
     $price = 10000;
     $class = 'B';
 ?>    

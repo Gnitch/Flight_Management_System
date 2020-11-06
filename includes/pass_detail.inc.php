@@ -34,6 +34,22 @@ if(isset($_POST['pass_but']) && isset($_SESSION['userId'])) {
         }      
     }    
     $stmt = mysqli_stmt_init($conn);
+    $sql = 'SELECT passenger_id,flight_id,user_id FROM Passenger_profile WHERE flight_id=? AND
+        user_id=?';
+    $stmt = mysqli_stmt_init($conn);
+    if(!mysqli_stmt_prepare($stmt,$sql)) {
+        header('Location: ../views/payment.php?error=sqlerror');
+        exit();            
+    } else {
+        mysqli_stmt_bind_param($stmt,'ii',$flight_id,$_SESSION['userId']);            
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $flag = false;
+        while ($row = mysqli_fetch_assoc($result)) {
+            $pass_id=$row['passenger_id'];
+        }
+    }
+    $stmt = mysqli_stmt_init($conn);
     $flag = false;
     for($i=0;$i<$date_len;$i++) {
         $sql = 'INSERT INTO Passenger_profile (user_id,mobile,dob,f_name,m_name,l_name,
@@ -54,6 +70,7 @@ if(isset($_POST['pass_but']) && isset($_SESSION['userId'])) {
         $_SESSION['class'] = $_POST['class'];
         $_SESSION['passengers'] = $passengers;
         $_SESSION['price'] = $_POST['price'];
+        $_SESSION['pass_id'] = $pass_id+1;
         header('Location: ../views/payment.php');
         exit();          
     }

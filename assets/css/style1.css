@@ -1,16 +1,8 @@
-body{
-  
-    background-color:black;
-    
-  }
   
   #mainTicket {
   background-color:white;
     width:900px;
     height:400px;
-  
-  
-  
     border-radius:15px;
     position:absolute;
     top:25%;
@@ -20,8 +12,6 @@ body{
     grid-template-columns:100%;
     grid-template-rows:15% 25% 25% 20% 15%;
     grid-template-areas:
-  
-  
   
       "row1"
   
@@ -467,15 +457,6 @@ body{
   
   }
   
-  
-  
-  
-  
-  /* .row5 {
-  
-    grid-area:row5;
-  
-  } */
   
   .row6 {
     background-color: #0E4274;

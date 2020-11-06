@@ -99,11 +99,13 @@ if(isset($_GET['error'])) {
   <div class="row">
     <?php
     if(isset($_GET['error'])) {
-        if($_GET['error'] === 'destless') {
-            echo "<script>alert('Dest. date/time is less than src.');</script>";
-        } else if($_GET['error'] === 'sqlerr') {
-          echo "<script>alert('Database error');</script>";
-        }
+        if($_GET['error'] === 'invalidcred') {
+          echo '<script>alert("Invalid Credentials")</script>';
+      } else if($_GET['error'] === 'wrongpwd') {
+          echo '<script>alert("Wrong Password")</script>';
+      } else if($_GET['error'] === 'sqlerror') {
+          echo"<script>alert('Database error')</script>";
+      }
     }
     ?>
       <div class="bg-light form-out col-md-5">
