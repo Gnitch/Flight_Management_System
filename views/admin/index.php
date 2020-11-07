@@ -5,7 +5,8 @@ require '../../helpers/init_conn_db.php';?>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
 <style>
   body {
-    background-color: #C6DBF0;
+    background-color: #32B4F5;
+    /* background: -webkit-linear-gradient(left, #3931af, #00c6ff); */
   }
   td {
     font-family: 'Assistant', sans-serif !important;
@@ -13,9 +14,8 @@ require '../../helpers/init_conn_db.php';?>
   }
   p {
   font-size: 45px;
-  font-weight: bolder;
-  font-family: 'Cinzel', serif;
-
+  font-weight: 100;
+  font-family: 'product sans';  
   }  
 </style>
     <main>
@@ -34,7 +34,7 @@ require '../../helpers/init_conn_db.php';?>
               <a class="dropdown-item" href="#arr">Flights arrived today</a>
             </div>
           </div>        
-        <p class="text-info">Flights today</p>
+        <p class="text-info">Flights Today</p>
         <table class="table-sm table">
           <thead>
             <tr>
@@ -113,7 +113,7 @@ require '../../helpers/init_conn_db.php';?>
               <a class="dropdown-item" href="#arr">Flights arrived today</a>
             </div>
           </div>        
-        <p class=" text-danger">Flight issues today</p>
+        <p class=" text-danger">Flight Issues Today</p>
         <table class="table-sm table">
           <thead>
             <tr>
@@ -183,7 +183,7 @@ require '../../helpers/init_conn_db.php';?>
               <a class="dropdown-item" href="#arr">Flights arrived today</a>
             </div>
           </div>        
-        <p class=" text-success">Flight's departed today</p>
+        <p class=" text-success">Flight's Departed Today</p>
         <table class="table-sm table">
           <thead>
             <tr>
@@ -253,7 +253,7 @@ require '../../helpers/init_conn_db.php';?>
               <a class="dropdown-item" href="#arr">Flights arrived today</a>
             </div>
           </div>        
-        <p class=" text-success">Flight's arrived today</p>
+        <p class=" text-success">Flight's Arrived Today</p>
         <table class="table-sm table">
           <thead>
             <tr>

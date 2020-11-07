@@ -38,7 +38,7 @@ session_start();
                 </li>                  
             <?php if(isset($_SESSION['userId'])) { ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="my_flights.php">
                         <h5> My flights</h5>
                     </a>
                 </li>                                       

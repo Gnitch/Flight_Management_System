@@ -26,7 +26,7 @@ if(isset($_GET['error'])) {
     background-image: url('../assets/images/bg6.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 100% 100%;    
+    background-size: 100% 100%;        
   }    
   input {
     border :0px !important;

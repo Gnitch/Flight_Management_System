@@ -29,11 +29,11 @@ h1 {
   margin-top: 20px;
   margin-bottom: 20px;
   font-family: 'product sans';  
-  font-size: 60px !important; 
+  font-size: 50px !important; 
   font-weight: lighter;
 }
 body {
-  background-color: #C6DBF0;
+  background-color: #32B4F5;
 }
 th {
   font-size: 25px;
@@ -43,14 +43,14 @@ th {
 td {
   margin-top: 10px !important;
   font-size: 16px;
-  font-weight: lighter;
-  font-family: 'Courier New', Courier, monospace;  
+  font-weight: bold;
+  font-family: 'Assistant', sans-serif !important;
 }
 </style>
     <main>
         <?php if(isset($_SESSION['adminId'])) { ?>
           <div class="container-md mt-2">
-            <h1 class="display-4 text-center text-primary"
+            <h1 class="display-4 text-center text-light"
               >List of all Flight's</h1>
             <table class="table table-striped">
               <thead>
