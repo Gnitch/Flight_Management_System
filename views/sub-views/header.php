@@ -41,7 +41,12 @@ session_start();
                     <a class="nav-link" href="my_flights.php">
                         <h5> My flights</h5>
                     </a>
-                </li>                                       
+                </li>       
+                <li class="nav-item">
+                    <a class="nav-link" href="ticket.php">
+                        <h5> Tickets</h5>
+                    </a>
+                </li>                                                  
             <?php } ?>
             </ul>           
             <?php

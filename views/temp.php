@@ -1,16 +1,25 @@
 <?php
-$last_seat = '103B';
-$ls_len = strlen($last_seat);
-$seat_num = (int)substr($last_seat,0,$ls_len-1);
-$seat_alpha = $last_seat[$ls_len-1];
-if($seat_alpha === 'F') {
-    $seat_num = $seat_num + 1;
-    $seat_alpha = 'A';
+include '../helpers/init_conn_db.php';                      
+$stmt = mysqli_stmt_init($conn);
+$sql = 'SELECT * FROM Flight WHERE flight_id=?';
+$stmt = mysqli_stmt_init($conn);
+// echo $stmt;
+if(!mysqli_stmt_prepare($stmt,$sql)) {
+    echo 'ERROR';
+//     // header('Location: my_flights.php?error=sqlerror');
+//     // exit();            
 } else {
-    $seat_alpha = ord($seat_alpha);
-    $seat_alpha = $seat_alpha + 1;
-    $seat_alpha = chr($seat_alpha);
+    // mysqli_stmt_bind_param($stmt,'i',13);            
+    // mysqli_stmt_execute($stmt);
+//     $result = mysqli_stmt_get_result($stmt);
+//     if($row = mysqli_fetch_assoc($result)) {
+//         // 2020-11-06 23:15:00
+        // $date_time = $row['departure'];
+        // $date = substr($date_time,0,10);
+        // $time = substr($date_time,10,5) ;
+//         echo $date;
+//         echo '<br>';
+//         echo $time;
+//     }
 }
-$new_seat = (string)$seat_num . $seat_alpha; 
-echo $new_seat;
 ?>

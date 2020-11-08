@@ -26,7 +26,7 @@ body {
   src: url('../assets/css/Product Sans Bold.ttf');
   }
   h1 {
-    font-size: 50px !important;
+    font-size: 42px !important;
     margin-bottom: 20px;  
     font-family :'product sans' !important;
     font-weight: bolder;
@@ -70,7 +70,7 @@ body {
 <main>
     <div class="container mb-5">
     <div class="col-md-8 main-col">
-        <h1 class="text-center text-primary">Passenger Details</h1>  
+        <h1 class="text-center text-primary">PASSENGER &nbsp; DETAILS</h1>  
         <form action="../includes/pass_detail.inc.php" class="needs-validation mt-4" 
             method="POST">
 

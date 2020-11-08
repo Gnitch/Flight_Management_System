@@ -27,7 +27,7 @@ label {
   src: url('../assets/css/Product Sans Bold.ttf');
   }
 h1 {
-    font-size: 45px !important;
+    font-size: 50px !important;
     margin-bottom: 20px;  
     font-family :'product sans' !important;
     font-weight: bolder;
@@ -57,7 +57,7 @@ h1 {
 }
 
 body{
-background-image: linear-gradient(to bottom right,#87CEFA, #B0E2FF);
+  background: -webkit-linear-gradient(left, #3931af, #00c6ff);
 }
 
 textarea:focus, 
@@ -87,11 +87,12 @@ input[type=number]:focus,
 	<div class="container-fluid py-3">
     <div class="row">
         <div class="col-12 col-sm-8 col-md-6 col-lg-4 mx-auto">
+          <h1 class="text-center text-light">PAY INVOICE</h1>
             <div id="pay-invoice" class="card">
                 <div class="card-body">
-                    <div class="card-title">
+                    <!-- <div class="card-title">
                         <h1 class="text-center text-primary">Pay Invoice</h1><hr>
-                    </div>
+                    </div> -->
             <label for="fname">Accepted Cards</label>
             <div class="icon-container">
               <i class="fa fa-cc-visa fa-3x" style="color:navy;"></i>
