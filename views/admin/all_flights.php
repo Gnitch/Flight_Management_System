@@ -32,6 +32,9 @@ h1 {
   font-size: 50px !important; 
   font-weight: lighter;
 }
+a:hover {
+  text-decoration: none;
+}
 body {
   background-color: #32B4F5;
 }
@@ -66,6 +69,7 @@ td {
                 </tr>
               </thead>
               <tbody>
+                
                 <?php
                 $sql = 'SELECT * FROM Flight ORDER BY flight_id DESC';
                 $stmt = mysqli_stmt_init($conn);
@@ -74,8 +78,10 @@ td {
                 $result = mysqli_stmt_get_result($stmt);
                 while ($row = mysqli_fetch_assoc($result)) {
                   echo "
-                  <tr>
-                    <td scope='row'>".$row['flight_id']."</td>
+                  <tr>                  
+                    <td scope='row'>
+                      <a href='pass_list.php?flight_id=".$row['flight_id']."'>
+                      ".$row['flight_id']." </a> </td>
                     <td>".$row['arrivale']."</td>
                     <td>".$row['departure']."</td>
                     <td>".$row['Destination']."</td>
@@ -89,7 +95,7 @@ td {
                       <button  class='btn' type='submit' name='del_flight'>
                       <i class='text-danger fa fa-trash'></i></button>
                     </form>
-                    </td>
+                    </td>                  
                   </tr>
                   ";
                 }

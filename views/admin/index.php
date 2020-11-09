@@ -59,8 +59,9 @@ require '../../helpers/init_conn_db.php';?>
                 while ($row = mysqli_fetch_assoc($result)) {
                   if($row['status']== '') {
                     echo '     
-                <tr>         
-                <td scope="row">'.$row['flight_id'].'</td>
+                <td scope="row">
+                  <a href="pass_list.php?flight_id='.$row['flight_id'].'">
+                  '.$row['flight_id'].' </a> </td>
                 <td>'.$row['arrivale'].'</td>
                 <td>'.$row['departure'].'</td>
                 <td>'.$row['Destination'].'</td>
@@ -139,7 +140,9 @@ require '../../helpers/init_conn_db.php';?>
                 while ($row = mysqli_fetch_assoc($result)) {
                   if($row['status']=='issue') {
                     echo '              
-                <td scope="row">'.$row['flight_id'].'</td>
+                <td scope="row">
+                  <a href="pass_list.php?flight_id='.$row['flight_id'].'">
+                  '.$row['flight_id'].' </a> </td>
                 <td>'.$row['arrivale'].'</td>
                 <td>'.$row['departure'].'</td>
                 <td>'.$row['Destination'].'</td>
@@ -209,7 +212,9 @@ require '../../helpers/init_conn_db.php';?>
                 while ($row = mysqli_fetch_assoc($result)) {
                   if($row['status']=='dep') {
                     echo '              
-                <td scope="row">'.$row['flight_id'].'</td>
+                <td scope="row">
+                  <a href="pass_list.php?flight_id='.$row['flight_id'].'">
+                  '.$row['flight_id'].' </a> </td>
                 <td>'.$row['arrivale'].'</td>
                 <td>'.$row['departure'].'</td>
                 <td>'.$row['Destination'].'</td>
@@ -279,7 +284,9 @@ require '../../helpers/init_conn_db.php';?>
                   while ($row = mysqli_fetch_assoc($result)) {
                   if($row['status']=='arr') {
                     echo '              
-                <td scope="row">'.$row['flight_id'].'</td>
+                <td scope="row">
+                  <a href="pass_list.php?flight_id='.$row['flight_id'].'">
+                  '.$row['flight_id'].' </a> </td>
                 <td>'.$row['arrivale'].'</td>
                 <td>'.$row['departure'].'</td>
                 <td>'.$row['Destination'].'</td>

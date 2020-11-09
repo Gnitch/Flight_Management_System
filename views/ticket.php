@@ -44,7 +44,46 @@ h1 {
 </style>
 <main>
   <?php if(isset($_SESSION['userId'])) {   
-    require '../helpers/init_conn_db.php';   ?>     
+    require '../helpers/init_conn_db.php';   
+    
+    if(isset($_POST['cancel_but'])) {
+        $ticket_id = $_POST['ticket_id'];
+        $stmt = mysqli_stmt_init($conn);
+        $sql = 'SELECT * FROM Ticket WHERE ticket_id=?';
+        $stmt = mysqli_stmt_init($conn);
+        if(!mysqli_stmt_prepare($stmt,$sql)) {
+            header('Location: ticket.php?error=sqlerror');
+            exit();            
+        } else {
+            mysqli_stmt_bind_param($stmt,'i',$ticket_id);            
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            if ($row = mysqli_fetch_assoc($result)) {   
+              $sql_pas = 'DELETE FROM Passenger_profile WHERE passenger_id=? 
+                AND user_id=?';
+              $stmt_pas = mysqli_stmt_init($conn);
+              if(!mysqli_stmt_prepare($stmt_pas,$sql_pas)) {
+                  header('Location: ticket.php?error=sqlerror');
+                  exit();            
+              } else {
+                  $pass_id = (int)$row['passenger_id'];
+                  mysqli_stmt_bind_param($stmt_pas,'ii',$pass_id,$_SESSION['userId']);            
+                  mysqli_stmt_execute($stmt_pas);
+                  $sql_t = 'DELETE FROM Ticket WHERE ticket_id=?';
+                  $stmt_t = mysqli_stmt_init($conn);
+                  if(!mysqli_stmt_prepare($stmt_t,$sql_t)) {
+                      header('Location: ticket.php?error=sqlerror');
+                      exit();            
+                  } else {
+                      mysqli_stmt_bind_param($stmt_t,'i',$row['ticket_id']);            
+                      mysqli_stmt_execute($stmt_t);
+                  }                  
+              }              
+            }
+        }        
+    }
+    
+    ?>     
     <div class="container mb-5"> 
     <h1 class="text-center text-light mt-4 mb-4">E-TICKETS</h1>
 
@@ -53,7 +92,7 @@ h1 {
       $sql = 'SELECT * FROM Ticket WHERE user_id=?';
       $stmt = mysqli_stmt_init($conn);
       if(!mysqli_stmt_prepare($stmt,$sql)) {
-          header('Location: my_flights.php?error=sqlerror');
+          header('Location: ticket.php?error=sqlerror');
           exit();            
       } else {
           mysqli_stmt_bind_param($stmt,'i',$_SESSION['userId']);            
@@ -63,7 +102,7 @@ h1 {
             $sql_p = 'SELECT * FROM Passenger_profile WHERE passenger_id=?';
             $stmt_p = mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt_p,$sql_p)) {
-                header('Location: my_flights.php?error=sqlerror');
+                header('Location: ticket.php?error=sqlerror');
                 exit();            
             } else {
                 mysqli_stmt_bind_param($stmt_p,'i',$row['passenger_id']);            
@@ -73,7 +112,7 @@ h1 {
                   $sql_f = 'SELECT * FROM Flight WHERE flight_id=?';
                   $stmt_f = mysqli_stmt_init($conn);
                   if(!mysqli_stmt_prepare($stmt_f,$sql_f)) {
-                      header('Location: my_flights.php?error=sqlerror');
+                      header('Location: ticket.php?error=sqlerror');
                       exit();            
                   } else {
                       mysqli_stmt_bind_param($stmt_f,'i',$row['flight_id']);            
@@ -85,16 +124,21 @@ h1 {
                         $time_dep = substr($date_time_dep,10,6) ;    
                         $date_time_arr = $row_f['arrivale'];
                         $date_arr = substr($date_time_arr,0,10);
-                        $time_arr = substr($date_time_arr,10,6) ;                          
+                        $time_arr = substr($date_time_arr,10,6) ; 
+                        if($row['class'] === 'E') {
+                            $class_txt = 'ECONOMY';
+                        } else if($row['class'] === 'B') {
+                            $class_txt = 'BUSINESS';
+                        }
                         echo '
-                        <div class="row ">                                                         
-                        <div class="col-9 out">
+                        <div class="row mb-5">                                                         
+                        <div class="col-8 out">
                             <div class="row ">                                                     
                                 <div class="col">
                                     <!-- brand -->
                                 </div>
                                 <div class="col">
-                                    <h2 class="mb-0">ECONOMY CLASS</h2>
+                                    <h2 class="mb-0">'.$class_txt.' CLASS</h2>
                                 </div>
                             </div>
                             <hr>
@@ -156,18 +200,32 @@ h1 {
                                         Thank you for Flying with us</h2>
                                 </div>
                             </div>
-                        </div>          
-                        </div>
-                        <div class="row mb-5">
-                            <div class="text-center col  mt-4">
-                                <form action="">
-                                    <button class="btn btn-lg btn-success mr-5">
-                                        <i class="fa fa-print"></i> &nbsp; Print</button>
-                                    <button class="btn btn-lg btn-danger ml-5">
-                                        <i class="fa fa-trash"></i> &nbsp; Cancel Ticket</button>
-                                </form>
-                            </div>
-                        </div>                                                  
+                        </div>   
+                        
+                        <div class="col-1">
+                            <div class="dropdown">
+                                <button class="btn btn-light dropdown-toggle" type="button" 
+                                    id="dropdownMenuButton" data-toggle="dropdown" 
+                                    aria-haspopup="true" aria-expanded="false">
+                                    
+                                    <i class="fa fa-ellipsis-v"></i> </td>
+                                </button>  
+                                <div class="dropdown-menu">
+                                    <form class="px-4 py-3"  action="ticket.php" 
+                                        method="post">
+                                        <input type="hidden" name="ticket_id" 
+                                            value='.$row['ticket_id'].'>
+                                        <button class="btn w-100 mb-3 btn-primary"
+                                            name="print_but">
+                                            <i class="fa fa-print"></i> &nbsp; Print Ticket</button>
+                                        <button class="btn  btn-danger"
+                                            name="cancel_but">
+                                            <i class="fa fa-trash"></i> &nbsp; Cancel Ticket</button>
+                                    </form>
+                                </div>
+                            </div>              
+                        </div>                          
+                        </div>                                               
                       ' ;
                       }
                   }                  
