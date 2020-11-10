@@ -1,3 +1,7 @@
+<?php include_once '../helpers/helper.php'; ?>
+	<?php subview('header.php'); 
+    require '../helpers/init_conn_db.php';                      
+	?> 	
 <style>
 /*--
 	Author: W3layouts
@@ -6,28 +10,10 @@
 	License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
 
-/*-- Reset-Code --*/
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
-	article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
-	ol,ul{list-style:none;margin:0px;padding:0px;}
-	blockquote,q{quotes:none;}
-	blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
-	table{border-collapse:collapse;border-spacing:0;}
-	a{text-decoration:none;}
-	.txt-rt{text-align:right;}/* text align right */
-	.txt-lt{text-align:left;}/* text align left */
-	.txt-center{text-align:center;}/* text align center */
-	.float-rt{float:right;}/* float right */
-	.float-lt{float:left;}/* float left */
-	.clear{clear:both;}/* clear float */
-	.pos-relative{position:relative;}/* Position Relative */
-	.pos-absolute{position:absolute;}/* Position Absolute */
-	.vertical-base{vertical-align:baseline;}/* vertical align baseline */
-	.vertical-top{vertical-align:top;}/* vertical align top */
-	nav.vertical ul li{display:block;}/* vertical menu */
-	nav.horizontal ul li{display: inline-block;}/* horizontal menu */
-	img{max-width:100%;}
-/*-- //Reset-Code --*/
+form.logout_form {
+	background: transparent;
+	padding: 10px !important;
+}
 body {
 	background:url('../assets/images/1.jpg') no-repeat 0px 0px;
 	background-size: cover;
@@ -39,17 +25,21 @@ h1,h2,h3,h4,h5,h6{
 	font-family: 'Montserrat', sans-serif;
 	
 }
+h5.text-light {
+	margin-top: 10px;
+}
+@font-face {
+  font-family: 'product sans';
+  src: url('../assets/css/Product Sans Bold.ttf');
+}
 h1{
-	color:#fff;
+    font-family :'product sans' !important;
+	color:cornflowerblue ;
 	font-size:50px;
 	margin-top:50px;
 	text-align:center;
 }
-.nav-link{
-	font-size: 120%;
-	margin-right: 50px;
 
-}
 .main-agileinfo{
 	margin:50px auto;
 	width:50%;
@@ -115,6 +105,7 @@ form {
     background:rgba(3, 3, 3, 0.57);
     padding: 25px;
 }
+
 h3 {
     font-size: 16px;
     color:rgb(255, 255, 255);
@@ -588,42 +579,10 @@ form.blackbg{
 }	
 </style>
 	<title>Flight Ticket Booking</title>
-	<?php include_once '../helpers/helper.php'; ?>
-	<?php subview('header.php'); ?>
 	<meta name="keywords" content="Flight Ticket Booking  Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
-	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } ;</script>
-	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-	<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>		
-
-	<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-            	<li class="nav-item active">
-            		<a class="nav-link" href="#">Home<span class="sr-only"></span></a>
-            	</li>
-            	<li class="nav-item">
-            		<a class="nav-link" href="#">Book</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Manage</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Help</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">About Us</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Feedback</a>
-				</li>
-			</ul>
-        </div>
-    </nav> -->
-	<h1 style="color: #fff; padding-top: 40px;">Flight Ticket Booking</h1>
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } ;</script>	
+	<!-- <main> -->
+	<h1 style="padding-top: 40px;" >Flight Ticket Booking</h1>
 	<div class="main-agileinfo">
 		<div class="sap_tabs">			
 			<div id="horizontalTab">
@@ -765,6 +724,3 @@ form.blackbg{
 		});
 	});
 </script>
-
-</body>
-</html>

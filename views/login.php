@@ -52,12 +52,21 @@ if(isset($_GET['error'])) {
     margin-bottom: 0px !important;
     margin-top: 10px;
   }
-  @font-face {
-  font-family: 'product sans';
-  src: url('../assets/css/Product Sans Bold.ttf');
+  h5 {
+    color: cornflowerblue;
+    font-weight: bold;
+    font-size: 22px ;
+	  font-family: 'Montserrat', sans-serif;    
+  }
+  .nav-link:hover {
+    color: lightblue !important;
   }
   a:hover {
     text-decoration: none;
+  }
+  @font-face {
+  font-family: 'product sans';
+  src: url('../assets/css/Product Sans Bold.ttf');
   }
   h1 {
     font-size: 55px !important;
