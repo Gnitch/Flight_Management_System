@@ -115,6 +115,7 @@ h3 {
 	width:48%;
 	float:left;
 }
+
 .from,.to,.date{
 	margin-bottom:40px;
 }
@@ -581,8 +582,6 @@ form.blackbg{
 	<title>Flight Ticket Booking</title>
 	<meta name="keywords" content="Flight Ticket Booking  Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } ;</script>	
-	<!-- <main> -->
-	<h1 style="padding-top: 40px;" >Flight Ticket Booking</h1>
 	<div class="main-agileinfo">
 		<div class="sap_tabs">			
 			<div id="horizontalTab">
@@ -596,21 +595,47 @@ form.blackbg{
 						<form action="#" method="post">
 							<div class="from">
 								<h3 style="color: rgba(255, 255, 255, 0.767);">From</h3>
-								<input type="text" name="city" class="city1" placeholder="Type Departure City" required="">
+								<?php
+								$sql = 'SELECT * FROM Cities ';
+								$stmt = mysqli_stmt_init($conn);
+								mysqli_stmt_prepare($stmt,$sql);         
+								mysqli_stmt_execute($stmt);          
+								$result = mysqli_stmt_get_result($stmt);    
+								echo '<select class="" name="dep_city" id="w3_country1">
+								<option selected>Departure</option>';
+								while ($row = mysqli_fetch_assoc($result)) {
+								echo '<option value='. $row['city']  .'>'. 
+									$row['city'] .'</option>';
+								}
+								?>
+								</select>  
 							</div>
 							<div class="to">
 								<h3 style="color: rgba(255, 255, 255, 0.767);">To</h3>
-								<input type="text" name="city" class="city2" placeholder="Type Destination City" required="">
+								<?php
+								$sql = 'SELECT * FROM Cities ';
+								$stmt = mysqli_stmt_init($conn);
+								mysqli_stmt_prepare($stmt,$sql);         
+								mysqli_stmt_execute($stmt);          
+								$result = mysqli_stmt_get_result($stmt);    
+								echo '<select class="" name="arr_city" id="w3_country1">
+								<option selected>Arrival</option>';
+								while ($row = mysqli_fetch_assoc($result)) {
+								echo '<option value='. $row['city']  .'>'. 
+									$row['city'] .'</option>';
+								}
+								?>
+								</select>							
 							</div>
 							<div class="clear"></div>
 							<div class="date">
 								<div class="depart">
 									<h3 style="color: rgba(255, 255, 255, 0.767);">Depart</h3>
-									<input  id="datepicker" name="Text" type="date" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
+									<input class="form-control" name="Text" type="date"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
 								</div>
 								<div class="return">
 									<h3 style="color: rgba(255, 255, 255, 0.767);">Return</h3>
-									<input  id="datepicker1" name="Text" type="date" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
+									<input class="form-control"  name="Text" type="date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
 								</div>
 								<div class="clear"></div>
 							</div>
@@ -643,19 +668,45 @@ form.blackbg{
 					<div class="tab-1 resp-tab-content oneway">
 						<form action="#" method="post">
 							<div class="from">
-								<h3 style="color: rgba(255, 255, 255, 0.767);">From</h3>
-								<input type="text" name="city" class="city1" placeholder="Type Departure City" required="">
+								<h3 style="color: rgba(255, 255, 255, 0.767);">From</h3>								
+								<?php
+								$sql = 'SELECT * FROM Cities ';
+								$stmt = mysqli_stmt_init($conn);
+								mysqli_stmt_prepare($stmt,$sql);         
+								mysqli_stmt_execute($stmt);          
+								$result = mysqli_stmt_get_result($stmt);    
+								echo '<select class="" name="dep_city" id="w3_country1">
+								<option selected>Departure</option>';
+								while ($row = mysqli_fetch_assoc($result)) {
+								echo '<option value='. $row['city']  .'>'. 
+									$row['city'] .'</option>';
+								}
+								?>
+								</select> 														
 							</div>
 							<div class="to">
-								<h3>To</h3>
-								<input type="text" name="city" class="city2" placeholder="Type Destination City" required="">
+								<h3>To</h3>								
+								<?php
+								$sql = 'SELECT * FROM Cities ';
+								$stmt = mysqli_stmt_init($conn);
+								mysqli_stmt_prepare($stmt,$sql);         
+								mysqli_stmt_execute($stmt);          
+								$result = mysqli_stmt_get_result($stmt);    
+								echo '<select class="" name="arr_city" id="w3_country1">
+								<option selected>Arrival</option>';
+								while ($row = mysqli_fetch_assoc($result)) {
+								echo '<option value='. $row['city']  .'>'. 
+									$row['city'] .'</option>';
+								}
+								?>
+								</select>									
 							</div>
 							<div class="clear"></div>
 							<div class="date">
 								<div class="depart">
 									<h3 style="color: rgba(255, 255, 255, 0.767);">Depart</h3>
-									<input class="date" id="datepicker2" name="Text" type="date" 
-										class="form-control" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
+									<input name="Text" type="date" 
+										class="form-control"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
 								</div>
 							</div>
 							<div class="class">

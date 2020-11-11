@@ -36,7 +36,7 @@ a:hover {
   text-decoration: none;
 }
 body {
-  background-color: #32B4F5;
+  background-color: #B0E2FF;
 }
 th {
   font-size: 25px;
@@ -53,8 +53,8 @@ td {
     <main>
         <?php if(isset($_SESSION['adminId'])) { ?>
           <div class="container-md mt-2">
-            <h1 class="display-4 text-center text-light"
-              >List of all Flight's</h1>
+            <h1 class="display-4 text-center text-primary"
+              >FLIGHT &nbsp; LIST</h1>
             <table class="table table-striped">
               <thead>
                 <tr>
@@ -78,7 +78,7 @@ td {
                 $result = mysqli_stmt_get_result($stmt);
                 while ($row = mysqli_fetch_assoc($result)) {
                   echo "
-                  <tr>                  
+                  <tr class='text-center'>                  
                     <td scope='row'>
                       <a href='pass_list.php?flight_id=".$row['flight_id']."'>
                       ".$row['flight_id']." </a> </td>

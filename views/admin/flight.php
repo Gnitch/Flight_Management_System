@@ -48,7 +48,7 @@
     padding: 40px;
     margin-top: 30px;
   }
-  select {
+  select.airline {
     float: right;
     font-weight: bold !important;
     color :cornflowerblue !important;
@@ -74,6 +74,8 @@
             echo "<script>alert('Dest. date/time is less than src.');</script>";
         } else if($_GET['error'] === 'sqlerr') {
           echo "<script>alert('Database error');</script>";
+        } else if($_GET['error'] === 'same') {
+          echo "<script>alert('Same city specified in source and destination');</script>";
         }
     }
     ?>
@@ -113,17 +115,43 @@
         </div>
 
         <div class="form-row mb-4">
-          <div class="col">
-            <div class="input-group">
-              <label for="dep_city">Departure city</label>
-              <input class="form-contol" type="text" name="dep_city" id="dep_city" required />
-            </div>                   
+          <div class="col">                
+            <?php
+            $sql = 'SELECT * FROM Cities ';
+            $stmt = mysqli_stmt_init($conn);
+            mysqli_stmt_prepare($stmt,$sql);         
+            mysqli_stmt_execute($stmt);          
+            $result = mysqli_stmt_get_result($stmt);    
+            echo '<select class="mt-4" name="dep_city" style="border: 0px; border-bottom: 
+              2px solid #31B0D5; background-color: whitesmoke !important;
+              font-weight: bold !important;color :cornflowerblue !important;
+              width:80%">
+              <option selected>From</option>';
+            while ($row = mysqli_fetch_assoc($result)) {
+              echo '<option value='. $row['city']  .'>'. 
+                $row['city'] .'</option>';
+            }
+            ?>
+            </select>             
           </div>
           <div class="col">
-            <div class="input-group">
-              <label for="arr_city">Arrival city</label>
-              <input type="text" name="arr_city" id="arr_city" required />
-            </div>              
+              <?php
+              $sql = 'SELECT * FROM Cities ';
+              $stmt = mysqli_stmt_init($conn);
+              mysqli_stmt_prepare($stmt,$sql);         
+              mysqli_stmt_execute($stmt);          
+              $result = mysqli_stmt_get_result($stmt);    
+              echo '<select class="mt-4" name="arr_city" style="border: 0px; border-bottom: 
+                2px solid #31B0D5; background-color: whitesmoke !important;
+                font-weight: bold !important;color :cornflowerblue !important;
+                width:80%">
+                <option selected>To</option>';
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo '<option value='. $row['city']  .'>'. 
+                  $row['city'] .'</option>';
+              }
+              ?>
+              </select>                
           </div>
         </div>
 
@@ -147,7 +175,7 @@
           mysqli_stmt_prepare($stmt,$sql);         
           mysqli_stmt_execute($stmt);          
           $result = mysqli_stmt_get_result($stmt);    
-          echo '<select class="airline col-md-3" name="airline_name" style="border: 0px; border-bottom: 
+          echo '<select class="airline col-md-3 mt-4" name="airline_name" style="border: 0px; border-bottom: 
             2px solid #31B0D5; background-color: whitesmoke !important;">
             <option selected>Select Airline</option>';
           while ($row = mysqli_fetch_assoc($result)) {
@@ -181,10 +209,6 @@ $(document).ready(function(){
       $("label[for='"+me.attr('id')+"']").removeClass("animate-label");
     }
   }) ;
-  // $('#test-form').submit(function(e){
-  //   e.preventDefault() ;
-  //   alert("Thank you") ;
-  // })
 });
 </script>
 <?php } ?>

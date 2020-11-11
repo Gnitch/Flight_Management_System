@@ -53,16 +53,21 @@ if(isset($_GET['error'])) {
     margin-top: 10px;
   }
   h5 {
-    color: cornflowerblue;
+    color: #0275d8;
     font-weight: bold;
     font-size: 22px ;
 	  font-family: 'Montserrat', sans-serif;    
   }
-  .nav-link:hover {
-    color: lightblue !important;
-  }
   a:hover {
     text-decoration: none;
+  }
+  .btn-outline-light {
+    color :#0275d8;
+    border-color: #0275d8 !important;
+  }
+  .btn-outline-light:hover {
+    color: white !important;
+    background-color: #0275d8 !important;
   }
   @font-face {
   font-family: 'product sans';

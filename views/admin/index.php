@@ -5,8 +5,7 @@ require '../../helpers/init_conn_db.php';?>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
 <style>
   body {
-    background-color: #32B4F5;
-    /* background: -webkit-linear-gradient(left, #3931af, #00c6ff); */
+    background-color: #B0E2FF;
   }
   td {
     font-family: 'Assistant', sans-serif !important;

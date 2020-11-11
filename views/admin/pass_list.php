@@ -13,7 +13,7 @@ h1 {
   font-weight: lighter;
 }
 body {
-  background-color: #32B4F5;
+  background-color: #B0E2FF;
 }
 th {
   font-size: 25px;
@@ -30,7 +30,7 @@ td {
     <main>
         <?php if(isset($_SESSION['adminId'])) { ?>
           <div class="container-md mt-2">
-            <h1 class="display-4 text-center text-light"
+            <h1 class="display-4 text-center text-primary"
               >Passenger List</h1>
             <table class="table table-striped">
               <thead>
@@ -64,7 +64,7 @@ td {
                     $result_p = mysqli_stmt_get_result($stmt_p);                
                     if ($row_p = mysqli_fetch_assoc($result_p)) {
                         echo "                  
-                        <tr>
+                        <tr class='text-center'>
                           <td>".$row['f_name']."</td>
                           <td>".$row['m_name']."</td>
                           <td>".$row['l_name']."</td>
