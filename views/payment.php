@@ -81,6 +81,8 @@ input[type=number]:focus,
   if(isset($_GET['error'])) {
     if($_GET['error'] === 'sqlerror') {
         echo"<script>alert('Database error')</script>";
+    } else if($_GET['error'] === 'sqlerror') {
+      echo"<script>alert('No return flight available')</script>";
     }
   }
 ?>

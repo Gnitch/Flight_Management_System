@@ -37,9 +37,10 @@ td {
     <main>
         <?php if(isset($_POST['search_but'])) { 
             $dep_date = $_POST['dep_date'];                        
-            $arr_date = $_POST['arr_date'];  
+            $ret_date = $_POST['ret_date'];  
             $dep_city = $_POST['dep_city'];  
-            $arr_city = $_POST['arr_city'];           
+            $arr_city = $_POST['arr_city'];     
+            $type = $_POST['type'];
             $f_class = $_POST['f_class'];
             $passengers = $_POST['passengers'];
 
@@ -69,6 +70,9 @@ td {
                 $result = mysqli_stmt_get_result($stmt);
                 while ($row = mysqli_fetch_assoc($result)) {
                   $price = (int)$row['Price']*(int)$passengers;
+                  if($type === 'round') {
+                    $price = $price*2;
+                  }
                   if($f_class == 'B') {
                       $price += 0.5*$price;
                   }
@@ -92,9 +96,11 @@ td {
                   if(isset($_SESSION['userId'])) {   
                     echo " <td>
                     <form action='pass_form.php' method='post'>
-                      <input name='flight_id' type='hidden' value=".$row['flight_id'].">
+                    <input name='flight_id' type='hidden' value=".$row['flight_id'].">
+                      <input name='type' type='hidden' value=".$type.">
                       <input name='passengers' type='hidden' value=".$passengers.">
                       <input name='price' type='hidden' value=".$price.">
+                      <input name='ret_date' type='hidden' value=".$ret_date.">
                       <input name='class' type='hidden' value=".$f_class.">
                       <button name='book_but' type='submit' 
                       class='btn btn-primary mt-0'>

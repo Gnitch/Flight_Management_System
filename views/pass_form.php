@@ -66,6 +66,8 @@ body {
     $passengers = $_POST['passengers']; 
     $price = $_POST['price'];
     $class = $_POST['class'];
+    $type = $_POST['type'];
+    $ret_date = $_POST['ret_date'];
 ?>    
 <main>
     <div class="container mb-5">
@@ -74,6 +76,8 @@ body {
         <form action="../includes/pass_detail.inc.php" class="needs-validation mt-4" 
             method="POST">
 
+            <input type="hidden" name="type" value=<?php echo $type; ?>>   
+            <input type="hidden" name="ret_date" value=<?php echo $ret_date; ?>>   
             <input type="hidden" name="class" value=<?php echo $class; ?>>   
             <input type="hidden" name="passengers" value=<?php echo $passengers; ?>>   
             <input type="hidden" name="price" value=<?php echo $price; ?>>   

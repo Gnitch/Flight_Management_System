@@ -81,6 +81,8 @@ if(isset($_POST['pass_but']) && isset($_SESSION['userId'])) {
         $_SESSION['class'] = $_POST['class'];
         $_SESSION['passengers'] = $passengers;
         $_SESSION['price'] = $_POST['price'];
+        $_SESSION['type'] = $_POST['type'];
+        $_SESSION['ret_date'] = $_POST['ret_date'];
         $_SESSION['pass_id'] = $pass_id+1;
         header('Location: ../views/payment.php');
         exit();          

@@ -636,7 +636,7 @@ form.blackbg{
 								</div>
 								<div class="return">
 									<h3 style="color: rgba(255, 255, 255, 0.767);">Return</h3>
-									<input class="form-control"  name="arr_date" type="date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
+									<input class="form-control"  name="ret_date" type="date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
 								</div>
 								<div class="clear"></div>
 							</div>
@@ -670,7 +670,7 @@ form.blackbg{
 						</form>						
 					</div>		
 					<div class="tab-1 resp-tab-content oneway">
-						<form action="#" method="post">
+						<form action="book_flight.php" method="post">
 							<input type="hidden" name="type" value="one">
 							<div class="from">
 								<h3 style="color: rgba(255, 255, 255, 0.767);">From</h3>								
