@@ -60,14 +60,13 @@ h1 {
             $result = mysqli_stmt_get_result($stmt);
             if ($row = mysqli_fetch_assoc($result)) {   
               $sql_pas = 'DELETE FROM Passenger_profile WHERE passenger_id=? 
-                AND user_id=?';
+                ';
               $stmt_pas = mysqli_stmt_init($conn);
               if(!mysqli_stmt_prepare($stmt_pas,$sql_pas)) {
                   header('Location: ticket.php?error=sqlerror');
                   exit();            
               } else {
-                  $pass_id = (int)$row['passenger_id'];
-                  mysqli_stmt_bind_param($stmt_pas,'ii',$pass_id,$_SESSION['userId']);            
+                  mysqli_stmt_bind_param($stmt_pas,'i',$row['passenger_id']);            
                   mysqli_stmt_execute($stmt_pas);
                   $sql_t = 'DELETE FROM Ticket WHERE ticket_id=?';
                   $stmt_t = mysqli_stmt_init($conn);

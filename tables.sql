@@ -57,13 +57,13 @@ CREATE TABLE Ticket (
   ticket_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   passenger_id INT NOT NULL,
   flight_id INT NOT NULL,
-  user_id INT NOT NULL,
+  user_id INT NOT NULL, 
   seat_no VARCHAR(10) NOT NULL,
   cost INT NOT NULL,
   class VARCHAR(3) NOT NULL,
   FOREIGN KEY(user_id) REFERENCES Users(user_id),
   FOREIGN KEY(flight_id) REFERENCES Flight(flight_id),
-  FOREIGN KEY(passenger_id) REFERENCES Passenger_profile(passenger_id)
+  FOREIGN KEY(passenger_id) REFERENCES Passenger_profile(passenger_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Airline (

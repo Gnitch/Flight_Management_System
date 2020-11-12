@@ -32,13 +32,12 @@ if(isset($_POST['pass_but']) && isset($_SESSION['userId'])) {
             exit();    
             break;
         }      
-    }    
+    }        
     $stmt = mysqli_stmt_init($conn);
-    $sql = 'SELECT passenger_id,flight_id,user_id FROM Passenger_profile WHERE flight_id=? AND
-        user_id=?';
+    $sql = 'SELECT * FROM Passenger_profile';
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt,$sql)) {
-        header('Location: ../views/payment.php?error=sqlerror');
+        header('Location: ../views/pass_form.php?error=sqlerror');
         exit();            
     } else {
         mysqli_stmt_bind_param($stmt,'ii',$flight_id,$_SESSION['userId']);            
@@ -48,23 +47,35 @@ if(isset($_POST['pass_but']) && isset($_SESSION['userId'])) {
         while ($row = mysqli_fetch_assoc($result)) {
             $pass_id=$row['passenger_id'];
         }
+    } 
+    if(is_null($pass_id)) {
+        $pass_id = 0;
+        $stmt = mysqli_stmt_init($conn);
+        $sql = 'ALTER TABLE Passenger_profile AUTO_INCREMENT = 1 ';
+        $stmt = mysqli_stmt_init($conn);
+        if(!mysqli_stmt_prepare($stmt,$sql)) {
+            header('Location: ../views/pass_form.php?error=sqlerror');
+            exit();            
+        } else {         
+            mysqli_stmt_execute($stmt);
+        }        
     }
     $stmt = mysqli_stmt_init($conn);
     $flag = false;
     for($i=0;$i<$date_len;$i++) {
-        $sql = 'INSERT INTO Passenger_profile (user_id,mobile,dob,f_name,m_name,l_name,
-            flight_id) VALUES (?,?,?,?,?,?,?)';            
+        $sql = 'INSERT INTO Passenger_profile (user_id,mobile,dob,f_name,
+        m_name,l_name,flight_id) VALUES (?,?,?,?,?,?,?)';            
         if(!mysqli_stmt_prepare($stmt,$sql)) {
             header('Location: ../views/pass_form.php?error=sqlerror');
             exit();            
         } else {
             mysqli_stmt_bind_param($stmt,'iissssi',$_SESSION['userId'],
                 $_POST['mobile'][$i],$_POST['date'][$i],$_POST['firstname'][$i],
-                    $_POST['midname'][$i],$_POST['lastname'][$i],$flight_id);            
+                $_POST['midname'][$i],$_POST['lastname'][$i],$flight_id);                           
             mysqli_stmt_execute($stmt);  
             $flag = true;        
         }
-    }
+    }   
     if($flag) {
         $_SESSION['flight_id'] = $flight_id;
         $_SESSION['class'] = $_POST['class'];

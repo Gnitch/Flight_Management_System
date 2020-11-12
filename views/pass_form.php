@@ -61,11 +61,11 @@ body {
       }
     }
     ?>
-<?php if(isset($_SESSION['userId'])) {   
-    $flight_id = 12;
-    $passengers = 2; 
-    $price = 10000;
-    $class = 'B';
+<?php if(isset($_SESSION['userId']) && isset($_POST['book_but'])) {   
+    $flight_id = $_POST['flight_id'];
+    $passengers = $_POST['passengers']; 
+    $price = $_POST['price'];
+    $class = $_POST['class'];
 ?>    
 <main>
     <div class="container mb-5">

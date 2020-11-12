@@ -71,7 +71,7 @@ td {
                           <td>".$row['mobile']."</td>
                           <td>".$row['dob']."</td>
                           <td scope='row'>".$row['user_id']."</td>
-                          <td>".$row_p['amount']."</td>
+                          <td>₹ ".$row_p['amount']."</td>
                         </tr>
                         ";                        
                     }                    

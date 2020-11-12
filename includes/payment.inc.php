@@ -31,9 +31,10 @@ if(isset($_POST['pay_but']) && isset($_SESSION['userId'])) {
             $sql = 'SELECT * FROM Flight WHERE flight_id=?';
             $stmt = mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt,$sql)) {
-                header('Location: ../views/payment.php?error=sqlerror');
+                header('Location: ../views/payment.php?error=sqlerror1');
                 exit();            
             } else {
+                $temp = 'no';
                 mysqli_stmt_bind_param($stmt,'i',$flight_id);            
                 mysqli_stmt_execute($stmt);
                 $result = mysqli_stmt_get_result($stmt);
@@ -57,6 +58,7 @@ if(isset($_POST['pay_but']) && isset($_SESSION['userId'])) {
                             $new_seat = (string)$seat_num . $seat_alpha;                         
                         }
                     } else if($class === 'E') {
+                        $temp = 'yes';
                         if($row['last_seat'] === '') {
                             $new_seat = '21A';
                         } else {
@@ -83,11 +85,11 @@ if(isset($_POST['pay_but']) && isset($_SESSION['userId'])) {
                             WHERE flight_id=?";
                         $temp='/';
                         if(!mysqli_stmt_prepare($stmt,$sql)) {
-                            header('Location: ../views/payment.php?error=sqlerror');
+                            header('Location: ../views/payment.php?error=sqlerror2');
                             exit();            
                         } else {
                             mysqli_stmt_bind_param($stmt,'sii',$new_seat,$seats,$flight_id);         
-                            // mysqli_stmt_execute($stmt);        
+                            mysqli_stmt_execute($stmt);        
                         }                            
                     } else if($class === 'E') {
                         $seats = $row['Seats'];
@@ -96,7 +98,7 @@ if(isset($_POST['pay_but']) && isset($_SESSION['userId'])) {
                         $sql = 'UPDATE Flight SET last_seat=?, Seats=?
                             WHERE flight_id=?';
                         if(!mysqli_stmt_prepare($stmt,$sql)) {
-                            header('Location: ../views/payment.php?error=sqlerror');
+                            header('Location: ../views/payment.php?error=sqlerror3');
                             exit();            
                         } else {
                             mysqli_stmt_bind_param($stmt,'sii',$new_seat,$seats,$flight_id);         
@@ -108,23 +110,22 @@ if(isset($_POST['pay_but']) && isset($_SESSION['userId'])) {
                         ,seat_no,cost,class,user_id
                         ) VALUES (?,?,?,?,?,?)';            
                     if(!mysqli_stmt_prepare($stmt,$sql)) {
-                        header('Location: ../views/payment.php?error=sqlerror');
+                        header('Location: ../views/payment.php?error=sqlerror4');
                         exit();            
                     } else {
                         mysqli_stmt_bind_param($stmt,'iisisi',$i,
                             $flight_id,$new_seat,$price,$class,$_SESSION['userId']);            
                         mysqli_stmt_execute($stmt);  
+                        echo mysqli_stmt_error($stmt);           
                         $flag = true;
                     }                                                                       
                   
                 }
                 else  {
-                    header('Location: ../views/payment.php?error=sqlerror');
+                    header('Location: ../views/payment.php?error=sqlerror5');
                     exit();                     
                 }
-            }
-            header('Location: ../views/payment.php?error=sqlerror');
-            exit();                
+            }   
         } 
         if($flag) {
             // Redirect to payment done page

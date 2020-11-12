@@ -592,7 +592,8 @@ form.blackbg{
 				<div class="clearfix"> </div>	
 				<div class="resp-tabs-container">
 					<div class="tab-1 resp-tab-content roundtrip">
-						<form action="#" method="post">
+						<form action="book_flight.php" method="post">
+							<input type="hidden" name="type" value="round">
 							<div class="from">
 								<h3 style="color: rgba(255, 255, 255, 0.767);">From</h3>
 								<?php
@@ -631,19 +632,20 @@ form.blackbg{
 							<div class="date">
 								<div class="depart">
 									<h3 style="color: rgba(255, 255, 255, 0.767);">Depart</h3>
-									<input class="form-control" name="Text" type="date"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
+									<input class="form-control" name="dep_date" type="date"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
 								</div>
 								<div class="return">
 									<h3 style="color: rgba(255, 255, 255, 0.767);">Return</h3>
-									<input class="form-control"  name="Text" type="date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
+									<input class="form-control"  name="arr_date" type="date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
 								</div>
 								<div class="clear"></div>
 							</div>
 							<div class="class">
 								<h3 style="color: rgba(255, 255, 255, 0.767);">Class</h3>
-								<select id="w3_country1" onchange="change_country(this.value)" class="frm-field required">
-									<option value="null">Economy</option>  
-									<option value="null">Business</option>   
+								<select id="w3_country1" 
+									name="f_class" onchange="change_country(this.value)" class="frm-field required">
+									<option value="E">Economy</option>  
+									<option value="B">Business</option>   
 								</select>
 
 							</div>
@@ -655,6 +657,8 @@ form.blackbg{
 										<div class="quantity-select">                           
 											<div class="entry value-minus">&nbsp;</div>
 											<div class="entry value"><span>1</span></div>
+											<input type="hidden" name="passengers"
+												 class="input_val" value="1">
 											<div class="entry value-plus active">&nbsp;</div>
 										</div>
 									</div>
@@ -662,11 +666,12 @@ form.blackbg{
 								<div class="clear"></div>
 							</div>
 							<div class="clear"></div>
-							<input type="submit" value="Search Flights">
+							<input type="submit" value="Search Flights" name="search_but">
 						</form>						
 					</div>		
 					<div class="tab-1 resp-tab-content oneway">
 						<form action="#" method="post">
+							<input type="hidden" name="type" value="one">
 							<div class="from">
 								<h3 style="color: rgba(255, 255, 255, 0.767);">From</h3>								
 								<?php
@@ -705,13 +710,14 @@ form.blackbg{
 							<div class="date">
 								<div class="depart">
 									<h3 style="color: rgba(255, 255, 255, 0.767);">Depart</h3>
-									<input name="Text" type="date" 
+									<input name="dep_date" type="date" 
 										class="form-control"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
 								</div>
 							</div>
 							<div class="class">
 								<h3 style="color: rgba(255, 255, 255, 0.767);">Class</h3>
-								<select id="w3_country1" onchange="change_country(this.value)" class="frm-field required">
+								<select id="w3_country1" name="f_class"
+									onchange="change_country(this.value)" class="frm-field required">
 									<option value="null">Economy</option>  
 									<option value="null">Business</option>   
 								</select>
@@ -725,6 +731,8 @@ form.blackbg{
 										<div class="quantity-select">                           
 											<div class="entry value-minus">&nbsp;</div>
 											<div class="entry value"><span>1</span></div>
+											<input type="hidden" name="passengers"
+												 class="input_val" value="1">											
 											<div class="entry value-plus active">&nbsp;</div>
 										</div>
 									</div>
@@ -732,7 +740,7 @@ form.blackbg{
 								<div class="clear"></div>
 							</div>
 							<div class="clear"></div>
-							<input type="submit" value="Search Flights">
+							<input type="submit" value="Search Flights" name="search_but">
 						</form>																				
 	</div>
     <?php subview('footer.php'); ?> 
@@ -751,11 +759,15 @@ form.blackbg{
 		$('.value-plus').on('click', function(){
 			var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
 			divUpd.text(newVal);
+			$('.input_val').val(newVal);
 		});
 
 		$('.value-minus').on('click', function(){
 			var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)-1;
-			if(newVal>=1) divUpd.text(newVal);
+			if(newVal>=1) {
+				divUpd.text(newVal);
+				$('.input_val').val(newVal);
+			} 
 		});
 		</script>
 								<!--//quantity-->
