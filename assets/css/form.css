@@ -12,7 +12,7 @@ input {
   font-size: 18px;
 }
 
-input[type=text], input[type=email] {
+input {
   border: none;
   border-bottom: 2px solid #31B0D5;
 }

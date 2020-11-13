@@ -1,48 +1,20 @@
-<?php include_once 'header.php'; ?>
-<link rel="stylesheet" href="../../assets/css/admin.css">
-
-  <div class="container">
-    <div class="card">
-      <div class="card-body">
-        <p class=" text-success">Flight's arrived today</p>
-        <table class="table-sm table">
-          <thead>
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Arrival</th>
-              <th scope="col">Departure</th>
-              <th scope="col">Destination</th>
-              <th scope="col">Source</th>
-              <th scope="col">Airline</th>
-            </tr>
-          </thead>
-          <tbody>
-              <tr>
-              <?php
-                $curr_date = (string)date('y-m-d');
-                $curr_date = '20'.$curr_date;
-                $sql = "SELECT * FROM Flight WHERE DATE(departure)=?";
-                $stmt = mysqli_stmt_init($conn);
-                mysqli_stmt_prepare($stmt,$sql);
-                mysqli_stmt_bind_param($stmt,'s',$curr_date);
-                mysqli_stmt_execute($stmt);
-                  $result = mysqli_stmt_get_result($stmt);
-                  while ($row = mysqli_fetch_assoc($result)) {
-                  if($row['status']=='arr') {
-                    echo '              
-                <td scope="row">'.$row['flight_id'].'</td>
-                <td>'.$row['arrivale'].'</td>
-                <td>'.$row['departure'].'</td>
-                <td>'.$row['Destination'].'</td>
-                <td>'.$row['source'].'</td>
-                <td>'.$row['airline'].'</td>                
-              </tr> ' ; }} ?>
-          </tbody>
-        </table>        
-      
-      </div>
-    </div>   
-  </div>
+<?php
 
 
-<?php include_once 'footer.php'; ?>
+$issue = '60';
+$delay_time = gmdate('h:i:s',(int)$issue*60);
+$date_time_dep = '2020-11-13 23:49:00';
+$date_dep = substr($date_time_dep,0,10);
+$time_dep = substr($date_time_dep,10,6) ;    
+$date_time_arr = '2020-11-13 08:49:00';
+$date_arr = substr($date_time_arr,0,10);
+$time_arr = substr($date_time_arr,10,6) ;   
+
+$time = new DateTime($date_time_dep);
+$time->add(new DateInterval('PT' . $issue . 'M'));
+
+$stamp = $time->format('Y-m-d H:i:s');
+
+echo $date_time_dep;
+echo '<br>';
+echo $stamp;

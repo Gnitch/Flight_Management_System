@@ -38,7 +38,7 @@ if(isset($_GET['pwd'])) {
     margin-top: 10px;
   }
   h1 {
-    font-size: 65px !important;
+    font-size: 60px !important;
     margin-bottom: 20px;  
     font-family :'product sans';
     font-weight: bolder;

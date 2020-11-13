@@ -12,6 +12,10 @@ if(isset($_POST['flight_but']) and isset($_SESSION['adminId'])) {
     $air_id = $_POST['airline_name'];
     $dura = $_POST['dura'];
 
+    if($dep_city===$arr_city || $arr_city==='To' || $arr_city==='From') {
+      header('Location: ../../views/admin/flight.php?error=same');
+      exit();
+    }
     $dest_date_len = strlen($dest_date);
     $dest_time_len = strlen($dest_time);
     $source_date_len = strlen($source_date);
@@ -91,7 +95,7 @@ if(isset($_POST['flight_but']) and isset($_SESSION['adminId'])) {
         header('Location: ../../views/admin/flight.php?flight=success');
         exit();
       } else {
-        header('Location: ../../views/admin/flight.php?error=sqlerr'.$price);
+        header('Location: ../../views/admin/flight.php?error=sqlerr');
         exit();
       }
     }

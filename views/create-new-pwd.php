@@ -21,8 +21,8 @@ if(isset($_GET['err']) || isset($_GET['pwd'])) {
     $selector = $_GET['selector'];
     $validator = $_GET['validator'];    
     if(empty($selector) || empty($validator)){
-        echo $_GET;
-        // echo '<script>alert("Could not validate your request")</script>'; 
+        // echo $_GET;
+        echo '<script>alert("Could not validate your request")</script>'; 
     } else {
         if(ctype_xdigit($selector) !== false && ctype_xdigit($validator) !== false){
             ?>

@@ -26,7 +26,7 @@ if(isset($_GET['error'])) {
     background-image: url('../assets/images/bg6.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 100% 100%;    
+    background-size: 100% 100%;        
   }    
   input {
     border :0px !important;
@@ -34,7 +34,9 @@ if(isset($_GET['error'])) {
     color :cornflowerblue !important;
     border-radius: 0px !important;
     font-weight: bold !important;
-    background-color: whitesmoke !important;    
+    background-color: whitesmoke !important;  
+    border: none;
+    border-bottom: 2px solid #31B0D5;      
   }
   *:focus {
     outline: none !important;
@@ -50,12 +52,26 @@ if(isset($_GET['error'])) {
     margin-bottom: 0px !important;
     margin-top: 10px;
   }
-  @font-face {
-  font-family: 'product sans';
-  src: url('../assets/css/Product Sans Bold.ttf');
+  h5 {
+    color: #0275d8;
+    font-weight: bold;
+    font-size: 22px ;
+	  font-family: 'Montserrat', sans-serif;    
   }
   a:hover {
     text-decoration: none;
+  }
+  .btn-outline-light {
+    color :#0275d8;
+    border-color: #0275d8 !important;
+  }
+  .btn-outline-light:hover {
+    color: white !important;
+    background-color: #0275d8 !important;
+  }
+  @font-face {
+  font-family: 'product sans';
+  src: url('../assets/css/Product Sans Bold.ttf');
   }
   h1 {
     font-size: 55px !important;
@@ -97,11 +113,13 @@ if(isset($_GET['error'])) {
   <div class="row">
     <?php
     if(isset($_GET['error'])) {
-        if($_GET['error'] === 'destless') {
-            echo "<script>alert('Dest. date/time is less than src.');</script>";
-        } else if($_GET['error'] === 'sqlerr') {
-          echo "<script>alert('Database error');</script>";
-        }
+        if($_GET['error'] === 'invalidcred') {
+          echo '<script>alert("Invalid Credentials")</script>';
+      } else if($_GET['error'] === 'wrongpwd') {
+          echo '<script>alert("Wrong Password")</script>';
+      } else if($_GET['error'] === 'sqlerror') {
+          echo"<script>alert('Database error')</script>";
+      }
     }
     ?>
       <div class="bg-light form-out col-md-5">

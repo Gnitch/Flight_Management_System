@@ -32,9 +32,11 @@ if(isset($_POST['login_but'])) {
         header('Location: ../views/login.php?error=invalidcred');
         exit();         
     }
+    header('Location: ../views/login.php?error=invalidcred');
+    exit();      
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
 } else {
-    header('Location: ../views/index.php');
+    header('Location: ../views/login.php');
     exit();  
 }    
