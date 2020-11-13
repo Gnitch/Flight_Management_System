@@ -1,5 +1,6 @@
 <?php include_once '../helpers/helper.php'; ?>
 <?php subview('header.php'); ?>
+<link rel="preconnect" href="https://fonts.gstatic.com">
 <style>
 body {
     background: -webkit-linear-gradient(right, #3931af, #00c6ff);
@@ -7,6 +8,10 @@ body {
 @font-face {
   font-family: 'product sans';
   src: url('../assets/css/Product Sans Bold.ttf');
+}
+h2.brand {
+    font-style: italic;
+    font-size: 45px !important;
 }
 .vl {
   border-left: 6px solid cornflowerblue;
@@ -138,7 +143,8 @@ h1 {
                         <div class="col-8 out">
                             <div class="row ">                                                     
                                 <div class="col">
-                                    <!-- brand -->
+                                    <h2 class="text-primary mb-0 brand">
+                                        SHIFT Airways</h2> 
                                 </div>
                                 <div class="col">
                                     <h2 class="mb-0">'.$class_txt.' CLASS</h2>
@@ -192,21 +198,24 @@ h1 {
                                 </div>                
                             </div>                    
                         </div>
-                        <div class="col-3" style="background-color:#30A4EE;
+                        <div class="col-3 pl-0" style="background-color:#30A4EE;
                             padding:20px">
-                            <div class="row">
-
-                                <div class="col">
-                                    <div class="row">
-                                        <img src="../assets/images/logo.png"
-                                            height="300px" width="310px" alt="">
-                                    </div>
-                                    <div class="row">
-                                        <h2 class="text-light text-center">
-                                            Thank you for Flying with us</h2>
-                                    </div>                                    
-                                </div>
+                            <div class="row">  
+                                <div class="col">                                    
+                                <h2 class="text-light text-center brand">
+                                    SHIFT Airways</h2> 
+                                </div>                                      
+                            </div>                             
+                            <div class="row justify-content-center">
+                                <div class="col-12">                                    
+                                    <img src="../assets/images/logo.png" class="mx-auto d-block"
+                                    height="180px" width="200px" alt="">
+                                </div>                                
                             </div>
+                            <div class="row">
+                                <h2 class="text-light text-center mt-2 mb-0">
+                                    Thank you for Flying with us</h2>   
+                            </div>                            
                         </div>   
                         
                         <div class="col-1">

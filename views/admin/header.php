@@ -63,15 +63,37 @@ button.btn-outline-light:hover {
                   </li>                     
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="nav-item  p-1 border-light ">
-                        <a class="nav-link" href="register.php">
-                            <i class="ml-1 fa fa-user text-light"></i>
-                            <span class="nav_link text-light"
-                              style="font-size: 20px;">
-                            <?php echo  $_SESSION['adminUname']; ?>
-                            </span>
-                        </a>
-                    </li>            
+                  <li class="nav-item">
+                    <div class="dropdown mt-2">
+                      <button class="btn bg-transparent dropdown-toggle text-white" type="button" 
+                        id="dropdownMenuButton" data-toggle="dropdown" 
+                          aria-haspopup="true" aria-expanded="false">
+                        
+                        <i class="fa fa-plus text-white"></i> </td>
+                      </button>  
+                      <div class="dropdown-menu">
+                        <form class="px-2 py-2"  action="../../includes/admin/airline.inc.php" method="post">
+                          <div class="form-group">
+                            <input type="text" class="form-control" name="airline" 
+                              placeholder="Enter Airline">
+                            <input type="number" class="form-control mt-3" name="seats" 
+                              placeholder="Enter seats">                              
+                          </div>  
+                          <button type="submit" name="air_but" 
+                            class="btn btn-primary w-100">Submit</button>
+                        </form>
+                      </div>
+                    </div>  
+                  </li>
+                  <li class="nav-item  p-1 border-light ">
+                      <a class="nav-link" href="register.php">
+                          <i class="ml-1 fa fa-user text-light"></i>
+                          <span class="nav_link text-light"
+                            style="font-size: 20px;">
+                          <?php echo  $_SESSION['adminUname']; ?>
+                          </span>
+                      </a>
+                  </li>            
                 </ul>                 
                 <form action="../../includes/logout.inc.php" method="POST">
                 <button class="btn btn-outline-light m-2" type="submit">

@@ -125,12 +125,24 @@ input {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
 }
 </style>
+
 <main>
+<?php
+if(isset($_GET['error'])) {
+    if($_GET['error'] === 'invalidemail') {
+        echo '<script>alert("Invalid email")</script>';
+    } else if($_GET['error'] === 'sqlerror') {
+        echo"<script>alert('Database error')</script>";
+    } else if($_GET['error'] === 'success') {
+      echo"<script>alert('Thank you for your Feedback')</script>";
+    } 
+}
+?>
 <div class="container mb-4">
   <h1>FEEDBACK</h1>
   <div class="row justify-content-center">
   <div class="col-md-6 bg-light form-box">
-    <form action="" method="POST">
+    <form action="../includes/feedback.inc.php" method="POST">
       <div class="row justify-content-center">  
           <div class="col-12 ">              
             <div class="input-group">
@@ -143,7 +155,7 @@ input {
               <label for="exampleFormControlTextarea1">What was your first impression
                   when you entered the website?</label>     
               <textarea class="form-control" id="exampleFormControlTextarea1" name="1"                
-                rows="3"></textarea>
+                rows="3" required></textarea>
             </div>                
           </div>             
           
@@ -152,7 +164,7 @@ input {
               <select class="mt-4" name="2" style="border: 0px; border-bottom: 
               2px solid #31B0D5; background-color: whitesmoke !important;
               font-weight: bold !important;color :cornflowerblue !important;
-              width:100%">
+              width:100%" required>
                 <option  selected disabled>How did you first hear about us?</option>
                 <option >Search Engine</option>
                 <option >Social Media</option>
@@ -168,7 +180,7 @@ input {
             <div class="form-group">         
               <label for="exampleFormControlTextarea1">Is there anything missing on this page?</label>     
               <textarea class="form-control" id="exampleFormControlTextarea1" name="3"                
-                rows="3"></textarea>
+                rows="3" required></textarea>
             </div>                
           </div>          
       </div>  
@@ -176,29 +188,29 @@ input {
       <div class="row">
         <div class="rating ml-3">  
           <label>
-            <input type="radio" name="stars" value="1" />
+            <input type="radio" name="stars" value="1" required />
             <span class="icon">★</span>
           </label>
           <label>
-            <input type="radio" name="stars" value="2" />
-            <span class="icon">★</span>
-            <span class="icon">★</span>
-          </label>
-          <label>
-            <input type="radio" name="stars" value="3" />
-            <span class="icon">★</span>
+            <input type="radio" name="stars" value="2" required />
             <span class="icon">★</span>
             <span class="icon">★</span>
           </label>
           <label>
-            <input type="radio" name="stars" value="4" />
-            <span class="icon">★</span>
+            <input type="radio" name="stars" value="3" required />
             <span class="icon">★</span>
             <span class="icon">★</span>
             <span class="icon">★</span>
           </label>
           <label>
-            <input type="radio" name="stars" value="5" />
+            <input type="radio" name="stars" value="4" required />
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+          </label>
+          <label>
+            <input type="radio" name="stars" value="5" required />
             <span class="icon">★</span>
             <span class="icon">★</span>
             <span class="icon">★</span>

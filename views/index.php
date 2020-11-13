@@ -15,12 +15,13 @@ form.logout_form {
 	padding: 10px !important;
 }
 body {
-	background:url('../assets/images/1.jpg') no-repeat 0px 0px;
+	background:url('../assets/images/bg2.jpg') no-repeat 0px 0px;
 	background-size: cover;
 	font-family: 'Open Sans', sans-serif;
 	background-attachment: fixed;
     background-position: center;
 }
+
 h1,h2,h3,h4,h5,h6{
 	font-family: 'Montserrat', sans-serif;
 	
@@ -577,6 +578,15 @@ form.blackbg{
 	.adults{
 		margin-bottom:25px;
 	}
+}
+@font-face {
+  font-family: 'product sans';
+  src: url('../assets/css/Product Sans Bold.ttf');
+}
+h1 {
+	font-family: 'product sans';
+    font-style: italic;
+    font-size: 60px !important;	
 }	
 </style>
 <?php
@@ -594,6 +604,10 @@ form.blackbg{
 	<meta name="keywords" content="Flight Ticket Booking  Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } ;</script>	
 	<div class="main-agileinfo">
+		<h1 class="text-light brand">
+			<img src="../assets/images/logo.png" 
+            	height="120px" width="130px" alt="">	
+		SHIFT Airways</h1>
 		<div class="sap_tabs">			
 			<div id="horizontalTab">
 				<ul class="resp-tabs-list">

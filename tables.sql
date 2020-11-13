@@ -10,7 +10,13 @@ CREATE TABLE Users(
     email VARCHAR(50) NOT NULL,
     password VARCHAR(100) NOT NULL 
 );
-
+CREATE TABLE PwdReset (
+  pwd_reset_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  pwd_reset_email varchar(50) NOT NULL,
+  pwd_reset_selector varchar(80) NOT NULL,
+  pwd_reset_token varchar(120) NOT NULL,
+  pwd_reset_expires varchar(20) NOT NULL
+);
 CREATE TABLE Flight (
   flight_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   admin_id INT NOT NULL,
@@ -74,4 +80,12 @@ CREATE TABLE Airline (
 
 CREATE TABLE Cities (
   city VARCHAR(20) NOT NULL
+);
+CREATE TABLE Feedback (
+  feed_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  email VARCHAR(50) NOT NULL,
+  q1 VARCHAR(250) NOT NULL,
+  q2 VARCHAR(20) NOT NULL,  
+  q3 VARCHAR(250) NOT NULL,
+  rate INT NOT NULL
 );
