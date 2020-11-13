@@ -87,21 +87,32 @@ td {
                   if($f_class == 'B') {
                       $price += 0.5*$price;
                   }
-                  if($row['status']==='') {
-                      $status = 'Not yet departed';
-                  } else if($row['status']==='dep') {
-                    $status = 'Departed';
-                  } else if($row['status']==='arr') {
-                    $status = 'Arrived';
-                  } else if($row['status']==='issue' || $row['issue']==='solved') {
-                    $status = 'Delayed';
-                  }
+                  if($row['status'] === '') {
+                      $status = "Not yet Departed";
+                      $alert = 'alert-primary';
+                  } else if($row['status'] === 'dep') {
+                      $status = "Departed";
+                      $alert = 'alert-success';
+                  } else if($row['status'] === 'issue') {
+                      $status = "Delayed";
+                      $alert = 'alert-danger';
+                  } else if($row['status'] === 'arr') {
+                      $status = "Arrived";
+                      $alert = 'alert-success';
+                  }                   
                   echo "
                   <tr class='text-center'>                  
                     <td>".$row['airline']."</td>
                     <td>".$row['departure']."</td>
                     <td>".$row['arrivale']."</td>
-                    <td>".$status."</td>
+                    <td>
+                      <div>
+                          <div class='alert ".$alert." text-center mb-0 pt-1 pb-1' 
+                              role='alert'>
+                              ".$status."
+                          </div>
+                      </div>  
+                    </td>                   
                     <td>₹ ".$price."</td>
                     ";
                   if(isset($_SESSION['userId'])) {   

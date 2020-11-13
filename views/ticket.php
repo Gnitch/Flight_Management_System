@@ -2,11 +2,15 @@
 <?php subview('header.php'); ?>
 <style>
 body {
-    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    background: -webkit-linear-gradient(right, #3931af, #00c6ff);
 }
 @font-face {
   font-family: 'product sans';
   src: url('../assets/css/Product Sans Bold.ttf');
+}
+.vl {
+  border-left: 6px solid cornflowerblue;
+  height: 400px;
 }
 p.head {
     text-transform: uppercase;
@@ -188,15 +192,19 @@ h1 {
                                 </div>                
                             </div>                    
                         </div>
-                        <div class="col-3" style="background-color: #0E4274;
+                        <div class="col-3" style="background-color:#30A4EE;
                             padding:20px">
                             <div class="row">
-                
-                            </div>
-                            <div class="row">
+
                                 <div class="col">
-                                    <h2 class="text-light text-center">
-                                        Thank you for Flying with us</h2>
+                                    <div class="row">
+                                        <img src="../assets/images/logo.png"
+                                            height="300px" width="310px" alt="">
+                                    </div>
+                                    <div class="row">
+                                        <h2 class="text-light text-center">
+                                            Thank you for Flying with us</h2>
+                                    </div>                                    
                                 </div>
                             </div>
                         </div>   
@@ -234,7 +242,6 @@ h1 {
       }   
       
        ?> 
-
 
     </div>
   </main>
