@@ -600,11 +600,10 @@ h1 {
       }
     }
 ?>
-	<title>Flight Ticket Booking</title>
 	<meta name="keywords" content="Flight Ticket Booking  Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } ;</script>	
 	<div class="main-agileinfo">
-		<h1 class="text-light brand">
+		<h1 class="text-light brand mt-2">
 			<img src="../assets/images/logo.png" 
             	height="120px" width="130px" alt="">	
 		SHIFT Airways</h1>

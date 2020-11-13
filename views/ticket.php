@@ -1,6 +1,5 @@
 <?php include_once '../helpers/helper.php'; ?>
 <?php subview('header.php'); ?>
-<link rel="preconnect" href="https://fonts.gstatic.com">
 <style>
 body {
     background: -webkit-linear-gradient(right, #3931af, #00c6ff);
@@ -153,7 +152,7 @@ h1 {
                             <hr>
                             <div class="row mb-3">  
                                 <div class="col-4">
-                                    <p class="head">Flight</p>
+                                    <p class="head">Airline</p>
                                     <p class="txt">'.$row_f['airline'].'</p>
                                 </div>            
                                 <div class="col-4">
@@ -184,7 +183,7 @@ h1 {
                                     <p class="h1 font-weight-bold mb-3">'.$time_dep.'</p>  
                                 </div>            
                                 <div class="col-3">
-                                    <p class="head">arrivale</p>
+                                    <p class="head">arrival</p>
                                     <p class="txt mb-1">'.$date_arr.'</p>
                                     <p class="h1 font-weight-bold mb-3">'.$time_arr.'</p>  
                                 </div>
@@ -198,7 +197,7 @@ h1 {
                                 </div>                
                             </div>                    
                         </div>
-                        <div class="col-3 pl-0" style="background-color:#30A4EE;
+                        <div class="col-3 pl-0" style="background-color:#30A4EE !important;
                             padding:20px">
                             <div class="row">  
                                 <div class="col">                                    
@@ -231,13 +230,18 @@ h1 {
                                         method="post">
                                         <input type="hidden" name="ticket_id" 
                                             value='.$row['ticket_id'].'>
-                                        <button class="btn w-100 mb-3 btn-primary"
-                                            name="print_but">
-                                            <i class="fa fa-print"></i> &nbsp; Print Ticket</button>
                                         <button class="btn  btn-danger"
                                             name="cancel_but">
                                             <i class="fa fa-trash"></i> &nbsp; Cancel Ticket</button>
                                     </form>
+                                    <form class="px-4 py-3" action="e_ticket.php" target="_blank"
+                                        method="post">
+                                        <input type="hidden" name="ticket_id" 
+                                            value='.$row['ticket_id'].'>
+                                        <button class="btn w-100 mb-3 btn-primary"
+                                            name="print_but">
+                                            <i class="fa fa-print"></i> &nbsp; Print Ticket</button>
+                                    </form>                                    
                                 </div>
                             </div>              
                         </div>                          

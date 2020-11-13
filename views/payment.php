@@ -81,8 +81,10 @@ input[type=number]:focus,
   if(isset($_GET['error'])) {
     if($_GET['error'] === 'sqlerror') {
         echo"<script>alert('Database error')</script>";
-    } else if($_GET['error'] === 'sqlerror') {
+    } else if($_GET['error'] === 'noret') {
       echo"<script>alert('No return flight available')</script>";
+    } else if($_GET['error'] === 'mailerr') {
+      echo"<script>alert('Mail error')</script>";
     }
   }
 ?>
@@ -92,9 +94,6 @@ input[type=number]:focus,
           <h1 class="text-center text-light">PAY INVOICE</h1>
             <div id="pay-invoice" class="card">
                 <div class="card-body">
-                    <!-- <div class="card-title">
-                        <h1 class="text-center text-primary">Pay Invoice</h1><hr>
-                    </div> -->
             <label for="fname">Accepted Cards</label>
             <div class="icon-container">
               <i class="fa fa-cc-visa fa-3x" style="color:navy;"></i>

@@ -1,5 +1,6 @@
 <?php
 session_start();
+use PHPMailer\PHPMailer\PHPMailer;
 if(isset($_POST['pay_but']) && isset($_SESSION['userId'])) {
     require '../helpers/init_conn_db.php';  
     $flight_id = $_SESSION['flight_id'];
@@ -235,8 +236,41 @@ if(isset($_POST['pay_but']) && isset($_SESSION['userId'])) {
             }             
         }
         if($flag) {
-            // Redirect to payment done page
-            // exit();
+            require_once "../vendor/autoload.php";
+            include '../vendor/phpmailer/phpmailer/src/Exception.php';
+            include '../vendor/phpmailer/phpmailer/src/PHPMailer.php';  
+            try {     
+                $mail = new PHPMailer(true);        
+                $mail->IsSMTP();
+                $mail->Mailer = "smtp";
+                $mail->SMTPDebug  = 1;  
+                $mail->SMTPAuth   = TRUE;
+                $mail->SMTPSecure = "tls";
+                $mail->Port       = 587;
+                $mail->Host       = "smtp.gmail.com";
+                $mail->Username   = "your-email@gmail.com";
+                $mail->Password   = "";
+                $mail->IsHTML(true);
+                $mail->SetFrom('test@gmail.com');
+                $mail->AddAddress($user_email);    
+                $mail->Subject = "Payment Invoice";
+                $content = "
+                    <p>Payemnt succesefully done </br>                    
+                    Amount:".$price." </br>
+                    Thank you for flying with us !!
+                    </p> 
+                ";             
+        
+                $mail->MsgHTML($content); 
+                $mail->Send();
+                header('Location: ../views/pay_success.php');
+                exit();    
+            } 
+            catch(Exception $e) {        
+                // echo $mail->ErrorInfo;
+                header('Location: ../views/payment.php?error=mailerr');      
+            }
+ 
         } else {
             header('Location: ../views/payment.php?error=sqlerror');
             exit();               
