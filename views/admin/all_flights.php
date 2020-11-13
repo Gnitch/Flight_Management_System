@@ -61,8 +61,8 @@ td {
                   <th class="text-info" scope="col">ID</th>
                   <th class="text-info" scope="col">Arrival</th>
                   <th class="text-info" scope="col">Departure</th>
-                  <th class="text-info" scope="col">Destination</th>
                   <th class="text-info" scope="col">Source</th>
+                  <th class="text-info" scope="col">Destination</th>
                   <th class="text-info" scope="col">Airline</th>
                   <th class="text-info" scope="col">Seats</th>
                   <th class="text-info" scope="col">Price</th>
@@ -84,8 +84,8 @@ td {
                       ".$row['flight_id']." </a> </td>
                     <td>".$row['arrivale']."</td>
                     <td>".$row['departure']."</td>
-                    <td>".$row['Destination']."</td>
                     <td>".$row['source']."</td>
+                    <td>".$row['Destination']."</td>
                     <td>".$row['airline']."</td>
                     <td>".$row['Seats']."</td>
                     <td>₹ ".$row['Price']."</td>

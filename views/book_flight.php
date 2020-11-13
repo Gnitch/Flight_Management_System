@@ -43,7 +43,18 @@ td {
             $type = $_POST['type'];
             $f_class = $_POST['f_class'];
             $passengers = $_POST['passengers'];
-
+            if($dep_city === $arr_city){
+              header('Location: ../views/index.php?error=sameval');
+              exit();    
+            }
+            if($dep_city === '0') {
+              header('Location: ../views/index.php?error=seldep');
+              exit(); 
+            }
+            if($arr_city === '0') {
+              header('Location: ../views/index.php?error=selarr');
+              exit();              
+            }
             ?>
           <div class="container-md mt-2">
             <h1 class="display-4 text-center text-light"
@@ -82,7 +93,7 @@ td {
                     $status = 'Departed';
                   } else if($row['status']==='arr') {
                     $status = 'Arrived';
-                  } else if($row['status']==='issue') {
+                  } else if($row['status']==='issue' || $row['issue']==='solved') {
                     $status = 'Delayed';
                   }
                   echo "

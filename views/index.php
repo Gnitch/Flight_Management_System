@@ -579,6 +579,17 @@ form.blackbg{
 	}
 }	
 </style>
+<?php
+    if(isset($_GET['error'])) {
+        if($_GET['error'] === 'sameval') {
+		  echo '<script>alert("Select different value for departure city and arrival city")</script>';
+      } else if($_GET['error'] === 'seldep') {
+          echo '<script>alert("Select Departure city")</script>';
+      } else if($_GET['error'] === 'selarr') {
+          echo"<script>alert('Select Arrival city')</script>";
+      }
+    }
+?>
 	<title>Flight Ticket Booking</title>
 	<meta name="keywords" content="Flight Ticket Booking  Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } ;</script>	
@@ -603,7 +614,7 @@ form.blackbg{
 								mysqli_stmt_execute($stmt);          
 								$result = mysqli_stmt_get_result($stmt);    
 								echo '<select class="" name="dep_city" id="w3_country1">
-								<option selected>Departure</option>';
+								<option value="0" selected>Departure</option>';
 								while ($row = mysqli_fetch_assoc($result)) {
 								echo '<option value='. $row['city']  .'>'. 
 									$row['city'] .'</option>';
@@ -619,7 +630,7 @@ form.blackbg{
 								mysqli_stmt_prepare($stmt,$sql);         
 								mysqli_stmt_execute($stmt);          
 								$result = mysqli_stmt_get_result($stmt);    
-								echo '<select class="" name="arr_city" id="w3_country1">
+								echo '<select value="0" name="arr_city" id="w3_country1">
 								<option selected>Arrival</option>';
 								while ($row = mysqli_fetch_assoc($result)) {
 								echo '<option value='. $row['city']  .'>'. 
@@ -680,7 +691,7 @@ form.blackbg{
 								mysqli_stmt_prepare($stmt,$sql);         
 								mysqli_stmt_execute($stmt);          
 								$result = mysqli_stmt_get_result($stmt);    
-								echo '<select class="" name="dep_city" id="w3_country1">
+								echo '<select value="0" name="dep_city" id="w3_country1">
 								<option selected>Departure</option>';
 								while ($row = mysqli_fetch_assoc($result)) {
 								echo '<option value='. $row['city']  .'>'. 
@@ -697,7 +708,7 @@ form.blackbg{
 								mysqli_stmt_prepare($stmt,$sql);         
 								mysqli_stmt_execute($stmt);          
 								$result = mysqli_stmt_get_result($stmt);    
-								echo '<select class="" name="arr_city" id="w3_country1">
+								echo '<select value="0" name="arr_city" id="w3_country1">
 								<option selected>Arrival</option>';
 								while ($row = mysqli_fetch_assoc($result)) {
 								echo '<option value='. $row['city']  .'>'. 
