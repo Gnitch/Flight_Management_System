@@ -248,11 +248,13 @@ if(isset($_POST['pay_but']) && isset($_SESSION['userId'])) {
                 $mail->SMTPSecure = "tls";
                 $mail->Port       = 587;
                 $mail->Host       = "smtp.gmail.com";
-                $mail->Username   = "your-email@gmail.com";
-                $mail->Password   = "";
+                $mail->Username   = "biddestthegreat@gmail.com";
+                $mail->Password   = "Sujoy6969";
                 $mail->IsHTML(true);
                 $mail->SetFrom('test@gmail.com');
-                $mail->AddAddress($user_email);    
+                $mail->AddAddress("
+                asindciuz@gmail.com
+                ");    
                 $mail->Subject = "Payment Invoice";
                 $content = "
                     <p>Payemnt succesefully done </br>                    
