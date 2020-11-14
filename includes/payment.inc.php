@@ -248,13 +248,14 @@ if(isset($_POST['pay_but']) && isset($_SESSION['userId'])) {
                 $mail->SMTPSecure = "tls";
                 $mail->Port       = 587;
                 $mail->Host       = "smtp.gmail.com";
-                $mail->Username   = "your-email@gmail.com";
-                $mail->Password   = "";
+                $mail->Username   = "biddestthegreat@gmail.com";
+                $mail->Password   = "Sujoy6969";
                 $mail->IsHTML(true);
                 $mail->SetFrom('test@gmail.com');
                 $mail->AddAddress($_SESSION['userMail']);    
                 $mail->Subject = "Payment Invoice";
                 $content = "
+                    <h3>SHIFT Airways</h3>
                     <p>Payemnt succesefully done </br>                    
                     Amount:".$price." </br>
                     Thank you for flying with us !!
