@@ -22,6 +22,7 @@ if(isset($_POST['login_but'])) {
                 session_start();
                 $_SESSION['userId'] = $row['user_id'];
                 $_SESSION['userUid'] = $row['username'];
+                $_SESSION['userMail'] = $row['email'];
                 header('Location: ../views/index.php?login=success');
                 exit();                  
             } else {

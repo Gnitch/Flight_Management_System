@@ -1,5 +1,3 @@
-
-
 CREATE TABLE Admin(
     admin_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     admin_uname VARCHAR(20) NOT NULL,

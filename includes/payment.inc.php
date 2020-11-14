@@ -252,7 +252,7 @@ if(isset($_POST['pay_but']) && isset($_SESSION['userId'])) {
                 $mail->Password   = "";
                 $mail->IsHTML(true);
                 $mail->SetFrom('test@gmail.com');
-                $mail->AddAddress($user_email);    
+                $mail->AddAddress($_SESSION['userMail']);    
                 $mail->Subject = "Payment Invoice";
                 $content = "
                     <p>Payemnt succesefully done </br>                    
