@@ -145,3 +145,4 @@ td {
         <?php } ?>
 
     </main>
+    <?php subview('footer.php'); ?> 

@@ -62,7 +62,12 @@ h5 {
                     <a class="nav-link" href="feedback.php">
                         <h5> Feedback</h5>
                     </a>
-                </li>                  
+                </li>   
+                <li class="nav-item">
+                    <a class="nav-link" href="aboutus.php">
+                        <h5> About</h5>
+                    </a>
+                </li>                                 
             <?php if(isset($_SESSION['userId'])) { ?>
                 <li class="nav-item">
                     <a class="nav-link" href="my_flights.php">
