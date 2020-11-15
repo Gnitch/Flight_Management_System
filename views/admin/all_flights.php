@@ -19,7 +19,6 @@ if(isset($_POST['del_flight']) and isset($_SESSION['adminId'])) {
   }
 }
 ?>
-<!-- <link rel="stylesheet" href="../../assets/css/admin.css"> -->
 
 <style>
 table {
