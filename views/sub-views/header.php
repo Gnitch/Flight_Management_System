@@ -57,17 +57,7 @@ h5 {
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="feedback.php">
-                        <h5> Feedback</h5>
-                    </a>
-                </li>   
-                <li class="nav-item">
-                    <a class="nav-link" href="aboutus.php">
-                        <h5> About</h5>
-                    </a>
-                </li>                                 
+            <ul class="navbar-nav mr-auto">                                
             <?php if(isset($_SESSION['userId'])) { ?>
                 <li class="nav-item">
                     <a class="nav-link" href="my_flights.php">
@@ -78,8 +68,18 @@ h5 {
                     <a class="nav-link" href="ticket.php">
                         <h5> Tickets</h5>
                     </a>
-                </li>                                                  
+                </li>                                                                  
             <?php } ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="feedback.php">
+                        <h5> Feedback</h5>
+                    </a>
+                </li>   
+                <li class="nav-item">
+                    <a class="nav-link" href="aboutus.php">
+                        <h5> About</h5>
+                    </a>
+                </li>             
             </ul>           
             <?php
             if(isset($_SESSION['userId'])) {

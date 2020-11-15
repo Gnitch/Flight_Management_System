@@ -2,13 +2,7 @@
 <?php subview('header.php');                     ?> 	
   
 <style>
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-}
+
 a,
 a:hover,
 a:focus,
@@ -262,15 +256,6 @@ body{
   background-color: lightskyblue;
 }
 
-.fa {
-  padding: 20px;
-  font-size: 30px;
-  width: 30px;
-  text-align: center;
-  text-decoration: none;
-  margin: 5px 2px;
-  border-radius: 70%;
-}
 
 .fa:hover {
     opacity: 0.7;
@@ -286,6 +271,10 @@ h1{
 	font-size:50px;
 	margin-top:50px;
 	text-align:center;
+}
+h5.text-light {
+ /* margin-bottom: 60px; */
+ margin-top: 0px !important;
 }
 h1:hover {
   color: cornflowerblue;

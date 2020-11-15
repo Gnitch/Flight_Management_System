@@ -63,6 +63,13 @@ td {
                     mysqli_stmt_execute($stmt_p);
                     $result_p = mysqli_stmt_get_result($stmt_p);                
                     if ($row_p = mysqli_fetch_assoc($result_p)) {
+                      $sql_u = 'SELECT * FROM Users WHERE user_id=?';  
+                      $stmt_u = mysqli_stmt_init($conn);
+                      mysqli_stmt_prepare($stmt_u,$sql_u);  
+                      mysqli_stmt_bind_param($stmt_u,'i',$row['user_id']);          
+                      mysqli_stmt_execute($stmt_u);
+                      $result_u = mysqli_stmt_get_result($stmt_u);                
+                      if ($row_u = mysqli_fetch_assoc($result_u)) {
                         echo "                  
                         <tr class='text-center'>
                           <td>".$row['f_name']."</td>
@@ -70,10 +77,11 @@ td {
                           <td>".$row['l_name']."</td>
                           <td>".$row['mobile']."</td>
                           <td>".$row['dob']."</td>
-                          <td scope='row'>".$row['user_id']."</td>
+                          <td scope='row'>".$row_u['username']."</td>
                           <td>₹ ".$row_p['amount']."</td>
                         </tr>
-                        ";                        
+                        "; 
+                      }                       
                     }                    
                 }
                 ?>
