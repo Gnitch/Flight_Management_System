@@ -2,6 +2,25 @@
 <?php subview('header.php'); ?>
 
 <link rel="stylesheet" href="../assets/css/login.css">
+<style>
+@font-face {
+  font-family: 'product sans';
+  src: url('../assets/css/Product Sans Bold.ttf');
+}
+h1{
+   font-family :'product sans' !important;
+	font-size:48px !important;
+	margin-top:20px;
+	text-align:center;
+}
+body {
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+}
+.login-form {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
+    border-radius: 0px;
+}
+</style>
 <?php
 if(isset($_GET['err']) || isset($_GET['pwd'])) {
     if($_GET['err'] === 'pwdnotmatch') {
@@ -15,8 +34,8 @@ if(isset($_GET['err']) || isset($_GET['pwd'])) {
 } 
 ?>
 <div class="flex-container">    
-<div class="login-form" style="height: 400px;">
-    <h2 class="display-4 text-center">Reset Password</h2>
+<div class="login-form mt-4" style="height: 300px;">
+    <h1 class="text-primary mb-3 text-center">Reset Password</h1>
     <?php 
     $selector = $_GET['selector'];
     $validator = $_GET['validator'];    
@@ -52,7 +71,7 @@ if(isset($_GET['err']) || isset($_GET['pwd'])) {
                 </div>                
                 <div class="submit">
                 <button name="new-pwd-submit" type="submit" class="button">
-                    Submit</button>                    
+                    Submit</button>                                       
                 </div>
             </form> 
             <?php

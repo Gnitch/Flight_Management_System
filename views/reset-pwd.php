@@ -2,9 +2,28 @@
 
 <?php subview('header.php'); ?>
 <link rel="stylesheet" href="../assets/css/login.css">
+<style>
+@font-face {
+  font-family: 'product sans';
+  src: url('../assets/css/Product Sans Bold.ttf');
+}
+h1{
+   font-family :'product sans' !important;
+	font-size:48px !important;
+	margin-top:20px;
+	text-align:center;
+}
+body {
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+}
+.login-form {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
+    border-radius: 0px;
+}
+</style>
 <div class="flex-container">
-    <div class="login-form" style="height: 400px;">
-        <h2 class="display-4 text-center">Reset Password</h2>
+    <div class="login-form mt-5" style="height: 350px;">
+        <h1 class="text-center text-primary mb-4">Reset Password</h1>
         <div class="alert text-center alert-info mb-0" 
             style="margin-left: 60px; margin-right:60px;" role="alert">   
             An email will be send to you with the instructions on how to reset the password.

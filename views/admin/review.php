@@ -17,22 +17,27 @@ h1 {
     font-family: 'product sans';  
     margin-bottom: 20px;  
 }
-p{
-  text-align: center;
-}
+
 p.mail {
   font-family: 'product sans';  
-  font-size: 35px;
+  font-size: 38px;
 }
 p.ans {
+  color: cornflowerblue;
   font-size: 18px;
 }
 p.quest {
+  color: #4C53D3;
   font-size: 18px;
   font-weight: bold;
-  text-align: center;
+  /* text-align: center; */
 }
 
+div.review-bag {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
+  background: whitesmoke;
+  padding: 30px !important;
+}
 </style>
 <?php if(isset($_SESSION['adminId'])) { ?>
 <main>
@@ -51,8 +56,9 @@ p.quest {
         array_push($arr,'checked');
       }     
       echo ' 
-      <div class="col-md-6">
-        <p class="mail">'.$row['email'].'</p>
+      <div class="col-md-6 mb-5">
+      <div class="review-bag">  
+        <p class="mail text-primary"> <i class="fa fa-user"></i> '.$row['email'].'</p>
         <p class="star">
           <span class="fa fa-star fa-lg '.$arr[0].'"></span>
           <span class="fa fa-star fa-lg '.$arr[1].'"></span>
@@ -66,8 +72,9 @@ p.quest {
         <p class="ans">'.$row['q2'].'</p>
         <p class="quest">Is there anything missing on this page?</p>
         <p class="ans">'.$row['q3'].'</p>
+      </div> 
       </div>   ';      
-    } ?>
+    } ?> 
   </div>  
 </div>
 </main>
