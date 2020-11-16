@@ -98,7 +98,7 @@ h1 {
                         $alert = 'alert-success';
                     }                              
                     echo '
-                    <div class="row out mb-4 ">
+                    <div class="row out mb-5 ">
                         <div class="col-md-4 order-lg-3 order-md-1"> ';    
                         if($row_f['status'] === 'arr') {
                             echo '

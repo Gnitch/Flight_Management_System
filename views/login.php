@@ -19,6 +19,47 @@ if(isset($_GET['error'])) {
         echo"<script>alert('Database error')</script>";
     }
 }
+if(isset($_COOKIE['Uname']) && isset($_COOKIE['Upwd'])) {
+  require '../helpers/init_conn_db.php';   
+  $email_id = $_POST['user_id'];
+  $password = $_POST['user_pass'];
+  $sql = 'SELECT * FROM Users WHERE username=? OR email=?;';
+  $stmt = mysqli_stmt_init($conn);
+  if(!mysqli_stmt_prepare($stmt,$sql)) {
+      header('Location: ../views/login.php?error=sqlerror');
+      exit();            
+  } else {
+      mysqli_stmt_bind_param($stmt,'ss',$_COOKIE['Uname'],$_COOKIE['Uname']);            
+      mysqli_stmt_execute($stmt);
+      $result = mysqli_stmt_get_result($stmt);
+      if($row = mysqli_fetch_assoc($result)) {
+          $pwd_check = password_verify($_COOKIE['Upwd'],$row['password']);
+          if($pwd_check == false) {
+              setcookie('Uname', '',time() - 3600);
+              setcookie('Upwd', '',time() - 3600);              
+              header('Location: ../views/login.php?error=wrongpwd');
+              exit();    
+          }
+          else if($pwd_check == true) {
+              session_start();
+              $_SESSION['userId'] = $row['user_id'];
+              $_SESSION['userUid'] = $row['username'];
+              $_SESSION['userMail'] = $row['email'];                            
+              header('Location: ../views/index.php?login=success');
+              exit();                  
+          } else {
+              header('Location: ../views/login.php?error=invalidcred');
+              exit();                    
+          }
+      }
+      header('Location: ../views/login.php?error=invalidcred');
+      exit();         
+  }
+  header('Location: ../views/login.php?error=invalidcred');
+  exit();      
+  mysqli_stmt_close($stmt);
+  mysqli_close($conn);
+}
 ?>
 <style>
   body {
@@ -110,17 +151,6 @@ if(isset($_GET['error'])) {
 <main>
 <div class="container mt-0">
   <div class="row">
-    <?php
-    if(isset($_GET['error'])) {
-        if($_GET['error'] === 'invalidcred') {
-          echo '<script>alert("Invalid Credentials")</script>';
-      } else if($_GET['error'] === 'wrongpwd') {
-          echo '<script>alert("Wrong Password")</script>';
-      } else if($_GET['error'] === 'sqlerror') {
-          echo"<script>alert('Database error')</script>";
-      }
-    }
-    ?>
       <div class="bg-light form-out col-md-5">
       <h1 class="text-primary text-center">SIGN IN</h1>
       
@@ -152,9 +182,10 @@ if(isset($_GET['error'])) {
           </div> 
 
         </div>          
-        <div class="row">
+        <div class="row mt-3">
+       
           <div class="col">
-          <a id="reset-pass" class="mt-2" href="reset-pwd.php"
+          <a id="reset-pass" class="mr-5" href="reset-pwd.php"
               style="float: right !important;">Reset Password</a>        
           </div>         
         </div>   

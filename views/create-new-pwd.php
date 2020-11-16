@@ -50,7 +50,7 @@ if(isset($_GET['err']) || isset($_GET['pwd'])) {
                 <input type="hidden" name="validator" value="<?php echo $validator ?>">
                 <div class="flex-container">             
                     <div>
-                        <i class="fa fa-lock"></i>
+                        <i class="fa fa-lock text-primary"></i>
                     </div>
                     <div>
                         <input type="password" name="password" class="form-input" 
@@ -62,7 +62,7 @@ if(isset($_GET['err']) || isset($_GET['pwd'])) {
                 </div>
                 <div class="flex-container">
                     <div>
-                        <i class="fa fa-lock"></i>
+                        <i class="fa fa-lock text-primary"></i>
                     </div>
                     <div>
                         <input type="password" name="password_repeat" class="form-input" 

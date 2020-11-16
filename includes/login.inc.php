@@ -23,6 +23,8 @@ if(isset($_POST['login_but'])) {
                 $_SESSION['userId'] = $row['user_id'];
                 $_SESSION['userUid'] = $row['username'];
                 $_SESSION['userMail'] = $row['email'];
+                setcookie('Uname', $email_id, time() + (86400 * 30), "/");
+                setcookie('Upwd', $password, time() + (86400 * 30), "/");                                
                 header('Location: ../views/index.php?login=success');
                 exit();                  
             } else {

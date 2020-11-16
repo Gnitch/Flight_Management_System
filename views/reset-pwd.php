@@ -31,11 +31,11 @@ body {
         <form method="POST" action="../includes/reset-request.inc.php">            
             <div class="flex-container">             
                 <div>
-                    <i class="fa fa-envelope"></i>
+                    <i class="fa fa-envelope text-primary"></i>
                 </div>
                 <div>
                     <input type="text" name="user_email" 
-                        placeholder="Enter your email address" class="form-input" required>
+                        placeholder="Enter your registered email-id" class="form-input" required>
                 </div>
             </div>
             <div class="submit">
