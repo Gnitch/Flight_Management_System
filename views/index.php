@@ -605,7 +605,7 @@ h1 {
 	<div class="main-agileinfo">
 		<h1 class="text-light brand mt-2">
 			<img src="../assets/images/logo.png" 
-            	height="120px" width="130px" alt="">	
+				height="120px" width="150px" alt="">				
 		SHIFT Airways</h1>
 		<div class="sap_tabs">			
 			<div id="horizontalTab">
@@ -766,6 +766,12 @@ h1 {
 							<div class="clear"></div>
 							<input type="submit" value="Search Flights" name="search_but">
 						</form>																				
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
 	</div>
     <?php subview('footer.php'); ?> 
 

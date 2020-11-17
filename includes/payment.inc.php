@@ -255,11 +255,12 @@ if(isset($_POST['pay_but']) && isset($_SESSION['userId'])) {
                 $mail->AddAddress($_SESSION['userMail']);    
                 $mail->Subject = "Payment Invoice";
                 $content = "
-                    <em><h3>SHIFT Airways</h3></em>
-                    <h5>Payment successfully done <br>                    
+                    <em><h2>
+                    SHIFT Airways</h2></em>
+                    <h4>Payment successfully done <br>                    
                     Amount: ₹".$price." <br>
                     Thank you for flying with us !!
-                    </h5> 
+                    </h4> 
                 ";             
         
                 $mail->MsgHTML($content); 
