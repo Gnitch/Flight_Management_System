@@ -139,7 +139,7 @@ if(isset($_GET['error'])) {
 }
 ?>
 <div class="container mb-4">
-  <h1>FEEDBACK</h1>
+  <h1> <i class="far fa-comment-alt"></i> FEEDBACK</h1>
   <div class="row justify-content-center">
   <div class="col-md-6 bg-light form-box">
     <form action="../includes/feedback.inc.php" method="POST">

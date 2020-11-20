@@ -605,7 +605,7 @@ h1 {
 	<div class="main-agileinfo">
 		<h1 class="text-light brand mt-2">
 			<img src="../assets/images/logo.png" 
-            	height="120px" width="130px" alt="">	
+				height="120px" width="150px" alt="">				
 		SHIFT Airways</h1>
 		<div class="sap_tabs">			
 			<div id="horizontalTab">
@@ -742,8 +742,8 @@ h1 {
 								<h3 style="color: rgba(255, 255, 255, 0.767);">Class</h3>
 								<select id="w3_country1" name="f_class"
 									onchange="change_country(this.value)" class="frm-field required">
-									<option value="null">Economy</option>  
-									<option value="null">Business</option>   
+									<option value="E">Economy</option>  
+									<option value="B">Business</option>   
 								</select>
 
 							</div>
@@ -766,6 +766,12 @@ h1 {
 							<div class="clear"></div>
 							<input type="submit" value="Search Flights" name="search_but">
 						</form>																				
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
 	</div>
     <?php subview('footer.php'); ?> 
 

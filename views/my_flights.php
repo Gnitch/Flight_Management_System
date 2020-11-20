@@ -57,7 +57,8 @@ h1 {
     <h1 class="text-center text-light mt-4 mb-4">FLIGHT STATUS</h1>
     <?php 
     $stmt = mysqli_stmt_init($conn);
-    $sql = 'SELECT DISTINCT flight_id FROM Passenger_profile WHERE user_id=?';
+    $sql = 'SELECT DISTINCT flight_id FROM Passenger_profile WHERE user_id=? ORDER BY
+        flight_id DESC';
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt,$sql)) {
         header('Location: my_flights.php?error=sqlerror');
@@ -67,7 +68,7 @@ h1 {
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
         while ($row = mysqli_fetch_assoc($result)) {
-            $sql_f = 'SELECT * FROM Flight WHERE flight_id=?';
+            $sql_f = 'SELECT * FROM Flight WHERE flight_id=? ';
             $stmt_f = mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt_f,$sql_f)) {
                 header('Location: my_flights.php?error=sqlerror');
@@ -97,8 +98,26 @@ h1 {
                         $alert = 'alert-success';
                     }                              
                     echo '
-                    <div class="row out mb-4 ">
-                        <div class="col-md-4 order-lg-3 order-md-1"> 
+                    <div class="row out mb-5 ">
+                        <div class="col-md-4 order-lg-3 order-md-1"> ';    
+                        if($row_f['status'] === 'arr') {
+                            echo '
+                            <div class="row">
+                                <div class="col-1 p-0 m-0">
+                                    <i class="fa fa-circle mt-4 text-success"
+                                        style="float: right;"></i>
+                                </div>                            
+                                <div class="col-10 p-0 m-0 mt-3" style="float: right;">
+                                    <hr class="bg-success">
+                                </div>                            
+                                <div class="col-1 p-0 m-0">
+                                    <i class="fa fa-2x fa-fighter-jet mt-3 text-success"
+                                        ></i>
+                                </div>                                    
+                            </div>                            
+                            ';
+                        } else {
+                            echo '
                             <div class="row">
                                 <div class="col-1 p-0 m-0">
                                     <i class="fa fa-2x fa-fighter-jet mt-3 text-success"
@@ -111,7 +130,10 @@ h1 {
                                     <i class="fa fa-circle mt-4"
                                         style="color: lightgrey;"></i>
                                 </div>                             
-                            </div>
+                            </div>                            
+                            ';
+                        }                     
+                            echo '
                         </div>
                 
                         <div class="col-md-3 col-6 order-md-2 pl-0 text-center 

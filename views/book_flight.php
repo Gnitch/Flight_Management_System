@@ -115,7 +115,7 @@ td {
                     </td>                   
                     <td>₹ ".$price."</td>
                     ";
-                  if(isset($_SESSION['userId'])) {   
+                  if(isset($_SESSION['userId']) && $row['status'] === '') {   
                     echo " <td>
                     <form action='pass_form.php' method='post'>
                     <input name='flight_id' type='hidden' value=".$row['flight_id'].">
@@ -145,3 +145,4 @@ td {
         <?php } ?>
 
     </main>
+    <?php subview('footer.php'); ?> 

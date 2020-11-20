@@ -6,7 +6,7 @@ if(isset($_POST['login_but'])) {
     $sql = 'SELECT * FROM Users WHERE username=? OR email=?;';
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt,$sql)) {
-        header('Location: ../views/index.php?error=sqlerror');
+        header('Location: ../views/login.php?error=sqlerror');
         exit();            
     } else {
         mysqli_stmt_bind_param($stmt,'ss',$email_id,$email_id);            
@@ -22,6 +22,9 @@ if(isset($_POST['login_but'])) {
                 session_start();
                 $_SESSION['userId'] = $row['user_id'];
                 $_SESSION['userUid'] = $row['username'];
+                $_SESSION['userMail'] = $row['email'];
+                setcookie('Uname', $email_id, time() + (86400 * 30), "/");
+                setcookie('Upwd', $password, time() + (86400 * 30), "/");                                
                 header('Location: ../views/index.php?login=success');
                 exit();                  
             } else {
@@ -29,6 +32,8 @@ if(isset($_POST['login_but'])) {
                 exit();                    
             }
         }
+        header('Location: ../views/login.php?error=invalidcred');
+        exit();         
     }
     header('Location: ../views/login.php?error=invalidcred');
     exit();      

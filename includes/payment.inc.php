@@ -121,7 +121,7 @@ if(isset($_POST['pay_but']) && isset($_SESSION['userId'])) {
                         mysqli_stmt_bind_param($stmt,'iisisi',$i,
                             $flight_id,$new_seat,$price,$class,$_SESSION['userId']);            
                         mysqli_stmt_execute($stmt);  
-                        // echo mysqli_stmt_error($stmt);           
+                        // echo mysqli_stmt_error($stmt), $class   ;           
                         $flag = true;
                     }                                                                       
                   
@@ -252,15 +252,15 @@ if(isset($_POST['pay_but']) && isset($_SESSION['userId'])) {
                 $mail->Password   = "Sujoy6969";
                 $mail->IsHTML(true);
                 $mail->SetFrom('test@gmail.com');
-                $mail->AddAddress("
-                asindciuz@gmail.com
-                ");    
+                $mail->AddAddress($_SESSION['userMail']);    
                 $mail->Subject = "Payment Invoice";
                 $content = "
-                    <p>Payemnt succesefully done </br>                    
-                    Amount:".$price." </br>
+                    <em><h2>
+                    SHIFT Airways</h2></em>
+                    <h4>Payment successfully done <br>                    
+                    Amount: ₹".$price." <br>
                     Thank you for flying with us !!
-                    </p> 
+                    </h4> 
                 ";             
         
                 $mail->MsgHTML($content); 

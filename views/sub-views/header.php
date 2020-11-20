@@ -13,7 +13,7 @@ session_start();
         <script src="https://kit.fontawesome.com/44f557ccce.js"></script>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <title>SHIFT Airways</title>    
+        <title>SHIFT Airways</title>         
         <link rel = "icon" href =  
             "../assets/images/brand.png" 
         type = "image/x-icon">       
@@ -57,12 +57,7 @@ h5 {
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="feedback.php">
-                        <h5> Feedback</h5>
-                    </a>
-                </li>                  
+            <ul class="navbar-nav mr-auto">                                
             <?php if(isset($_SESSION['userId'])) { ?>
                 <li class="nav-item">
                     <a class="nav-link" href="my_flights.php">
@@ -73,8 +68,18 @@ h5 {
                     <a class="nav-link" href="ticket.php">
                         <h5> Tickets</h5>
                     </a>
-                </li>                                                  
+                </li>                                                                  
             <?php } ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="feedback.php">
+                        <h5> Feedback</h5>
+                    </a>
+                </li>   
+                <li class="nav-item">
+                    <a class="nav-link" href="aboutus.php">
+                        <h5> About</h5>
+                    </a>
+                </li>             
             </ul>           
             <?php
             if(isset($_SESSION['userId'])) {
