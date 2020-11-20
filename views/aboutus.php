@@ -406,3 +406,10 @@ h1:hover {
 </main>
 <?php subview('footer.php'); ?> 
 
+<footer>
+	<em><h5 class="text-light text-center p-0 brand mt-2">
+				<img src="../assets/images/logo.png" 
+					height="40px" width="40px" alt="">				
+			SHIFT Airways</h5></em>
+	<p class="text-light text-center">&copy; Copyright 2020</p>
+</footer>
