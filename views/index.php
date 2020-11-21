@@ -9,7 +9,12 @@
 	License: Creative Commons Attribution 3.0 Unported
 	License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
-
+footer {
+  /* position: absolute; */
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;            /* Footer height */
+}
 form.logout_form {
 	background: transparent;
 	padding: 10px !important;
@@ -772,7 +777,83 @@ h1 {
 	</div>
 	</div>
 	</div>
+<style>
+div.card {
+  -webkit-transition: 0.4s ease;
+  transition: 0.4s ease;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
+}
+
+.col-6:hover div.card {
+  -webkit-transform: scale(1.08);
+  transform: scale(0.89);
+}	
+</style>
+<div class="conatiner-fluid p-4" style="background-color: whitesmoke;margin-top:150px;">
+   <h2 class="text-center mb-3 mt-3 display-4"
+	   style="font-style: normal;font-size:80px;">Main Attractions In India</h2>   
+	<div class="row p-5 pb-0">
+		<div class="col-6">
+			<div class="card" >
+				<img src="../assets/images/cd1.jpg" class="card-img-top" alt="...">
+				<div class="card-body">
+					<h2 class="text-center">The Taj Mahal, Agra</h2>
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="card" >
+				<img src="../assets/images/cd5.jpg" class="card-img-top" alt="...">
+				<div class="card-body">
+				<h2 class="text-center"> Mumbai: The Gateway of India</h2>				
+				</div>
+			</div>			
+		</div>								
 	</div>
+	<div class="row p-5 pb-0">
+		<div class="col-6">
+			<div class="card" >
+				<img src="../assets/images/cd3.jpg" class="card-img-top" alt="...">
+				<div class="card-body">
+				<h2 class="text-center">The Golden City: Jaisalmer</h2>					
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="card" >
+				<img src="../assets/images/cd2.jpg" class="card-img-top" alt="...">
+				<div class="card-body">
+				<h2 class="text-center">The Holy City of Varanasi</h2>
+				</div>
+			</div>			
+		</div>								
+	</div>	
+	<div class="row p-5 ">
+		<div class="col-6">
+			<div class="card" >
+				<img src="../assets/images/cd4.jpg" class="card-img-top" alt="...">
+				<div class="card-body">
+				<h2 class="text-center">The Red Fort, New Delhi</h2>					
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="card" >
+				<img src="../assets/images/cd6.jpeg" class="card-img-top" alt="...">
+				<div class="card-body">
+				<h2 class="text-center">Harmandir Sahib: The Golden Temple of Amritsar</h2>					
+				</div>
+			</div>
+		</div>								
+	</div>	
+	<footer class="mt-5">
+	<em><h5 class="text-primary text-center p-0 brand mt-2">
+				<img src="../assets/images/logo.png" 
+					height="40px" width="40px" alt="">				
+			SHIFT Airways</h5></em>
+	<p class="text-primary text-center">&copy; Copyright 2020</p>
+	</footer>	
+</div>
     <?php subview('footer.php'); ?> 
 
 		<script src="../assets/js/easyResponsiveTabs.js" type="text/javascript"></script>

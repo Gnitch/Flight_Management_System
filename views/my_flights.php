@@ -165,6 +165,7 @@ h1 {
 
     ?>    
 </div>
+
 </main>     
 <?php } ?>
 <?php subview('footer.php'); ?> 
