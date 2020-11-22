@@ -781,7 +781,7 @@ h1 {
 	</div>
 <style>
 .intro{width:100%;background:#fff;z-index:1}
-.intro_background{position:absolute;top:-128px;left:0;width:100%;height:480px;background-repeat:no-repeat;background-size:cover;background-position:center center}
+.intro_background{top:-128px;left:0;width:100%;height:20px;background-repeat:no-repeat;background-size:cover;background-position:center center}
 .intro_container{width:100%;border-bottom:solid 2px #e4e6e8;padding-top:142px;padding-bottom:121px}
 .intro_icon{width:70px;height:71px}
 .intro_icon img{max-width:100%}
