@@ -1,15 +1,17 @@
-CREATE TABLE Admin(
-    admin_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    admin_uname VARCHAR(20) NOT NULL,
-    admin_email VARCHAR(50) NOT NULL,
-    admin_pwd VARCHAR(100) NOT NULL
-);
-CREATE TABLE Users(
-    user_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    username VARCHAR(20) NOT NULL,
-    email VARCHAR(50) NOT NULL,
-    password VARCHAR(100) NOT NULL 
-);
+
+
+-- CREATE TABLE Admin(
+--     admin_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+--     admin_uname VARCHAR(20) NOT NULL,
+--     admin_email VARCHAR(50) NOT NULL,
+--     admin_pwd VARCHAR(100) NOT NULL
+-- );
+-- CREATE TABLE Users(
+--     user_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+--     username VARCHAR(20) NOT NULL,
+--     email VARCHAR(50) NOT NULL,
+--     password VARCHAR(100) NOT NULL 
+-- );
 CREATE TABLE PwdReset (
   pwd_reset_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   pwd_reset_email varchar(50) NOT NULL,
