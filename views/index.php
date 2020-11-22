@@ -871,11 +871,12 @@ div.card {
             </div>
 			</div>
 <!-- <div class="conatiner-fluid p-4" style="background-color: whitesmoke;margin-top:150px;"> -->
-   <h2 class="text-center mb-3 mt-3 display-4"
-			
-	   style="font-style: normal;font-size:80px;">Main Attractions In India</h2>   
-	<div class="row p-5 pb-0">
-		<div class="col-lg-6 col-sm-6">
+   <h2 class="text-center mb-3 mt-5 d-none d-md-block"			
+	   style="font-style: normal;font-size:60px;">Main Attractions In India</h2>   
+   <h2 class="text-center mb-3 mt-5 d-md-none"			
+	   style="font-style: normal;font-size:40px;">Main Attractions In India</h2>   	   
+	<div class="row p-3 p-md-5 pb-0">
+		<div class="col-lg-6 mb-4">
 			<div class="card" >
 				<img src="../assets/images/cd1.jpg" class="card-img-top" alt="...">
 				<div class="card-body">
@@ -883,7 +884,7 @@ div.card {
 				</div>
 			</div>
 		</div><br>
-		<div class="col-lg-6 col-sm-6">
+		<div class="col-lg-6 ">
 			<div class="card" >
 				<img src="../assets/images/cd5.jpg" class="card-img-top" alt="...">
 				<div class="card-body">
@@ -892,8 +893,8 @@ div.card {
 			</div>			
 		</div>								
 	</div>
-	<div class="row p-5 pb-0">
-		<div class="col-lg-6 col-sm-6">
+	<div class="row p-3 p-md-5 pb-0">
+		<div class="col-lg-6 mb-4">
 			<div class="card" >
 				<img src="../assets/images/cd3.jpg" class="card-img-top" alt="...">
 				<div class="card-body">
@@ -901,7 +902,7 @@ div.card {
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-6 col-sm-6">
+		<div class="col-lg-6 ">
 			<div class="card" >
 				<img src="../assets/images/cd2.jpg" class="card-img-top" alt="...">
 				<div class="card-body">
@@ -910,8 +911,8 @@ div.card {
 			</div>			
 		</div>								
 	</div>	
-	<div class="row p-5 ">
-		<div class="col-lg-6 col-sm-6">
+	<div class="row p-3 p-md-5 ">
+		<div class="col-lg-6 mb-4">
 			<div class="card" >
 				<img src="../assets/images/cd4.jpg" class="card-img-top" alt="...">
 				<div class="card-body">
@@ -919,7 +920,7 @@ div.card {
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-6 col-sm-6">
+		<div class="col-lg-6 ">
 			<div class="card" >
 				<img src="../assets/images/cd6.jpeg" class="card-img-top" alt="...">
 				<div class="card-body">
@@ -935,7 +936,7 @@ div.card {
 					height="40px" width="40px" alt="">				
 			SHIFT Airways</h5></em>
 	<div class="text-primary text-center">&copy; Copyright 2020<br><br></div>
-	<p>----------</p>
+	<!-- <p>----------</p> -->
 	
 	</footer>	
 
