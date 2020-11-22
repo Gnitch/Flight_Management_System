@@ -605,6 +605,8 @@ h1 {
       }
     }
 ?>
+<link rel="stylesheet" type="text/css"
+        href="styles%2c_bootstrap4%2c_bootstrap.min.css%2bplugins%2c_font-awesome-4.7.0%2c_css%2c_font-awesome.min.css%2bplugins%2c_OwlCarousel2-2.2.1%2c_owl.carousel.css%2bplugins%2c_OwlCarousel2-2.2.1%2c_owl" />
 	<meta name="keywords" content="Flight Ticket Booking  Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } ;</script>	
 	<div class="main-agileinfo">
@@ -778,30 +780,110 @@ h1 {
 	</div>
 	</div>
 <style>
+.intro{width:100%;background:#fff;z-index:1}
+.intro_background{position:absolute;top:-128px;left:0;width:100%;height:480px;background-repeat:no-repeat;background-size:cover;background-position:center center}
+.intro_container{width:100%;border-bottom:solid 2px #e4e6e8;padding-top:142px;padding-bottom:121px}
+.intro_icon{width:70px;height:71px}
+.intro_icon img{max-width:100%}
+.intro_content{padding-left:28px}
+.intro_title{font-family:'Oswald',sans-serif;font-size:18px;color:#181818;font-weight:400}
+.destinations{width:100%;background:#fff;padding-top:115px;padding-bottom:116px}
+
 div.card {
   -webkit-transition: 0.4s ease;
   transition: 0.4s ease;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
 }
 
-.col-6:hover div.card {
+.col-lg-6:hover div.card {
   -webkit-transform: scale(1.08);
   transform: scale(0.89);
-}	
+}
+/* .card {
+  width: 100%;
+  height:200px;
+  border-top-left-radius:2px;
+  border-top-right-radius:2px;
+  display:block;
+    overflow: hidden;
+} */
+.card img{
+  width: 100%;
+  height: 370px;
+  object-fit:cover; 
+  transition: all .25s ease;
+} 
+
 </style>
 <div class="conatiner-fluid p-4" style="background-color: whitesmoke;margin-top:150px;">
+   <!-- <h2 class="text-center mb-3 mt-3 display-4"
+	   style="font-style: normal;font-size:80px;">Main Attractions In India</h2>   
+	<div class="row p-5 pb-0"> -->
+
+<!-- Intro -->
+<div class="intro">
+            <div class="intro_background" style="background-image:url(images/intro.png)"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="intro_container">
+                            <div class="row">
+                                <!-- Intro Item -->
+                                <div class="col-lg-4  intro_col">
+                                    <div class="intro_item d-flex flex-row align-items-end justify-content-start">
+                                        <div class="intro_icon"><img src="../assets/images/beach.svg" alt=""></div>
+                                        <div class="intro_content">
+                                            <div class="intro_title">Top Destinations</div>
+                                            <div class="intro_subtitle">
+                                                <p>What's on your travel bucket list?</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Intro Item -->
+                                <div class="col-lg-4 intro_col">
+                                    <div class="intro_item d-flex flex-row align-items-end justify-content-start">
+                                        <div class="intro_icon"><img src="../assets/images/wallet.svg" alt=""></div>
+                                        <div class="intro_content">
+                                            <div class="intro_title">The Best Prices</div>
+                                            <div class="intro_subtitle">
+                                                <p>Visit your favourite places at a reasonable price</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Intro Item -->
+                                <div class="col-lg-4 intro_col">
+                                    <div class="intro_item d-flex flex-row align-items-end justify-content-start">
+                                        <div class="intro_icon"><img src="../assets/images/suitcase.svg" alt=""></div>
+                                        <div class="intro_content">
+                                            <div class="intro_title">Amazing Services</div>
+                                            <div class="intro_subtitle">
+                                                <p>Great interactions begin with knowing your customers wants and needs.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			</div>
+<!-- <div class="conatiner-fluid p-4" style="background-color: whitesmoke;margin-top:150px;"> -->
    <h2 class="text-center mb-3 mt-3 display-4"
+			
 	   style="font-style: normal;font-size:80px;">Main Attractions In India</h2>   
 	<div class="row p-5 pb-0">
-		<div class="col-6">
+		<div class="col-lg-6 col-sm-6">
 			<div class="card" >
 				<img src="../assets/images/cd1.jpg" class="card-img-top" alt="...">
 				<div class="card-body">
 					<h2 class="text-center">The Taj Mahal, Agra</h2>
 				</div>
 			</div>
-		</div>
-		<div class="col-6">
+		</div><br>
+		<div class="col-lg-6 col-sm-6">
 			<div class="card" >
 				<img src="../assets/images/cd5.jpg" class="card-img-top" alt="...">
 				<div class="card-body">
@@ -811,7 +893,7 @@ div.card {
 		</div>								
 	</div>
 	<div class="row p-5 pb-0">
-		<div class="col-6">
+		<div class="col-lg-6 col-sm-6">
 			<div class="card" >
 				<img src="../assets/images/cd3.jpg" class="card-img-top" alt="...">
 				<div class="card-body">
@@ -819,7 +901,7 @@ div.card {
 				</div>
 			</div>
 		</div>
-		<div class="col-6">
+		<div class="col-lg-6 col-sm-6">
 			<div class="card" >
 				<img src="../assets/images/cd2.jpg" class="card-img-top" alt="...">
 				<div class="card-body">
@@ -829,7 +911,7 @@ div.card {
 		</div>								
 	</div>	
 	<div class="row p-5 ">
-		<div class="col-6">
+		<div class="col-lg-6 col-sm-6">
 			<div class="card" >
 				<img src="../assets/images/cd4.jpg" class="card-img-top" alt="...">
 				<div class="card-body">
@@ -837,23 +919,26 @@ div.card {
 				</div>
 			</div>
 		</div>
-		<div class="col-6">
+		<div class="col-lg-6 col-sm-6">
 			<div class="card" >
 				<img src="../assets/images/cd6.jpeg" class="card-img-top" alt="...">
 				<div class="card-body">
-				<h2 class="text-center">Harmandir Sahib: The Golden Temple of Amritsar</h2>					
+				<h2 class="text-center">The Golden Temple of Amritsar</h2>					
 				</div>
 			</div>
 		</div>								
-	</div>	
+	</div>
+	</div>
 	<footer class="mt-5">
 	<em><h5 class="text-primary text-center p-0 brand mt-2">
 				<img src="../assets/images/logo.png" 
 					height="40px" width="40px" alt="">				
 			SHIFT Airways</h5></em>
-	<p class="text-primary text-center">&copy; Copyright 2020</p>
+	<div class="text-primary text-center">&copy; Copyright 2020<br><br></div>
+	<p>----------</p>
+	
 	</footer>	
-</div>
+
     <?php subview('footer.php'); ?> 
 
 		<script src="../assets/js/easyResponsiveTabs.js" type="text/javascript"></script>
