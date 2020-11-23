@@ -56,15 +56,26 @@ h1 {
     <div class="container">
     <h1 class="text-center text-light mt-4 mb-4">FLIGHT STATUS</h1>
     <?php 
+      $stmt_t = mysqli_stmt_init($conn);
+      $sql_t = 'SELECT * FROM Ticket WHERE user_id=?';
+      $stmt_t = mysqli_stmt_init($conn);
+      if(!mysqli_stmt_prepare($stmt_t,$sql_t)) {
+          header('Location: ticket.php?error=sqlerror');
+          exit();            
+      } else {
+          mysqli_stmt_bind_param($stmt_t,'i',$_SESSION['userId']);            
+          mysqli_stmt_execute($stmt_t);
+          $result_t = mysqli_stmt_get_result($stmt_t);
+          while ($row_t = mysqli_fetch_assoc($result_t)) {     
     $stmt = mysqli_stmt_init($conn);
-    $sql = 'SELECT DISTINCT flight_id FROM Passenger_profile WHERE user_id=? ORDER BY
+    $sql = 'SELECT DISTINCT flight_id FROM Passenger_profile WHERE passenger_id=? ORDER BY
         flight_id DESC';
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt,$sql)) {
         header('Location: my_flights.php?error=sqlerror');
         exit();            
     } else {
-        mysqli_stmt_bind_param($stmt,'i',$_SESSION['userId']);            
+        mysqli_stmt_bind_param($stmt,'i',$row_t['passenger_id']);            
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
         while ($row = mysqli_fetch_assoc($result)) {
@@ -162,7 +173,7 @@ h1 {
             }            
         }
     }    
-
+}}
     ?>    
 </div>
 

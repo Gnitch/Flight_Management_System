@@ -7,7 +7,7 @@ if(isset($_POST['reset-req-submit'])) {
     require '../helpers/init_conn_db.php';   
     $selector = bin2hex(random_bytes(8));
     $token = random_bytes(32);
-    $url = 'localhost/projects/Sem5_projects/views/create-new-pwd.php?selector='.$selector.'&validator='
+    $url = 'https://secret-journey-48226.herokuapp.com/views/create-new-pwd.php?selector='.$selector.'&validator='
         .bin2hex($token);
     $expires = date('U')+1800;
     $user_email = $_POST['user_email'];
