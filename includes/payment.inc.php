@@ -11,14 +11,7 @@ if(isset($_POST['pay_but']) && isset($_SESSION['userId'])) {
     $class = $_SESSION['class'];
     $ret_date = $_SESSION['ret_date'];
     $card_no = $_POST['cc-number'];
-    $expiry = $_POST['cc-exp'];
-    unset($_SESSION['flight_id']);
-    unset($_SESSION['passengers']);
-    unset($_SESSION['pass_id']);
-    unset($_SESSION['price']);
-    unset($_SESSION['class']);    
-    unset($_SESSION['type']);     
-    unset($_SESSION['ret_date']);     
+    $expiry = $_POST['cc-exp'];  
     $sql = 'INSERT INTO PAYMENT (user_id,expire_date,amount,flight_id,card_no) 
         VALUES (?,?,?,?,?)';            
     $stmt = mysqli_stmt_init($conn);
@@ -28,8 +21,7 @@ if(isset($_POST['pay_but']) && isset($_SESSION['userId'])) {
     } else {
         mysqli_stmt_bind_param($stmt,'isiis',$_SESSION['userId'],
             $expiry,$price,$flight_id,$card_no);          
-        mysqli_stmt_execute($stmt);        
-
+        mysqli_stmt_execute($stmt);       
         $stmt = mysqli_stmt_init($conn);
         $flag = false;
         for($i=$pass_id;$i<=$passengers+$pass_id;$i++) {
@@ -236,6 +228,13 @@ if(isset($_POST['pay_but']) && isset($_SESSION['userId'])) {
             }             
         }
         if($flag) {
+            unset($_SESSION['flight_id']);
+            unset($_SESSION['passengers']);
+            unset($_SESSION['pass_id']);
+            unset($_SESSION['price']);
+            unset($_SESSION['class']);    
+            unset($_SESSION['type']);     
+            unset($_SESSION['ret_date']);               
             require_once "../vendor/autoload.php";
             include '../vendor/phpmailer/phpmailer/src/Exception.php';
             include '../vendor/phpmailer/phpmailer/src/PHPMailer.php';  

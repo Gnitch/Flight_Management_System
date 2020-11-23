@@ -52,7 +52,7 @@ CREATE TABLE Passenger_profile (
 );
 
 CREATE TABLE PAYMENT (
-  card_no INT PRIMARY KEY  NOT NULL AUTO_INCREMENT,
+  card_no VARCHAR(16) PRIMARY KEY  NOT NULL,
   user_id INT NOT NULL,
   flight_id INT NOT NULL,
   expire_date VARCHAR(5) ,
