@@ -7,7 +7,6 @@ Schema of Tables is specified in file `tables.sql`
 ### For reseting the password, authentication is email based if you want don't want that just comment it out else just add your email credentials in the file `includes/reset-request.inc.php`
 
 ## Screen Shots
-![](ScreenShots/add_flight.png)
 ![](ScreenShots/signup.png)
 ![](ScreenShots/signin.png)
 ![](ScreenShots/home.png)
@@ -15,3 +14,4 @@ Schema of Tables is specified in file `tables.sql`
 ![](ScreenShots/flight_stat.png)
 ![](ScreenShots/tickets.png)
 ![](ScreenShots/index_admin.png)
+![](ScreenShots/add_flight.png)
