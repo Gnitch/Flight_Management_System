@@ -235,42 +235,8 @@ if(isset($_POST['pay_but']) && isset($_SESSION['userId'])) {
             unset($_SESSION['class']);    
             unset($_SESSION['type']);     
             unset($_SESSION['ret_date']);               
-            require_once "../vendor/autoload.php";
-            include '../vendor/phpmailer/phpmailer/src/Exception.php';
-            include '../vendor/phpmailer/phpmailer/src/PHPMailer.php';  
-            try {     
-                $mail = new PHPMailer(true);        
-                $mail->IsSMTP();
-                $mail->Mailer = "smtp";
-                $mail->SMTPDebug  = 1;  
-                $mail->SMTPAuth   = TRUE;
-                $mail->SMTPSecure = "tls";
-                $mail->Port       = 587;
-                $mail->Host       = "smtp.gmail.com";
-                $mail->Username   = "biddestthegreat@gmail.com";
-                $mail->Password   = "Sujoy6969";
-                $mail->IsHTML(true);
-                $mail->SetFrom('test@gmail.com');
-                $mail->AddAddress($_SESSION['userMail']);    
-                $mail->Subject = "Payment Invoice";
-                $content = "
-                    <em><h2>
-                    SHIFT Airways</h2></em>
-                    <h4>Payment successfully done <br>                    
-                    Amount: ₹".$price." <br>
-                    Thank you for flying with us !!
-                    </h4> 
-                ";             
-        
-                $mail->MsgHTML($content); 
-                $mail->Send();
-                header('Location: ../views/pay_success.php');
-                exit();    
-            } 
-            catch(Exception $e) {        
-                // echo $mail->ErrorInfo;
-                header('Location: ../views/payment.php?error=mailerr');      
-            }
+            header('Location: ../views/pay_success.php');
+            exit();    
  
         } else {
             header('Location: ../views/payment.php?error=sqlerror');
